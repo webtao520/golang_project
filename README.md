@@ -27,7 +27,7 @@
 
 ### go 并发 
 
-    1. goroutine
+   1. goroutine
 
 ### 爬取XX网站基础信息案例 
 
