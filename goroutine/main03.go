@@ -8,7 +8,7 @@ import (
 
 /*
    init() 同main() 特殊的函数，由系统自动调用执行 ----> main goroutine
-   runtime 包
+   runtime 包  runtime.NumCPU()
 */
 
 func init() {
