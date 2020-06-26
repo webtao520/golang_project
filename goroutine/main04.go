@@ -33,6 +33,8 @@ import "fmt"
 		从chan中读取数据： 阻塞式,直到另一个goroutine 向通道中写入数据，接触阻塞
 		向chan中写入数据，阻塞式，直到另一个goroutine向通道中将数据读取出，接触阻塞
 
+		安全： 通道本身是安全的，同一时间，只能容许一个goroutine来读或写
+
 */
 
 func main() {
