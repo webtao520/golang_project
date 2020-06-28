@@ -22,6 +22,10 @@ import (
 		 Wait() ,等待，导致执行wait 的goroutine进入阻塞状态，同步等待组中的计数器的值为0解除阻塞
 
 	同步等待组：WaitGroup ,执行了wait的goroutine,要等待同步等待组中的其他的goroutine执行完毕	 
+	内置计数器: counter :0 
+	 Add() 设置counter的值
+	 Done() 将counter减一，同Add(-1)
+	 Wait() 哪个goroutine执行了，那么就会被阻塞，直到counter为0，解除阻塞
 */
 func main (){
 
