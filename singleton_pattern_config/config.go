@@ -36,8 +36,17 @@ var once  sync.Once  //   执行一次动作的对象
 func LoadConfig () *Configuration{
 	 once.Do(func (){
 		  file,err:=os.Open("config.json")
-		  
+		  if err !=nil {
+			  log.Fatalln("cannot open config file",err)
+		  }
+		  decoder:=json.NewDecoder(file)
+		  config=&Configuration{}
+		  err=decoder.Decode(config) 
+		  if err != nil {
+			log.Fatalln("Cannot get configuration from file", err)
+		  }
 	 })
+	 return config
 }
 
 
