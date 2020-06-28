@@ -4,7 +4,7 @@
     "Static": "public",
     "Log": "logs",
     "Locale": "locales",
-    "Language": "en"
+    "Language": "zh"
   },
   "Db": {
     "Driver": "mysql",

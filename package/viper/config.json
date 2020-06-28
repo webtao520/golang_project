@@ -1,0 +1,16 @@
+{
+    "port": 10666,
+    "mysql": {
+      "url": "(127.0.0.1:3306)/biezhi",
+      "username": "root",
+      "password": "123456"
+    },
+    "redis": ["127.0.0.1:6377", "127.0.0.1:6378", "127.0.0.1:6379"],
+    "smtp": {
+      "enable": true,
+      "addr": "mail_addr",
+      "username": "mail_user",
+      "password": "mail_password",
+      "to": ["xxx@gmail.com", "xxx@163.com"]
+    }
+    }
