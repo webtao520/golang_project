@@ -40,8 +40,8 @@ log.Fatal(s.ListenAndServe())
 */
 
 func main() {
-	http.HandleFunc("/", sayHelloWord) // HandleFunc函数可以向DefaultServeMux添加处理器
-	err := http.ListenAndServe(":9091", nil)
+	http.HandleFunc("/", sayHelloWord)       // HandleFunc函数可以向DefaultServeMux添加处理器
+	err := http.ListenAndServe(":9091", nil) // 使用指定的监听地址和处理器启动一个HTTP服务端
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)
 	}
