@@ -17,12 +17,13 @@
 ### go 包的研究和学习
 
    > package
-   
+
       1. MySQL：github.com/go-sql-driver/mysql  常用的数据库orm
       2. sync  
       3. viper 热加载配置文件
       4. net  熟悉http/https
       5. select  chan 通道分支
+      6. singleton_pattern_config  sync 实现go单例模式，函数执行一次（优化性能）
 
        
 
