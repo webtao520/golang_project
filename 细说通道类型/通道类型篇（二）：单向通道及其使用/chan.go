@@ -89,8 +89,8 @@ func  main()  {
 
     test2 函数
    */
-   //go test(ch <-chan int)
-   go test2()
+   go test(ch)
+   // go test2()
    for i:=range ch {
    fmt.Println("<-chan int :", i)	   
  }
