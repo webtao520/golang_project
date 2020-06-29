@@ -5,14 +5,13 @@
 
 ### 爬虫案例 
 
- 1. 案例 CODE 
+ 1. 爬虫案例 CODE 
 
-   > go_demo1
-   > go_demo2
+   > reptile
   
- 2. 爬取XX网站基础信息案例
+ 2. web网站数据抓取
 
-   > golang实现数据网站抓取项目
+   > golang 实现数据网站抓取项目
 
 ### go 包的研究和学习
 
@@ -23,14 +22,9 @@
       3. viper 热加载配置文件
       4. net  熟悉http/https
       5. select  chan 通道分支
-      6. singleton_pattern_config  sync 实现go单例模式，函数执行一次（优化性能）
+      6. singleton_pattern_config  sync 通过单例模式初始化全局配置，函数执行一次（优化性能）
 
        
-
-### go sync 单例模式
-
-   > 通过单例模式初始化全局配置
-
 ### go 并发 
 
    > goroutine
@@ -38,10 +32,6 @@
 ### go 并发理论
 
    > 并发性Concurrency
-
-### 爬取XX网站基础信息案例 
-
-   > 爬取XXX网站源代码（含数据库文件）
 
 ### Go Web 编程
 
