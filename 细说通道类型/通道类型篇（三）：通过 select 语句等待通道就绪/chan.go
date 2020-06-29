@@ -25,7 +25,7 @@
 		这里也不会出现阻塞，如果 chan1 通道为空，或者 chan2 通道已满，就会立即进入 default 分支，但是如果没有 default 语句，
 		则会阻塞直到某个通道操作成功。
 		  因此，借助 select 语句我们可以在一个协程中同时等待多个通道达到就绪状态：
-		  
+
 		 										 	[
 														  channel
 														  channel
@@ -44,8 +44,46 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 )
 
 func  main()  {
-	
+	//切片
+	chs:=[3]chan int {
+		make(chan int, 1),
+		make(chan int,1),
+		make(chan int,1),
+	}
+	fmt.Printf("%T",chs)
+	index := rand.Intn(3)  // 随机生成0-2之间的数字
+	fmt.Printf("随机索引/数值: %d\n", index)
+	/*
+		如果我们将 chs[index] <- index 这一行注释掉，则打印结果如下
+
+		随机索引/数值: 2
+		没有分支被选中
+	*/
+	//chs[index] <- index // 向通道发送随机数字
+	// 哪一个通道中有值，那个对应的分支就会被执行
+	select {
+	case <-chs[0]:
+		fmt.Println("第一个分支被选中")
+	case <- chs[1]:
+		fmt.Println("第二个分支被选中")
+	case num:=<-chs[2]:
+	    fmt.Println("第三个分支被选中了:",num)
+	default:
+		fmt.Println("没有分支选中")	
+	} 
 }
+
+/*
+在这段代码中，我们创建了一个包含 3 个 chan int 类型元素的通道数组，然后随机往某个通道中发送一个随机数据，
+再通过 select 语句从上面定义的三个通道中接收数据，只要是发送数据成功，就一定能将其取出来，如果通道都为空，
+则直接执行 default 语句。
+
+执行上述这段代码打印结果如下
+
+随机索引/数值: 2
+第三个条件分支被选中: 2
+*/
