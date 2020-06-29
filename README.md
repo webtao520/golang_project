@@ -19,7 +19,7 @@
    > package
 
       1. MySQL：github.com/go-sql-driver/mysql  常用的数据库orm
-      2. sync  
+      2. sync   RWMutex（读写锁），Mutex 互斥锁，sync.WaitGroup 类型
       3. viper 热加载配置文件
       4. net  熟悉http/https
       5. select  chan 通道分支
