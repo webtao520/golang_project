@@ -9,13 +9,11 @@
    3. 通道类型篇（三）：通过 select 语句等待通道就绪
    4. 通道类型篇（四）：错误和异常处理
 
-
 ### 错误和异常处理
 
    1. error 接口及其使用
    2. defer 语句及使用示例
    3. panic 和 recover
-
 
 ### 爬虫案例 
 
@@ -47,6 +45,7 @@
 
    > 并发性Concurrency
 
+### go uuid
 
 ### 插件/package
 
