@@ -47,6 +47,28 @@
 
    > 并发性Concurrency
 
+
+### 插件/package
+
+ 1. 发送邮件库 https://github.com/go-gomail/gomail
+ 2. 读写Microsoft Excel https://github.com/360EntSecGroup-Skylar/excelize 详细资料
+ 3. 生成uuid https://github.com/satori/go.uuid
+ 4. 开源，分布式，简单高效的搜索引擎 https://github.com/go-ego/riot
+ 5. 基于 Go 的高性能 MySQL Proxy https://github.com/flike/kingshard
+ 6. yaml对Go语言的支持 https://github.com/go-yaml/yaml/tree/v2.2.7
+ 7. Codis是一个分布式Redis解决方案数据库代理 https://github.com/CodisLabs/codis
+ 8. 用Go语言编写的markdown解析器 https://github.com/yuin/goldmark
+
+### 项目
+
+ 1. 基于beego框架的接口在线文档管理系统 https://github.com/lifei6671/mindoc
+ 2. 开源文库系统 https://github.com/truthhun/DocHub
+ 3. Go常用规范定义案例 https://github.com/zc2638/go-standard
+ 4. 开源监控度量的看板系统 https://github.com/zc2638/go-standard
+ 5. go应用开发的调试工具 https://github.com/derekparker/delve
+ 6. 高并发、重量级爬虫软件 https://github.com/henrylee2cn/pholcus
+ 7. Web分析 https://github.com/matomo-org/matomo
+
 ### Go Web 编程
 
    > chitchat 二次开发案例
