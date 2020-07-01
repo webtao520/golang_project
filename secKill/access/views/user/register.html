@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>user/register</title>
+</head>
+<body>
+    <form action='{{urlfor "UserController.Register"}}' method="post" enctype="multipart/form-data">
+        <div class="field-content">
+        User Name：<input name="UserName" value="" type="text" />
+        </div>
+        <div class="field-content">
+        Password：<input name="UserPwd" value="" type="password" />
+        </div>
+        <div class="field-content">
+            User Email<input name="UserEmail" value="" type="text" />
+        </div>
+        <div class="field-content">
+            User Mobile：<input name="UserMobile" value="" type="text" />
+        </div>
+        <div class="field-content">
+                <!-- 验证码 input name 必须是 captcha -->
+        验证码：<input name="captcha" value="" type="text" /><br/>
+        {{create_captcha}}
+        
+        </div>
+        
+        <div class="field-content">
+            <input type="submit" value="提交" />
+        </div>
+    </form>
+    <a href='{{urlfor "IndexController.Index"}}'>返回</a>
+</body>
+</html>

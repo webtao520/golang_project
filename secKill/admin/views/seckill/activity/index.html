@@ -1,0 +1,41 @@
+<div class="container">
+    <h1>活动列表</h1>
+    <a type="submit" class="btn btn-default" href='{{urlfor "ActivityController.AddActivity"}}'>添加活动</a>
+    <table width="95%" border="1" cellpadding="2" cellspacing="1">
+        <thead>
+            <tr>
+                <th>活动id</th>
+                <th>活动名称</th>
+                <th>商品id</th>
+                <th>开始时间</th>
+                <th>结束时间</th>
+                <th>数量</th>
+                <th>状态</th>
+                <th>每秒可售</th>
+                <th>每人限购</th>
+                <th>购买概率</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{range .ActivityList}}
+            <tr>
+                <td>{{.ActivityId}}</td>
+                <td>{{.ActivityName}}</td>
+                <td>{{.ProductId}}</td>
+                <td>{{.StartTime}}</td>
+                <td>{{.EndTime}}</td>
+                <td>{{.Total}}</td>
+                <td>{{if eq .Status 1}}未开始{{else if eq .Status 2}}进行中{{else if eq .Status 3}}已结束{{end}}</td>
+                <td>{{.SecondLimit}}</td>
+                <td>{{.EveryoneLimit}}</td>
+                <td>{{.BuyRate}}%</td>
+                <td>
+                    <a href="/seckill/activity/updateActivity?ActivityId={{.ActivityId}}">修改</a>
+                    <a href="/seckill/activity/delActivity?ActivityId={{.ActivityId}}">删除</a>
+                </td>
+            </tr>
+            {{end}}
+        </tbody>
+    </table>
+</div>

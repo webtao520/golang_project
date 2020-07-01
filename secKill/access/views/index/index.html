@@ -1,0 +1,12 @@
+this is index/index
+
+
+
+{{if .Login}}
+欢迎{{.user.UserName}}
+<a href='{{urlfor "UserController.Exit"}}'>退出</a>
+<a href='{{urlfor "SecKillController.Index"}}'>抢购</a>
+{{else}}
+<a href='{{urlfor "UserController.Login"}}'>登录</a>
+<a href='{{urlfor "UserController.Register"}}'>注册</a>
+{{end}}

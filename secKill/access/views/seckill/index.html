@@ -1,0 +1,9 @@
+<h3>欢迎{{.user.UserName}}来到...秒杀</h3>
+
+{{range .secKillInfo}}
+    <h2>{{.ActivityName}}</h2>
+    剩余数量：{{.Total}}
+    <a href='/seckill/seckill/{{.ActivityId}}'>秒杀</a>
+{{end}}
+
+<a href='{{urlfor "IndexController.Index"}}'>返回</a>
