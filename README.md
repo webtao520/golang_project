@@ -47,6 +47,8 @@
 
 ### go uuid
 
+### go 秒杀项目
+
 ### 插件/package
 
  1. 发送邮件库 https://github.com/go-gomail/gomail
