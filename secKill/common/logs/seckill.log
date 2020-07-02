@@ -545,3 +545,12 @@
 2020/07/02 09:52:32.199 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      996.9µs|   match|[46m POST    [0m /rbac/user/index   r:/rbac/user/index
 2020/07/02 09:52:53.968 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      6.531ms|   match|[46m POST    [0m /rbac/user/UpdateUser   r:/rbac/user/UpdateUser
 2020/07/02 09:52:53.995 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      996.2µs|   match|[46m POST    [0m /rbac/user/index   r:/rbac/user/index
+2020/07/02 09:56:38.105 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     5.9452ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/02 09:56:38.231 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9933ms|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/02 09:56:38.435 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     2.9919ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/02 09:56:38.539 [D] [server.go:2807]  |            ::1|[42m 200 [0m|           0s|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/02 09:56:38.758 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9942ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/02 09:56:38.865 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      998.1µs|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/02 09:56:39.859 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     4.9856ms|   match|[44m GET     [0m /rbac/user/index   r:/rbac/user/index
+2020/07/02 09:56:39.983 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      995.7µs|   match|[46m POST    [0m /rbac/user/index   r:/rbac/user/index
+2020/07/02 09:56:45.876 [D] [server.go:2807]  |            ::1|[43m 404 [0m|           0s| nomatch|[46m POST    [0m /rbac/user/Update
