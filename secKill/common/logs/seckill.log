@@ -477,3 +477,71 @@
 2020/07/01 18:15:31.809 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.6972ms|   match|[44m GET     [0m /rbac/role/index   r:/rbac/role/index
 2020/07/01 18:15:35.184 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     2.9942ms|   match|[44m GET     [0m /rbac/user/index   r:/rbac/user/index
 2020/07/01 18:15:41.497 [D] [server.go:2807]  |            ::1|[42m 200 [0m|           0s|   match|[46m POST    [0m /rbac/user/index   r:/rbac/user/index
+2020/07/02 09:42:12.885 [D] [init.go:49]  init logs success
+2020/07/02 09:42:32.887 [E] [init.go:53]  get [/seckill/activity/product/] from etcd failed, err : context deadline exceeded
+2020/07/02 09:43:12.940 [D] [init.go:49]  init logs success
+2020/07/02 09:43:13.399 [I] [asm_amd64.s:1373]  http server Running on http://:8090
+2020/07/02 09:44:17.551 [D] [server.go:2807]  |            ::1|[47m 302 [0m|     2.9917ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/02 09:44:20.465 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      998.1µs|   match|[44m GET     [0m /public/login   r:/public/login
+2020/07/02 09:44:20.511 [D] [server.go:2807]  |            ::1|[47m 304 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/easyui.css
+2020/07/02 09:44:20.512 [D] [server.go:2807]  |            ::1|[47m 304 [0m|      998.6µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/jquery.easyui.min.js
+2020/07/02 09:44:20.512 [D] [server.go:2807]  |            ::1|[47m 304 [0m|      998.6µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/icon.css
+2020/07/02 09:44:20.512 [D] [server.go:2807]  |            ::1|[47m 304 [0m|      998.6µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/jquery.min.js
+2020/07/02 09:44:20.513 [D] [server.go:2807]  |            ::1|[47m 304 [0m|     1.9948ms|   match|[44m GET     [0m /static/easyui/jquery-easyui/common.js
+2020/07/02 09:44:20.513 [D] [server.go:2807]  |            ::1|[47m 304 [0m|      996.2µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/phpjs-min.js
+2020/07/02 09:44:20.513 [D] [server.go:2807]  |            ::1|[47m 304 [0m|      996.2µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/easyui_expand.js
+2020/07/02 09:44:20.595 [D] [server.go:2807]  |            ::1|[47m 304 [0m|      997.4µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/validatebox_warning.png
+2020/07/02 09:44:20.601 [D] [server.go:2807]  |            ::1|[47m 304 [0m|      997.2µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/linkbutton_bg.png
+2020/07/02 09:44:20.601 [D] [server.go:2807]  |            ::1|[47m 304 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/icons/filesave.png
+2020/07/02 09:44:20.602 [D] [server.go:2807]  |            ::1|[47m 304 [0m|     1.0012ms|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/icons/cancel.png
+2020/07/02 09:44:20.607 [D] [server.go:2807]  |            ::1|[47m 304 [0m|      997.3µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/blank.gif
+2020/07/02 09:44:20.659 [D] [server.go:2807]  |            ::1|[43m 404 [0m|      997.2µs| nomatch|[44m GET     [0m /favicon.ico
+2020/07/02 09:44:22.907 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     6.4907ms|   match|[46m POST    [0m /public/login   r:/public/login
+2020/07/02 09:44:22.937 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     2.9881ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/02 09:44:22.990 [D] [server.go:2807]  |            ::1|[47m 304 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/icons/undo.png
+2020/07/02 09:44:22.990 [D] [server.go:2807]  |            ::1|[47m 304 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/icons/redo.png
+2020/07/02 09:44:23.005 [D] [server.go:2807]  |            ::1|[47m 304 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/layout_arrows.png
+2020/07/02 09:44:23.006 [D] [server.go:2807]  |            ::1|[47m 304 [0m|      998.9µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/panel_tools.png
+2020/07/02 09:44:23.016 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      996.3µs|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/02 09:44:23.020 [D] [server.go:2807]  |            ::1|[47m 304 [0m|        997µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/tabs_icons.png
+2020/07/02 09:44:23.026 [D] [server.go:2807]  |            ::1|[47m 304 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/icons/reload.png
+2020/07/02 09:44:23.062 [D] [server.go:2807]  |            ::1|[47m 304 [0m|      997.1µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/tree_icons.png
+2020/07/02 09:44:25.289 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9959ms|   match|[44m GET     [0m /rbac/user/index   r:/rbac/user/index
+2020/07/02 09:44:25.323 [D] [server.go:2807]  |            ::1|[47m 304 [0m|     1.0391ms|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/icons/edit_add.png
+2020/07/02 09:44:25.323 [D] [server.go:2807]  |            ::1|[47m 304 [0m|     1.0391ms|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/icons/pencil.png
+2020/07/02 09:44:25.328 [D] [server.go:2807]  |            ::1|[47m 304 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/combo_arrow.png
+2020/07/02 09:44:25.359 [D] [server.go:2807]  |            ::1|[47m 304 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/pagination_icons.png
+2020/07/02 09:44:25.364 [D] [server.go:2807]  |            ::1|[47m 304 [0m|      997.2µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/loading.gif
+2020/07/02 09:44:25.394 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      996.5µs|   match|[46m POST    [0m /rbac/user/index   r:/rbac/user/index
+2020/07/02 09:44:33.550 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      997.4µs|   match|[44m GET     [0m /rbac/group/index   r:/rbac/group/index
+2020/07/02 09:44:33.667 [D] [server.go:2807]  |            ::1|[42m 200 [0m|           0s|   match|[46m POST    [0m /rbac/group/index   r:/rbac/group/index
+2020/07/02 09:44:41.509 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     3.9605ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/02 09:44:41.628 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      996.8µs|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/02 09:44:46.216 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9953ms|   match|[44m GET     [0m /rbac/user/index   r:/rbac/user/index
+2020/07/02 09:44:46.342 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      997.3µs|   match|[46m POST    [0m /rbac/user/index   r:/rbac/user/index
+2020/07/02 09:47:04.533 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      997.2µs|   match|[46m POST    [0m /rbac/user/UpdateUser   r:/rbac/user/UpdateUser
+2020/07/02 09:47:04.545 [D] [server.go:2807]  |            ::1|[47m 304 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/messager_icons.png
+2020/07/02 09:51:37.520 [D] [init.go:49]  init logs success
+2020/07/02 09:51:37.940 [I] [asm_amd64.s:1373]  http server Running on http://:8090
+2020/07/02 09:51:39.338 [D] [server.go:2807]  |            ::1|[47m 302 [0m|     3.9883ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/02 09:51:39.342 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      998.5µs|   match|[44m GET     [0m /public/login   r:/public/login
+2020/07/02 09:51:42.338 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     5.5011ms|   match|[46m POST    [0m /public/login   r:/public/login
+2020/07/02 09:51:42.369 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     2.9927ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/02 09:51:42.476 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.0022ms|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/02 09:51:43.854 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9965ms|   match|[44m GET     [0m /rbac/user/index   r:/rbac/user/index
+2020/07/02 09:51:43.975 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      997.7µs|   match|[46m POST    [0m /rbac/user/index   r:/rbac/user/index
+2020/07/02 09:51:53.958 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     7.2393ms|   match|[46m POST    [0m /rbac/user/UpdateUser   r:/rbac/user/UpdateUser
+2020/07/02 09:51:53.979 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      992.2µs|   match|[46m POST    [0m /rbac/user/index   r:/rbac/user/index
+2020/07/02 09:51:56.421 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     2.9924ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/02 09:51:56.537 [D] [server.go:2807]  |            ::1|[42m 200 [0m|           0s|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/02 09:51:58.207 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     2.9918ms|   match|[44m GET     [0m /rbac/user/index   r:/rbac/user/index
+2020/07/02 09:51:58.335 [D] [server.go:2807]  |            ::1|[42m 200 [0m|           0s|   match|[46m POST    [0m /rbac/user/index   r:/rbac/user/index
+2020/07/02 09:52:21.473 [D] [server.go:2807]  |            ::1|[42m 200 [0m|           0s|   match|[46m POST    [0m /rbac/user/index   r:/rbac/user/index
+2020/07/02 09:52:28.215 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     6.3774ms|   match|[46m POST    [0m /rbac/user/UpdateUser   r:/rbac/user/UpdateUser
+2020/07/02 09:52:28.227 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      997.6µs|   match|[46m POST    [0m /rbac/user/index   r:/rbac/user/index
+2020/07/02 09:52:30.471 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     2.9917ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/02 09:52:30.592 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      997.5µs|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/02 09:52:32.072 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9946ms|   match|[44m GET     [0m /rbac/user/index   r:/rbac/user/index
+2020/07/02 09:52:32.199 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      996.9µs|   match|[46m POST    [0m /rbac/user/index   r:/rbac/user/index
+2020/07/02 09:52:53.968 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      6.531ms|   match|[46m POST    [0m /rbac/user/UpdateUser   r:/rbac/user/UpdateUser
+2020/07/02 09:52:53.995 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      996.2µs|   match|[46m POST    [0m /rbac/user/index   r:/rbac/user/index
