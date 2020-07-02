@@ -88,3 +88,7 @@
    * go应用开发的调试工具 https://github.com/derekparker/delve
    * 高并发、重量级爬虫软件 https://github.com/henrylee2cn/pholcus
    * Web分析 https://github.com/matomo-org/matomo
+
+### 基于beego，jquery easyui ,bootstrap的一个后台管理系统
+
+   * https://github.com/beego/admin
