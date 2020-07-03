@@ -48,6 +48,20 @@
 
 + ETCD
 
+### go 设计模式
+
++ 创建型模式
+
+   * 单例模式
+   * 抽象工厂模式
+   * 工厂方法模式
+   * 生成器模式
+   * 原型模式
+
++ 结构型模式
+
++ 行为型模式
+
 ### go 并发 
 
 + goroutine
@@ -92,3 +106,7 @@
 ### 基于beego，jquery easyui ,bootstrap的一个后台管理系统
 
    * https://github.com/beego/admin
+
+### Golang 设计模式文档
+
+   * https://design-patterns.readthedocs.io/zh_CN/latest/creational_patterns/simple_factory.html#id2

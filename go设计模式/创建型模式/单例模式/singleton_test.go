@@ -11,11 +11,10 @@ func TestSingleton(t *testing.T) {
 
 	if sin1 != sin2 {
 		t.Error("实例对象不一样")
-	}else {
+	} else {
 		fmt.Println("实例对象相等")
 	}
 }
-
 
 /*
 	 ---------------------获取执行结果---------------------------
@@ -30,7 +29,7 @@ func TestSingleton(t *testing.T) {
 	 ---------------------------------------------------------------
 
 		1，测试单个文件，一定要带上被测试的原文件
-    	go test -v  wechat_test.go  wechat.go 
+    	go test -v  wechat_test.go  wechat.go
 
 		2，测试单个方法
     	go test -v -test.run TestRefreshAccessToken
