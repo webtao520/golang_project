@@ -776,3 +776,151 @@
 2020/07/02 15:21:57.432 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9918ms|   match|[44m GET     [0m /public/index   r:/public/index
 2020/07/02 15:21:57.550 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      998.4µs|   match|[46m POST    [0m /public/index   r:/public/index
 2020/07/02 15:22:01.318 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9949ms|   match|[44m GET     [0m /seckill/product/index   r:/seckill/product/index
+2020/07/03 14:57:02.119 [D] [init.go:49]  init logs success
+2020/07/03 14:57:02.512 [I] [asm_amd64.s:1373]  http server Running on http://:8090
+2020/07/03 15:03:42.516 [D] [init.go:49]  init logs success
+2020/07/03 15:03:42.963 [I] [asm_amd64.s:1373]  http server Running on http://:8090
+2020/07/03 15:53:38.933 [D] [init.go:50]  init logs success
+2020/07/03 15:53:39.336 [I] [asm_amd64.s:1373]  http server Running on http://:8090
+2020/07/03 15:54:00.450 [D] [init.go:50]  init logs success
+2020/07/03 15:54:00.859 [I] [asm_amd64.s:1373]  http server Running on http://:8090
+2020/07/03 15:54:32.299 [D] [init.go:50]  init logs success
+2020/07/03 15:54:32.683 [I] [asm_amd64.s:1373]  http server Running on http://:8090
+2020/07/03 16:41:37.227 [D] [server.go:2807]  |            ::1|[47m 302 [0m|     6.9829ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/03 16:41:37.229 [D] [server.go:2807]  |            ::1|[43m 404 [0m|           0s| nomatch|[44m GET     [0m /robots.txt
+2020/07/03 16:41:37.475 [D] [server.go:2807]  |            ::1|[43m 404 [0m|      998.3µs| nomatch|[44m GET     [0m /favicon.ico
+2020/07/03 16:41:43.990 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     5.9837ms|   match|[46m POST    [0m /public/login   r:/public/login
+2020/07/03 16:41:44.024 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      1.994ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/03 16:41:44.054 [D] [server.go:2807]  |            ::1|[47m 304 [0m|      997.9µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/easyui.css
+2020/07/03 16:41:44.055 [D] [server.go:2807]  |            ::1|[47m 304 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/icon.css
+2020/07/03 16:41:44.057 [D] [server.go:2807]  |            ::1|[47m 304 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/jquery.min.js
+2020/07/03 16:41:44.058 [D] [server.go:2807]  |            ::1|[47m 304 [0m|      997.2µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/jquery.easyui.min.js
+2020/07/03 16:41:44.058 [D] [server.go:2807]  |            ::1|[47m 304 [0m|      997.2µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/common.js
+2020/07/03 16:41:44.058 [D] [server.go:2807]  |            ::1|[47m 304 [0m|      997.2µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/phpjs-min.js
+2020/07/03 16:41:44.059 [D] [server.go:2807]  |            ::1|[47m 304 [0m|     1.9946ms|   match|[44m GET     [0m /static/easyui/jquery-easyui/easyui_expand.js
+2020/07/03 16:41:44.082 [D] [server.go:2807]  |            ::1|[47m 304 [0m|      995.1µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/icons/undo.png
+2020/07/03 16:41:44.082 [D] [server.go:2807]  |            ::1|[47m 304 [0m|      995.1µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/icons/redo.png
+2020/07/03 16:41:44.099 [D] [server.go:2807]  |            ::1|[47m 304 [0m|      997.8µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/panel_tools.png
+2020/07/03 16:41:44.102 [D] [server.go:2807]  |            ::1|[47m 304 [0m|     1.0061ms|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/layout_arrows.png
+2020/07/03 16:41:44.111 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      996.7µs|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/03 16:41:44.114 [D] [server.go:2807]  |            ::1|[47m 304 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/tabs_icons.png
+2020/07/03 16:41:44.119 [D] [server.go:2807]  |            ::1|[47m 304 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/icons/reload.png
+2020/07/03 16:41:44.139 [D] [server.go:2807]  |            ::1|[47m 304 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/tree_icons.png
+2020/07/03 16:41:45.345 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     2.9933ms|   match|[44m GET     [0m /seckill/product/index   r:/seckill/product/index
+2020/07/03 16:41:46.364 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      997.8µs|   match|[44m GET     [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 16:42:04.576 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      998.3µs|   match|[44m GET     [0m /seckill/product/index   r:/seckill/product/index
+2020/07/03 16:42:08.024 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9946ms|   match|[44m GET     [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:22.059 [D] [server.go:2807]  |            ::1|[47m 302 [0m|     5.9837ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/03 17:45:22.070 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9942ms|   match|[44m GET     [0m /public/login   r:/public/login
+2020/07/03 17:45:22.188 [D] [server.go:2807]  |            ::1|[47m 304 [0m|        998µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/validatebox_warning.png
+2020/07/03 17:45:22.190 [D] [server.go:2807]  |            ::1|[47m 304 [0m|      998.3µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/linkbutton_bg.png
+2020/07/03 17:45:22.190 [D] [server.go:2807]  |            ::1|[47m 304 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/icons/filesave.png
+2020/07/03 17:45:22.190 [D] [server.go:2807]  |            ::1|[47m 304 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/icons/cancel.png
+2020/07/03 17:45:22.195 [D] [server.go:2807]  |            ::1|[47m 304 [0m|        997µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/blank.gif
+2020/07/03 17:45:24.296 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     4.4958ms|   match|[46m POST    [0m /public/login   r:/public/login
+2020/07/03 17:45:24.335 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     3.0024ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/03 17:45:24.469 [D] [server.go:2807]  |            ::1|[42m 200 [0m|           0s|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/03 17:45:25.808 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     3.9891ms|   match|[44m GET     [0m /seckill/activity/index   r:/seckill/activity/index
+2020/07/03 17:45:26.362 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     3.9896ms|   match|[44m GET     [0m /seckill/product/index   r:/seckill/product/index
+2020/07/03 17:45:27.135 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      996.7µs|   match|[44m GET     [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:28.058 [D] [server.go:2807]  |            ::1|[47m 302 [0m|           0s|   match|[46m POST    [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:28.068 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.0008ms|   match|[44m GET     [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:28.791 [D] [server.go:2807]  |            ::1|[47m 302 [0m|           0s|   match|[46m POST    [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:28.796 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9941ms|   match|[44m GET     [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:29.600 [D] [server.go:2807]  |            ::1|[47m 302 [0m|           0s|   match|[46m POST    [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:29.604 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9935ms|   match|[44m GET     [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:30.116 [D] [server.go:2807]  |            ::1|[47m 302 [0m|           0s|   match|[46m POST    [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:30.121 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      997.4µs|   match|[44m GET     [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:30.304 [D] [server.go:2807]  |            ::1|[47m 302 [0m|           0s|   match|[46m POST    [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:30.308 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      997.3µs|   match|[44m GET     [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:30.469 [D] [server.go:2807]  |            ::1|[47m 302 [0m|           0s|   match|[46m POST    [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:30.475 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      996.9µs|   match|[44m GET     [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:30.650 [D] [server.go:2807]  |            ::1|[47m 302 [0m|           0s|   match|[46m POST    [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:30.654 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      996.4µs|   match|[44m GET     [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:30.807 [D] [server.go:2807]  |            ::1|[47m 302 [0m|           0s|   match|[46m POST    [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:30.812 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      1.995ms|   match|[44m GET     [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:31.256 [D] [server.go:2807]  |            ::1|[47m 302 [0m|           0s|   match|[46m POST    [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:31.260 [D] [server.go:2807]  |            ::1|[42m 200 [0m|        996µs|   match|[44m GET     [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:31.434 [D] [server.go:2807]  |            ::1|[47m 302 [0m|           0s|   match|[46m POST    [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:31.439 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9951ms|   match|[44m GET     [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:31.613 [D] [server.go:2807]  |            ::1|[47m 302 [0m|           0s|   match|[46m POST    [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:31.618 [D] [server.go:2807]  |            ::1|[42m 200 [0m|        997µs|   match|[44m GET     [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:32.052 [D] [server.go:2807]  |            ::1|[47m 302 [0m|           0s|   match|[46m POST    [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:32.057 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      997.3µs|   match|[44m GET     [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:32.215 [D] [server.go:2807]  |            ::1|[47m 302 [0m|           0s|   match|[46m POST    [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:32.219 [D] [server.go:2807]  |            ::1|[42m 200 [0m|        997µs|   match|[44m GET     [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:32.383 [D] [server.go:2807]  |            ::1|[47m 302 [0m|           0s|   match|[46m POST    [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:32.387 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      997.2µs|   match|[44m GET     [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:34.428 [D] [server.go:2807]  |            ::1|[47m 302 [0m|           0s|   match|[46m POST    [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:34.433 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      995.6µs|   match|[44m GET     [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:36.585 [D] [server.go:2807]  |            ::1|[47m 302 [0m|      998.8µs|   match|[46m POST    [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:36.589 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      997.7µs|   match|[44m GET     [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:36.763 [D] [server.go:2807]  |            ::1|[47m 302 [0m|           0s|   match|[46m POST    [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:36.768 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      997.1µs|   match|[44m GET     [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:36.898 [D] [server.go:2807]  |            ::1|[47m 302 [0m|           0s|   match|[46m POST    [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:45:36.903 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      997.1µs|   match|[44m GET     [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:59:02.691 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     7.9785ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/03 17:59:02.859 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      997.1µs|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/03 17:59:04.102 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     3.9899ms|   match|[44m GET     [0m /seckill/product/index   r:/seckill/product/index
+2020/07/03 17:59:04.970 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9946ms|   match|[44m GET     [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:59:09.164 [D] [server.go:2807]  |            ::1|[47m 302 [0m|           0s|   match|[46m POST    [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:59:09.169 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      997.5µs|   match|[44m GET     [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:59:17.558 [D] [server.go:2807]  |            ::1|[47m 302 [0m|           0s|   match|[46m POST    [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:59:17.563 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      996.9µs|   match|[44m GET     [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:59:34.445 [D] [server.go:2807]  |            ::1|[47m 302 [0m|           0s|   match|[46m POST    [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:59:34.453 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9945ms|   match|[44m GET     [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 17:59:48.841 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     2.9923ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/03 17:59:48.985 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      997.6µs|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/03 17:59:50.387 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9946ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/03 17:59:50.510 [D] [server.go:2807]  |            ::1|[42m 200 [0m|        997µs|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/03 17:59:50.784 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9939ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/03 17:59:50.898 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.0068ms|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/03 17:59:51.004 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     4.9748ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/03 17:59:51.128 [D] [server.go:2807]  |            ::1|[42m 200 [0m|           0s|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/03 18:06:03.265 [D] [server.go:2807]  |            ::1|[47m 302 [0m|           0s| nomatch|[44m GET     [0m /seckill/product/index
+2020/07/03 18:06:03.273 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9947ms|   match|[44m GET     [0m /public/login   r:/public/login
+2020/07/03 18:06:04.483 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     6.9807ms|   match|[46m POST    [0m /public/login   r:/public/login
+2020/07/03 18:06:04.518 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      5.983ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/03 18:06:04.630 [D] [server.go:2807]  |            ::1|[42m 200 [0m|           0s|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/03 18:06:06.220 [D] [server.go:2807]  |            ::1|[42m 200 [0m|       2.99ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/03 18:06:06.352 [D] [server.go:2807]  |            ::1|[42m 200 [0m|           0s|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/03 18:06:07.719 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     2.9921ms|   match|[44m GET     [0m /seckill/product/index   r:/seckill/product/index
+2020/07/03 18:06:10.014 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     2.9915ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/03 18:06:10.146 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      997.3µs|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/03 18:06:10.322 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     3.9873ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/03 18:06:10.448 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      997.2µs|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/03 18:06:10.532 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9941ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/03 18:06:10.683 [D] [server.go:2807]  |            ::1|[42m 200 [0m|           0s|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/03 18:06:11.586 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9956ms|   match|[44m GET     [0m /seckill/product/index   r:/seckill/product/index
+2020/07/03 18:06:12.701 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      997.1µs|   match|[44m GET     [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 18:06:14.164 [D] [server.go:2807]  |            ::1|[47m 302 [0m|           0s|   match|[46m POST    [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 18:06:14.181 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      997.8µs|   match|[44m GET     [0m /seckill/product/addProuct   r:/seckill/product/addProuct
+2020/07/03 18:06:15.213 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     3.9887ms|   match|[44m GET     [0m /seckill/activity/index   r:/seckill/activity/index
+2020/07/03 18:06:16.094 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      998.6µs|   match|[44m GET     [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
+2020/07/03 18:06:17.778 [D] [server.go:2807]  |            ::1|[47m 302 [0m|           0s|   match|[46m POST    [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
+2020/07/03 18:06:17.786 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9951ms|   match|[44m GET     [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
+2020/07/03 18:06:22.086 [D] [server.go:2807]  |            ::1|[47m 302 [0m|      997.3µs|   match|[46m POST    [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
+2020/07/03 18:06:22.092 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9947ms|   match|[44m GET     [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
+2020/07/03 18:06:22.783 [D] [server.go:2807]  |            ::1|[47m 302 [0m|           0s|   match|[46m POST    [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
+2020/07/03 18:06:22.790 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9949ms|   match|[44m GET     [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
+2020/07/03 18:06:23.235 [D] [server.go:2807]  |            ::1|[47m 302 [0m|        997µs|   match|[46m POST    [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
+2020/07/03 18:06:23.244 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9935ms|   match|[44m GET     [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
+2020/07/03 18:06:23.430 [D] [server.go:2807]  |            ::1|[47m 302 [0m|           0s|   match|[46m POST    [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
+2020/07/03 18:06:23.436 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9946ms|   match|[44m GET     [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
+2020/07/03 18:06:23.590 [D] [server.go:2807]  |            ::1|[47m 302 [0m|      997.3µs|   match|[46m POST    [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
+2020/07/03 18:06:23.597 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      997.6µs|   match|[44m GET     [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
+2020/07/03 18:06:24.109 [D] [server.go:2807]  |            ::1|[47m 302 [0m|           0s|   match|[46m POST    [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
+2020/07/03 18:06:24.119 [D] [server.go:2807]  |            ::1|[42m 200 [0m|        998µs|   match|[44m GET     [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
+2020/07/03 18:06:24.276 [D] [server.go:2807]  |            ::1|[47m 302 [0m|      997.8µs|   match|[46m POST    [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
+2020/07/03 18:06:24.283 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9948ms|   match|[44m GET     [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
+2020/07/03 18:06:24.444 [D] [server.go:2807]  |            ::1|[47m 302 [0m|      997.9µs|   match|[46m POST    [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
+2020/07/03 18:06:24.450 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9959ms|   match|[44m GET     [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
+2020/07/03 18:21:45.188 [D] [server.go:2807]  |            ::1|[47m 302 [0m|     1.9956ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/03 18:21:45.194 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      998.4µs|   match|[44m GET     [0m /public/login   r:/public/login
+2020/07/03 18:21:45.384 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9947ms|   match|[44m GET     [0m /public/login   r:/public/login
+2020/07/03 18:21:46.578 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     4.9866ms|   match|[46m POST    [0m /public/login   r:/public/login
+2020/07/03 18:21:46.611 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     2.9921ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/03 18:21:46.721 [D] [server.go:2807]  |            ::1|[42m 200 [0m|           0s|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/03 18:21:47.776 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      999.3µs|   match|[44m GET     [0m /seckill/product/index   r:/seckill/product/index
+2020/07/03 18:21:48.931 [D] [server.go:2807]  |            ::1|[42m 200 [0m|           0s|   match|[44m GET     [0m /seckill/product/updateProduct   r:/seckill/product/updateProduct
+2020/07/03 18:21:53.593 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     4.9872ms|   match|[44m GET     [0m /seckill/activity/index   r:/seckill/activity/index
