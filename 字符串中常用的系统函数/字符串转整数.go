@@ -6,11 +6,10 @@ import (
 )
 
 func main (){
-	// 字符串 转 整数
-  n,err:=strconv.Atoi("lamp")
-  if err !=nil {
-	  fmt.Println("转换错误", err)
-  }	else {
-	  fmt.Println("转成的结果是", n)
-  }
+	b,error := strconv.Atoi("4545")
+	if error != nil{
+	fmt.Println("字符串转换成整数失败")
+	}else {
+	fmt.Printf("%T",b)
+	}
 }
