@@ -22,4 +22,25 @@
 
 + 在go中修改字符串，需要先将字符串转化成数组，[]byte 或 []rune，然后再转换成 string型。
     
-    * 对于全是ASCII编码的字符串
+    * 对于全是ASCII编码的字符串： 见 ascii.go
+
+
+#### rune数据类型
++ 查询,官方的解释如下：
+    // rune is an alias for int32 and is equivalent to int32 in all ways. It is
+    // used, by convention, to distinguish character values from integer values.
+
+    //int32的别名，几乎在所有方面等同于int32
+    //它用来区分字符值和整数值
+
+    type rune = int32
+
+    案例见 rune.go
+
+> golang中string底层是通过byte数组实现的。中文字符在unicode下占2个字节，在utf-8编码下占3个字节，而golang默认编码正好是utf-8。
+
+> 我们预期想得到一个字符串的长度，而不是字符串底层占得字节长度，该怎么办呢？？？
+
+   案例见附件 len_rune_byte.go
+   
+
