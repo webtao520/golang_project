@@ -8,6 +8,8 @@ import (
 func main () {
    b:=strings.EqualFold("abc","AbC")
    fmt.Printf("b=%v\n",b)
+   // == 区分大小写比较
+   fmt.Println("结果","abc" == "Abc")  // 结果 false
 }
 
 /*
