@@ -7,7 +7,7 @@ import (
 
 func main (){
 	index:=strings.Index("LAMP_go_lang","go")
-	// 返回子串在字符串最后一次出现的index，如没有返回-1
+	// 
 	fmt.Printf("index=%v\n",index)
 }
 
