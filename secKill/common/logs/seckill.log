@@ -953,3 +953,38 @@
 2020/07/06 16:01:03.678 [D] [server.go:2807]  |            ::1|[42m 200 [0m|        999µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/tabs_icons.png
 2020/07/06 16:01:03.683 [D] [server.go:2807]  |            ::1|[42m 200 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/icons/reload.png
 2020/07/06 16:01:03.705 [D] [server.go:2807]  |            ::1|[42m 200 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/tree_icons.png
+2020/07/07 14:08:58.279 [D] [init.go:49]  init logs success
+2020/07/07 14:08:58.706 [I] [asm_amd64.s:1373]  http server Running on http://:8090
+2020/07/07 14:09:02.140 [D] [server.go:2807]  |            ::1|[43m 404 [0m|           0s| nomatch|[44m GET     [0m /robots.txt
+2020/07/07 14:09:02.142 [D] [server.go:2807]  |            ::1|[47m 302 [0m|     6.9808ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/07 14:09:04.589 [D] [server.go:2807]  |            ::1|[47m 302 [0m|     1.3131ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/07 14:09:07.055 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      996.7µs|   match|[44m GET     [0m /public/login   r:/public/login
+2020/07/07 14:09:07.092 [D] [server.go:2807]  |            ::1|[47m 304 [0m|    13.9616ms|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/easyui.css
+2020/07/07 14:09:07.094 [D] [server.go:2807]  |            ::1|[47m 304 [0m|      997.5µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/icon.css
+2020/07/07 14:09:07.095 [D] [server.go:2807]  |            ::1|[47m 304 [0m|     1.9942ms|   match|[44m GET     [0m /static/easyui/jquery-easyui/jquery.easyui.min.js
+2020/07/07 14:09:07.095 [D] [server.go:2807]  |            ::1|[47m 304 [0m|      996.7µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/easyui_expand.js
+2020/07/07 14:09:07.097 [D] [server.go:2807]  |            ::1|[47m 304 [0m|     3.9918ms|   match|[44m GET     [0m /static/easyui/jquery-easyui/jquery.min.js
+2020/07/07 14:09:07.097 [D] [server.go:2807]  |            ::1|[47m 304 [0m|      994.6µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/phpjs-min.js
+2020/07/07 14:09:07.098 [D] [server.go:2807]  |            ::1|[47m 304 [0m|      5.984ms|   match|[44m GET     [0m /static/easyui/jquery-easyui/common.js
+2020/07/07 14:09:07.164 [D] [server.go:2807]  |            ::1|[47m 304 [0m|        998µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/validatebox_warning.png
+2020/07/07 14:09:07.172 [D] [server.go:2807]  |            ::1|[47m 304 [0m|     1.0008ms|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/icons/filesave.png
+2020/07/07 14:09:07.173 [D] [server.go:2807]  |            ::1|[47m 304 [0m|      993.2µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/icons/cancel.png
+2020/07/07 14:09:07.174 [D] [server.go:2807]  |            ::1|[47m 304 [0m|     2.9912ms|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/linkbutton_bg.png
+2020/07/07 14:09:07.176 [D] [server.go:2807]  |            ::1|[47m 304 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/blank.gif
+2020/07/07 14:09:07.210 [D] [server.go:2807]  |            ::1|[43m 404 [0m|           0s| nomatch|[44m GET     [0m /favicon.ico
+2020/07/07 14:09:09.702 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     7.9691ms|   match|[46m POST    [0m /public/login   r:/public/login
+2020/07/07 14:09:09.730 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     2.9912ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/07 14:09:09.815 [D] [server.go:2807]  |            ::1|[47m 304 [0m|      996.9µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/icons/undo.png
+2020/07/07 14:09:09.816 [D] [server.go:2807]  |            ::1|[47m 304 [0m|     1.9976ms|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/icons/redo.png
+2020/07/07 14:09:09.830 [D] [server.go:2807]  |            ::1|[47m 304 [0m|      997.9µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/panel_tools.png
+2020/07/07 14:09:09.831 [D] [server.go:2807]  |            ::1|[47m 304 [0m|      997.5µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/layout_arrows.png
+2020/07/07 14:09:09.841 [D] [server.go:2807]  |            ::1|[42m 200 [0m|           0s|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/07 14:09:09.844 [D] [server.go:2807]  |            ::1|[47m 304 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/tabs_icons.png
+2020/07/07 14:09:09.850 [D] [server.go:2807]  |            ::1|[47m 304 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/icons/reload.png
+2020/07/07 14:09:09.870 [D] [server.go:2807]  |            ::1|[47m 304 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/tree_icons.png
+2020/07/07 14:09:11.157 [D] [server.go:2807]  |            ::1|[42m 200 [0m|    11.0383ms|   match|[44m GET     [0m /seckill/activity/index   r:/seckill/activity/index
+2020/07/07 14:24:48.855 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     5.9832ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/07 14:24:48.958 [D] [server.go:2807]  |            ::1|[42m 200 [0m|           0s|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/07 14:25:02.802 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9938ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/07 14:25:02.955 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      997.5µs|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/07 14:25:03.781 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     2.9932ms|   match|[44m GET     [0m /seckill/activity/index   r:/seckill/activity/index
