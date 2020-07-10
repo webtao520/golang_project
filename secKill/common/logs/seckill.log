@@ -1019,3 +1019,189 @@
 2020/07/08 16:00:47.148 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      10.97ms|   match|[44m GET     [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
 2020/07/08 16:00:58.666 [D] [server.go:2807]  |            ::1|[47m 302 [0m|    10.9692ms|   match|[46m POST    [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
 2020/07/08 16:00:58.670 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9941ms|   match|[44m GET     [0m /seckill/activity/index   r:/seckill/activity/index
+2020/07/09 16:19:09.062 [D] [init.go:49]  init logs success
+2020/07/09 16:19:09.501 [I] [asm_amd64.s:1373]  http server Running on http://:8090
+2020/07/09 16:19:09.552 [D] [server.go:2807]  |      127.0.0.1|[47m 302 [0m|     4.9868ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/09 16:19:09.559 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     1.9943ms|   match|[44m GET     [0m /public/login   r:/public/login
+2020/07/09 16:19:09.594 [D] [server.go:2807]  |      127.0.0.1|[47m 304 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/easyui.css
+2020/07/09 16:19:09.603 [D] [server.go:2807]  |      127.0.0.1|[47m 304 [0m|      994.9µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/icon.css
+2020/07/09 16:19:09.603 [D] [server.go:2807]  |            ::1|[47m 304 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/jquery.easyui.min.js
+2020/07/09 16:19:09.604 [D] [server.go:2807]  |            ::1|[47m 304 [0m|      997.5µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/jquery.min.js
+2020/07/09 16:19:09.604 [D] [server.go:2807]  |            ::1|[47m 304 [0m|      997.5µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/common.js
+2020/07/09 16:19:09.607 [D] [server.go:2807]  |      127.0.0.1|[47m 304 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/easyui_expand.js
+2020/07/09 16:19:09.609 [D] [server.go:2807]  |            ::1|[47m 304 [0m|      999.6µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/phpjs-min.js
+2020/07/09 16:19:09.682 [D] [server.go:2807]  |            ::1|[47m 304 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/validatebox_warning.png
+2020/07/09 16:19:09.689 [D] [server.go:2807]  |            ::1|[47m 304 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/linkbutton_bg.png
+2020/07/09 16:19:09.689 [D] [server.go:2807]  |      127.0.0.1|[47m 304 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/icons/filesave.png
+2020/07/09 16:19:09.690 [D] [server.go:2807]  |            ::1|[47m 304 [0m|      997.9µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/icons/cancel.png
+2020/07/09 16:19:09.694 [D] [server.go:2807]  |      127.0.0.1|[47m 304 [0m|      995.2µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/blank.gif
+2020/07/09 16:19:12.076 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     4.9846ms|   match|[46m POST    [0m /public/login   r:/public/login
+2020/07/09 16:19:12.109 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     3.9858ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/09 16:19:12.169 [D] [server.go:2807]  |      127.0.0.1|[47m 304 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/icons/undo.png
+2020/07/09 16:19:12.170 [D] [server.go:2807]  |            ::1|[47m 304 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/icons/redo.png
+2020/07/09 16:19:12.179 [D] [server.go:2807]  |            ::1|[47m 304 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/panel_tools.png
+2020/07/09 16:19:12.180 [D] [server.go:2807]  |      127.0.0.1|[47m 304 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/layout_arrows.png
+2020/07/09 16:19:12.191 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|           0s|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/09 16:19:12.194 [D] [server.go:2807]  |      127.0.0.1|[47m 304 [0m|      996.9µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/tabs_icons.png
+2020/07/09 16:19:12.202 [D] [server.go:2807]  |      127.0.0.1|[47m 304 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/icons/reload.png
+2020/07/09 16:19:12.219 [D] [server.go:2807]  |      127.0.0.1|[47m 304 [0m|        999µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/tree_icons.png
+2020/07/09 16:19:13.659 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     3.9889ms|   match|[44m GET     [0m /seckill/activity/index   r:/seckill/activity/index
+2020/07/09 16:22:48.952 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     4.9863ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/09 16:22:49.057 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|      2.991ms|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/09 16:22:50.325 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     2.9927ms|   match|[44m GET     [0m /seckill/activity/index   r:/seckill/activity/index
+2020/07/09 16:22:53.727 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     1.9938ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/09 16:22:53.806 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|      997.3µs|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/09 16:22:53.917 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     1.9945ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/09 16:22:53.990 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|      997.6µs|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/09 16:22:54.108 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     1.9932ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/09 16:22:54.181 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     1.9967ms|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/09 16:22:54.289 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     5.9853ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/09 16:22:54.357 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|           0s|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/09 16:22:54.478 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|      2.993ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/09 16:22:54.553 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|           0s|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/09 16:22:54.645 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     1.9946ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/09 16:22:54.719 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     1.9977ms|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/09 16:22:54.831 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     1.9948ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/09 16:22:54.899 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|      996.6µs|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/09 16:22:55.000 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|      2.992ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/09 16:22:55.080 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|      997.9µs|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/09 16:22:55.184 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     3.9903ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/09 16:22:55.266 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|           0s|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/09 16:22:55.364 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     1.9943ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/09 16:22:55.458 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|           0s|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/09 16:22:55.510 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     1.9933ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/09 16:22:55.579 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|      997.6µs|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/09 16:22:55.692 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     1.9932ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/09 16:22:55.765 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|        998µs|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/09 16:22:55.880 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|      996.7µs|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/09 16:22:55.951 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|      998.2µs|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/09 16:22:56.959 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|      997.3µs|   match|[44m GET     [0m /seckill/activity/index   r:/seckill/activity/index
+2020/07/09 16:22:59.709 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     1.9938ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/09 16:22:59.779 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|      999.4µs|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/09 16:22:59.881 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     1.9932ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/09 16:22:59.954 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|           0s|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/09 16:23:00.241 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     2.9834ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/09 16:23:00.305 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|      997.1µs|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/09 16:23:01.267 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     2.9931ms|   match|[44m GET     [0m /seckill/activity/index   r:/seckill/activity/index
+2020/07/09 16:23:16.453 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     2.9908ms|   match|[44m GET     [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
+2020/07/09 16:23:32.844 [D] [server.go:2807]  |      127.0.0.1|[47m 302 [0m|     1.9948ms|   match|[46m POST    [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
+2020/07/09 16:23:32.848 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|      995.3µs|   match|[44m GET     [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
+2020/07/09 16:23:35.782 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     1.9942ms|   match|[44m GET     [0m /seckill/product/index   r:/seckill/product/index
+2020/07/09 16:23:42.034 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     1.9946ms|   match|[44m GET     [0m /seckill/activity/index   r:/seckill/activity/index
+2020/07/09 16:23:44.117 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     1.9945ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/09 16:23:44.221 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|        999µs|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/09 16:23:45.556 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|      997.9µs|   match|[44m GET     [0m /seckill/activity/index   r:/seckill/activity/index
+2020/07/09 16:24:14.445 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     5.9839ms|   match|[44m GET     [0m /seckill/product/index   r:/seckill/product/index
+2020/07/09 16:24:27.369 [D] [init.go:49]  init logs success
+2020/07/09 16:24:27.803 [I] [asm_amd64.s:1373]  http server Running on http://:8090
+2020/07/09 16:24:31.393 [D] [server.go:2807]  |            ::1|[47m 302 [0m|           0s| nomatch|[44m GET     [0m /seckill/activity/addActivity
+2020/07/09 16:24:31.398 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9945ms|   match|[44m GET     [0m /public/login   r:/public/login
+2020/07/09 16:24:33.027 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     4.4942ms|   match|[46m POST    [0m /public/login   r:/public/login
+2020/07/09 16:24:33.051 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     3.9899ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/09 16:24:33.104 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      997.4µs|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/09 16:24:34.256 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     3.9865ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/09 16:24:34.361 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      996.9µs|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/09 16:24:35.689 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9947ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/09 16:24:35.753 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      994.9µs|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/09 16:24:36.289 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     2.9922ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/09 16:24:36.360 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      997.6µs|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/09 16:24:36.468 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      2.991ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/09 16:24:36.553 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9947ms|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/09 16:24:36.617 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     2.9923ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/09 16:24:36.690 [D] [server.go:2807]  |            ::1|[42m 200 [0m|        998µs|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/09 16:24:37.337 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     2.9918ms|   match|[44m GET     [0m /seckill/activity/index   r:/seckill/activity/index
+2020/07/09 16:24:38.115 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     2.9909ms|   match|[44m GET     [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
+2020/07/09 16:24:50.400 [D] [server.go:2807]  |            ::1|[47m 302 [0m|      5.083ms|   match|[46m POST    [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
+2020/07/09 16:24:50.411 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9946ms|   match|[44m GET     [0m /seckill/activity/index   r:/seckill/activity/index
+2020/07/09 16:25:17.709 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     2.9899ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/09 16:25:17.788 [D] [server.go:2807]  |            ::1|[42m 200 [0m|           0s|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/09 16:25:19.137 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     2.9929ms|   match|[44m GET     [0m /seckill/activity/index   r:/seckill/activity/index
+2020/07/09 16:26:04.943 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9934ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/09 16:26:05.044 [D] [server.go:2807]  |            ::1|[42m 200 [0m|        999µs|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/09 16:26:06.376 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9943ms|   match|[44m GET     [0m /seckill/activity/index   r:/seckill/activity/index
+2020/07/09 16:29:20.248 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     3.9886ms|   match|[44m GET     [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
+2020/07/09 16:29:24.682 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9943ms|   match|[44m GET     [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
+2020/07/09 16:29:27.288 [D] [server.go:2807]  |            ::1|[42m 200 [0m|  41.1150852s|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/09 16:29:36.213 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     2.9924ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/07/09 16:29:39.417 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      997.4µs|   match|[46m POST    [0m /public/index   r:/public/index
+2020/07/09 16:29:41.083 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     2.9909ms|   match|[44m GET     [0m /seckill/activity/index   r:/seckill/activity/index
+2020/07/09 16:29:41.922 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      996.9µs|   match|[44m GET     [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
+2020/07/09 16:30:09.987 [D] [server.go:2807]  |            ::1|[47m 302 [0m|     7.9783ms|   match|[46m POST    [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
+2020/07/09 16:30:09.992 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9948ms|   match|[44m GET     [0m /seckill/activity/index   r:/seckill/activity/index
+2020/07/09 16:44:51.264 [D] [init.go:63]  init logs success
+2020/07/09 16:44:51.573 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/07/09 16:44:51.573 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/07/09 16:44:51.574 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/07/09 16:44:51.574 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/07/09 16:44:51.574 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/07/09 16:44:51.574 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/07/09 16:44:51.574 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/07/09 16:44:51.574 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/07/09 16:44:51.574 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/07/09 16:44:51.573 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/07/09 16:44:51.574 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/07/09 16:44:51.574 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/07/09 16:44:51.574 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/07/09 16:44:51.574 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/07/09 16:44:51.574 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/07/09 16:44:51.574 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/07/09 16:44:51.574 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/07/09 16:44:51.574 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/07/09 16:44:51.574 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/07/09 16:44:51.574 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/07/09 16:44:51.574 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/07/09 16:44:51.574 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/07/09 16:44:51.574 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/07/09 16:44:51.574 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/07/09 16:44:51.574 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/07/09 16:44:51.574 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/07/09 16:44:51.574 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/07/09 16:44:51.574 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/07/09 16:44:51.574 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/07/09 16:44:51.574 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/07/09 16:44:51.574 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/07/09 16:44:51.574 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/07/09 16:44:51.750 [I] [asm_amd64.s:1373]  http server Running on http://:8080
+2020/07/09 16:45:03.796 [D] [server.go:2807]  |            ::1|[43m 404 [0m|     1.0013ms| nomatch|[44m GET     [0m /robots.txt
+2020/07/09 16:45:03.797 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9958ms|   match|[44m GET     [0m /     r:/
+2020/07/09 16:45:03.896 [D] [server.go:2807]  |            ::1|[43m 404 [0m|           0s| nomatch|[44m GET     [0m /favicon.ico
+2020/07/09 16:45:07.503 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      998.2µs|   match|[44m GET     [0m /index/register   r:/index/register
+2020/07/09 16:45:07.540 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      997.5µs| nomatch|[44m GET     [0m /captcha/iaR87MBygwE9O4y.png
+2020/07/09 17:00:42.046 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      997.3µs|   match|[44m GET     [0m /     r:/
+2020/07/09 17:33:28.225 [D] [init.go:63]  init logs success
+2020/07/09 17:33:28.529 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/07/09 17:33:28.529 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/07/09 17:33:28.529 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/07/09 17:33:28.529 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/07/09 17:33:28.529 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/07/09 17:33:28.529 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/07/09 17:33:28.529 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/07/09 17:33:28.529 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/07/09 17:33:28.529 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/07/09 17:33:28.529 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/07/09 17:33:28.529 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/07/09 17:33:28.529 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/07/09 17:33:28.529 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/07/09 17:33:28.529 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/07/09 17:33:28.529 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/07/09 17:33:28.529 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/07/09 17:33:28.529 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/07/09 17:33:28.529 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/07/09 17:33:28.529 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/07/09 17:33:28.529 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/07/09 17:33:28.529 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/07/09 17:33:28.529 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/07/09 17:33:28.529 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/07/09 17:33:28.529 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/07/09 17:33:28.529 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/07/09 17:33:28.529 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/07/09 17:33:28.529 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/07/09 17:33:28.529 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/07/09 17:33:28.529 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/07/09 17:33:28.529 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/07/09 17:33:28.529 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/07/09 17:33:28.529 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/07/09 17:33:28.621 [I] [asm_amd64.s:1373]  http server Running on http://:8080
+2020/07/09 17:34:00.525 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      997.4µs|   match|[44m GET     [0m /     r:/
+2020/07/09 17:34:01.503 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      997.6µs|   match|[44m GET     [0m /index/register   r:/index/register
+2020/07/09 17:34:01.530 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.0011ms| nomatch|[44m GET     [0m /captcha/vbtrDCFsPxkqnKo.png
