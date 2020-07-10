@@ -136,3 +136,6 @@
 ### Golang 设计模式文档
 
    * https://design-patterns.readthedocs.io/zh_CN/latest/creational_patterns/simple_factory.html#id2
+
+### ORM 引擎文档 
+   * https://gobook.io/read/gitea.com/xorm/manual-zh-CN/chapter-01/index.html
