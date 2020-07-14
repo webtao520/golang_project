@@ -1382,3 +1382,18 @@
 2020/07/13 11:14:12.304 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      997.3µs|   match|[44m GET     [0m /index/index   r:/index/index
 2020/07/13 11:14:13.758 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      998.7µs|   match|[44m GET     [0m /seckill/index   r:/seckill/index
 2020/07/13 11:14:25.502 [D] [server.go:2807]  |            ::1|[42m 200 [0m|  10.0082082s|   match|[44m GET     [0m /seckill/seckill/28   r:/seckill/seckill/:ActivityId
+2020/07/13 13:10:52.284 [D] [asm_amd64.s:1373]  rpop from redis succ, data:
+2020/07/13 13:10:52.568 [E] [asm_amd64.s:1373]  rpop failed, err:read tcp 127.0.0.1:52518->127.0.0.1:6379: wsarecv: An existing connection was forcibly closed by the remote host.
+2020/07/13 13:10:52.288 [D] [asm_amd64.s:1373]  rpop from redis succ, data:
+2020/07/13 13:10:52.288 [D] [asm_amd64.s:1373]  rpop from redis succ, data:
+2020/07/13 13:10:52.289 [D] [asm_amd64.s:1373]  rpop from redis succ, data:
+2020/07/13 13:10:52.291 [D] [asm_amd64.s:1373]  rpop from redis succ, data:
+2020/07/13 13:10:53.374 [E] [asm_amd64.s:1373]  rpop failed, err:read tcp 127.0.0.1:52503->127.0.0.1:6379: wsarecv: An existing connection was forcibly closed by the remote host.
+2020/07/13 13:10:53.383 [E] [asm_amd64.s:1373]  rpop failed, err:read tcp 127.0.0.1:52505->127.0.0.1:6379: wsarecv: An existing connection was forcibly closed by the remote host.
+2020/07/13 13:10:53.576 [E] [asm_amd64.s:1373]  rpop failed, err:read tcp 127.0.0.1:52517->127.0.0.1:6379: wsarecv: An existing connection was forcibly closed by the remote host.
+2020/07/13 13:10:53.567 [E] [asm_amd64.s:1373]  rpop failed, err:read tcp 127.0.0.1:52504->127.0.0.1:6379: wsarecv: An existing connection was forcibly closed by the remote host.
+2020/07/13 15:38:11.651 [D] [server.go:2807]  |            ::1|[47m 302 [0m|           0s|   match|[44m GET     [0m /seckill/index   r:/seckill/index
+2020/07/13 15:38:11.657 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      997.1µs|   match|[44m GET     [0m /seckill/user/login   r:/seckill/user/login
+2020/07/13 15:38:11.681 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9944ms| nomatch|[44m GET     [0m /captcha/MVM9Je9j0aGihRH.png
+2020/07/13 15:38:22.515 [D] [server.go:2807]  |            ::1|[47m 302 [0m|     3.9903ms|   match|[46m POST    [0m /seckill/user/login   r:/seckill/user/login
+2020/07/13 15:38:22.524 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9955ms|   match|[44m GET     [0m /seckill/index   r:/seckill/index
