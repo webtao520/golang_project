@@ -1397,3 +1397,47 @@
 2020/07/13 15:38:11.681 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9944ms| nomatch|[44m GET     [0m /captcha/MVM9Je9j0aGihRH.png
 2020/07/13 15:38:22.515 [D] [server.go:2807]  |            ::1|[47m 302 [0m|     3.9903ms|   match|[46m POST    [0m /seckill/user/login   r:/seckill/user/login
 2020/07/13 15:38:22.524 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9955ms|   match|[44m GET     [0m /seckill/index   r:/seckill/index
+2020/07/14 16:32:59.491 [D] [init.go:62]  init logs success
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  read goroutine running
+2020/07/14 16:32:59.826 [D] [asm_amd64.s:1373]  read goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  read goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  read goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  read goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  read goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  read goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  read goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  read goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  read goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  read goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  read goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  read goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  read goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  Dispose goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  Dispose goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  read goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  write goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  write goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  read goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  write goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  write goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  write goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  write goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  write goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  write goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  write goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  write goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  write goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  Dispose goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  write goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  write goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  write goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  write goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  write goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  Dispose goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  Dispose goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  Dispose goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  Dispose goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  Dispose goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  Dispose goroutine running
+2020/07/14 16:32:59.827 [D] [asm_amd64.s:1373]  Dispose goroutine running
+2020/07/14 16:32:59.943 [I] [asm_amd64.s:1373]  http server Running on http://:8088
