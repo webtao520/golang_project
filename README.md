@@ -68,6 +68,7 @@
    * 类型断言
    * 内置函数
    * go控制并发两种方式
+   * goroutine 和 channel
 
 ### ETCD
 
