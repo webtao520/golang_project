@@ -27,6 +27,6 @@ func main() {
 	//fmt.Printf("newCat.Name=%v", newCat.Name) // .\allChanNew.go:27:37: newCat.Name undefined (type interface {} is interface with no methods)
 	// 使用类型断言
 	a := newCat.(Cat)
-	fmt.Printf("newCat.Name=%v", a.Name)
+	fmt.Printf("newCat.Name=%v", a.Name) // newCat.Name=tom
 
 }
