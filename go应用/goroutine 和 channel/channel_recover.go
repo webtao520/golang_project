@@ -32,5 +32,4 @@ func main() {
 		fmt.Println("main() ok=", i)
 		time.Sleep(time.Second)
 	}
-
 }
