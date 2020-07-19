@@ -1,5 +1,5 @@
 
-# golang  语言 研究 教程
+# golang  语言 研究 教程  [基础不牢固，地动山摇~]
 
 ### 并发性Concurrency
 
