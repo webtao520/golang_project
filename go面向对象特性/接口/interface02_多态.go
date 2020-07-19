@@ -59,11 +59,29 @@ func main() {
 	WhoSayHi(t)
 	WhoSayHi(&str)
 
+	fmt.Println("")
+	// 创建切片 表示多态
+	x := make([]Humaner, 3)
+	x[0] = s
+	x[1] = t
+	x[2] = &str
+
+	// 第一个返回下标，第二个返回下标所对应的值
+	for _, i := range x {
+		i.sayHi()
+	}
 }
 
 /*
 PS D:\goLang\github\golang_project\go面向对象特性\接口> go run .\interface02_多态.go
-				Student[tom,555] sayhi
-				Teacher[bj,go] sayhi
-				Mystr[hello golang] sayHi
+			*main.Student
+			Student[tom,555] sayhi
+			*main.Teacher
+			Teacher[bj,go] sayhi
+			*main.Mystr
+			Mystr[hello golang] sayHi
+
+			Student[tom,555] sayhi
+			Teacher[bj,go] sayhi
+			Mystr[hello golang] sayHi
 */
