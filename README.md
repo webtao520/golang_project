@@ -37,15 +37,14 @@
    * rune 类型
    * ...
 
-### 爬虫案例 
+### golang开源项目[适合练手]
 
- + 爬虫案例 CODE 
-
-   * reptile
+   * chitchat 博客项目
+   * reptile  爬虫案例
+   * golang实现数据网站抓取项目
+   * newSecKill go新秒杀项目
+   * secKill  go秒杀项目
   
- + web网站数据抓取
-
-   * golang 实现数据网站抓取项目
 
 ### 包的研究和学习
 
@@ -115,10 +114,6 @@
 ### go uuid
 
 + uuid
-
-### 秒杀项目
-
-+ secKill
 
 ### Web 编程
 
