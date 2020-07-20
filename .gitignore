@@ -1,0 +1,5 @@
+.idea
+log/
+*.exe
+*.tmp
+golang开源项目[适合新手练手]/beego_blog/
