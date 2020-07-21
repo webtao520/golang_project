@@ -37,7 +37,7 @@
    * rune 类型
    * ...
 
-### golang开源项目[适合练手]
+### golang_project  [golang开源项目适合练手]
 
    * chitchat 博客项目
    * reptile  爬虫案例
