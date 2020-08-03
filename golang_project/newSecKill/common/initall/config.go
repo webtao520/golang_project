@@ -17,9 +17,19 @@ type MysqlConfig struct {
 	Host     string
 }
 
+type EtcdConfig struct {
+	Address     string
+	PrefixKey   string
+	ProductKey  string
+	DailTimeOut int
+	PutTimeOut  int
+	GetTimeOut  int
+}
+
 // 系统所有配置信息
 type ConfigAll struct {
 	MysqlConfig
+	EtcdConfig
 }
 
 var conf config.Configer
@@ -38,6 +48,65 @@ func InitConfig() (ConfigAll ConfigAll, err error) {
 	}
 	ConfigAll.MysqlConfig = MysqlConfig
 
+	//etcd 配置信息
+	EtcdConfig, err := GetEtcdConfig()
+	if err != nil {
+		return
+	}
+	ConfigAll.EtcdConfig = EtcdConfig
+	SecKillConf = ConfigAll
+	logs.Debug("init config success")
+	return
+}
+
+func GetEtcdConfig() (EtcdConfig EtcdConfig, err error) {
+	Address := conf.String("etcd::etcd_addr")
+	if len(Address) == 0 {
+		err = errors.New("load config of etcd_addr failed , is null")
+		logs.Error(err)
+		return
+	}
+	EtcdConfig.Address = Address
+
+	PrefixKey := conf.String("etcd::etcd_prefix_key")
+	if len(PrefixKey) == 0 {
+		logs.Error("load config of etcd_prefix_key , is null")
+		err = errors.New("load config of etcd_prefix_key , is null")
+		return
+	}
+	EtcdConfig.PrefixKey = PrefixKey
+
+	ProductKey := conf.String("etcd::etcd_product_key")
+	if len(ProductKey) == 0 {
+		logs.Error("load config of etcd_product_key , is null")
+		err = errors.New("load config of etcd_product_key , is null")
+		return
+	}
+	EtcdConfig.ProductKey = ProductKey
+
+	DailTimeOut, err := conf.Int("etcd::etcd_dail_timeout")
+	if err != nil {
+		logs.Error("load config of etcd_dail_timeout err : ", err)
+		err = errors.New(fmt.Sprintf("load config of etcd_dail_timeout err : ", err))
+		return
+	}
+	EtcdConfig.DailTimeOut = DailTimeOut
+
+	PutTimeOut, err := conf.Int("etcd::etcd_put_timeout")
+	if err != nil {
+		logs.Error("load config of etcd_put_timeout err : ", err)
+		err = errors.New(fmt.Sprintf("load config of etcd_put_timeout err : ", err))
+		return
+	}
+	EtcdConfig.PutTimeOut = PutTimeOut
+
+	GetTimeOut, err := conf.Int("etcd::etcd_get_timeout")
+	if err != nil {
+		logs.Error("load config of etcd_get_timeout err : ", err)
+		err = errors.New(fmt.Sprintf("load config of etcd_get_timeout err : ", err))
+		return
+	}
+	EtcdConfig.GetTimeOut = GetTimeOut
 	return
 }
 

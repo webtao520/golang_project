@@ -5,6 +5,7 @@ import (
 	"newSecKill/common/initall"
 
 	"github.com/astaxie/beego/orm"
+	"github.com/beego/admin/src/models"
 )
 
 var (
@@ -15,19 +16,25 @@ var (
 func init() {
 	// 需要在init中注册定义的model
 	orm.RegisterModel(new(SecKillProduct), new(SecKillActivity))
+	//数据库连接
+	models.Connect()
+	// 自动建表
+	orm.RunSyncdb("default", false, true)
+
+	DB = orm.NewOrm()
+
 	if err := initAll(); err != nil {
 		panic(fmt.Sprintln("init database failed, err:%v", err))
 	}
-	// 自动建表
-	orm.RunSyncdb("default", false, true)
 
 }
 
 func initAll() (err error) {
-	if SecKillConf, err = initall.InitConfig(); err != nil { // 加载系统运行配置信息
+	if SecKillConf, err = initall.InitConfig(); err != nil {
 		return
 	}
-	if DB, err = initall.InitMysql(); err != nil {
+	// fmt.Println("-------->", SecKillConf)  // --------> {{root root123 3306 admin_admin localhost}}
+	if err != nil {
 		return
 	}
 	return
