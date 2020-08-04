@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"time"
 	"strings"
+	"time"
 
 	"github.com/astaxie/beego/logs"
 )
@@ -76,23 +76,24 @@ func (this *SecKillActivity) syncActivityToEtcd(types string, activity SecKillAc
 }
 
 // 获取 etcd etcdKey 下的数据
-func loadActivityFromEtcd(etcdKey string) (activityList []SecKillActivity, err error) { 
-		// 设置超时时间
-		getTimeOut:=time.Second*time.Duration(SecKillConf.EtcdConfig.GetTimeOut)
-		ctx, cancel := context.WithTimeout(context.Background(), getTimeOut)
-		defer func(cancel context.CancelFunc) { cancel() }(cancel)
-		// 取值
-		etcdActivityInfo, err := EtcdClient.Get(ctx, etcdKey)
-		if err !=nil {
-			logs.Error("get [%s] from etcd failed, err : %v", etcdKey, err)
+func loadActivityFromEtcd(etcdKey string) (activityList []SecKillActivity, err error) {
+	// 设置超时时间
+	getTimeOut := time.Second * time.Duration(SecKillConf.EtcdConfig.GetTimeOut)
+	ctx, cancel := context.WithTimeout(context.Background(), getTimeOut)
+	defer func(cancel context.CancelFunc) { cancel() }(cancel)
+	// 取值
+	//fmt.Println("key====>", etcdKey)
+	etcdActivityInfo, err := EtcdClient.Get(ctx, etcdKey)
+	if err != nil {
+		logs.Error("get [%s] from etcd failed, err : %v", etcdKey, err)
+		return
+	}
+	for _, v := range etcdActivityInfo.Kvs {
+		err = json.Unmarshal(v.Value, &activityList)
+		if err != nil {
+			logs.Error("Unmarshal activityInfo failed, err : %v", err)
 			return
 		}
-		for _,v:=range etcdActivityInfo.Kvs {
-			err = json.Unmarshal(v.Value, &activityList)
-			if err !=nil {
-				logs.Error("Unmarshal activityInfo failed, err : %v", err)
-				return
-			}
-		}
-		return
+	}
+	return
 }

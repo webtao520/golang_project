@@ -1,41 +1,11 @@
 package models
 
 import (
+	"fmt"
 	"time"
 
 	"github.com/astaxie/beego/logs"
 )
-
-/* type SecKillActivity struct {
-	ActivityId   	int 		活动id
-	ActivityName 	string		活动名称
-	ProductId    	int			商品id
-	StartTime    	int			活动开始时间
-	EndTime      	int			活动结束时间
-	Total        	int			活动商品数量
-	Status       	int			活动状态（1.未开始，2.进行中，3.已结束）
-	SecondLimit  	int			每秒可售商品个数
-	EveryoneLimit   int			每人限购商品数
-	BuyRate      	int			购买到的概率 （百分比）
-}
-
-create table `sec_kill_activity`
-    -- --------------------------------------------------
-    --  Table Structure for `newSecKill/admin/models.SecKillActivity`
-    -- --------------------------------------------------
-    CREATE TABLE IF NOT EXISTS `sec_kill_activity` (
-        `activity_id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
-        `activity_name` varchar(60) NOT NULL DEFAULT ''  UNIQUE,
-        `product_id` integer NOT NULL DEFAULT 0 ,
-        `start_time` datetime NOT NULL,
-        `end_time` datetime NOT NULL,
-        `total` integer NOT NULL DEFAULT 0 ,
-        `status` integer NOT NULL DEFAULT 2 ,
-        `second_limit` integer NOT NULL DEFAULT 0 ,
-        `everyone_limit` integer NOT NULL DEFAULT 0 ,
-        `buy_rate` integer NOT NULL DEFAULT 0
-    ) ENGINE=MyISAM;
-*/
 
 type SecKillActivity struct {
 	ActivityId    int       `orm:"pk;auto"`
@@ -49,6 +19,21 @@ type SecKillActivity struct {
 	EveryoneLimit int       `orm:"size(10);default(0)" form:"EveryoneLimit" valid:"Min(0)"`
 	BuyRate       int       `orm:"size(10);default(0)" form:"BuyRate" valid:"Min(0)"`
 }
+
+/*
+type SecKillActivity struct {
+	ActivityId   	int 		活动id
+	ActivityName 	string		活动名称
+	ProductId    	int			商品id
+	StartTime    	int			活动开始时间
+	EndTime      	int			活动结束时间
+	Total        	int			活动商品数量
+	Status       	int			活动状态（1.未开始，2.进行中，3.已结束）
+	SecondLimit  	int			每秒可售商品个数
+	EveryoneLimit   int			每人限购商品数
+	BuyRate      	int			购买到的概率 （百分比）
+}
+*/
 
 // 实例化模型
 func NewActivityModel() *SecKillActivity {
@@ -119,7 +104,58 @@ func (this *SecKillActivity) DelActivity(Activity *SecKillActivity) (num int64, 
 	return
 }
 
-// // 监听 SecKillActivityList 变化
+// 监听 SecKillActivityList 变化  	Status   int	活动状态（1.未开始，2.进行中，3.已结束）
 func (this *SecKillActivity) WatchActivity() {
-
+	var (
+		now          time.Time
+		activityList []SecKillActivity
+		err          error
+	)
+	//定时器
+	t := time.NewTicker(time.Millisecond * 100) // 100 毫秒执行一次
+	/*
+		NewTicker返回一个新的Ticker，该Ticker包含一个通道字段，并会每隔时间段d就向该通道发送当时的时间。
+		它会调整时间间隔或者丢弃tick信息以适应反应慢的接收者。如果d<=0会panic。关闭该Ticker可以释放相关资源。
+	*/
+	for range t.C {
+		now = time.Now().Local()
+		activityList = SecKillActivityList
+		for k, v := range activityList {
+			if now.After(v.StartTime) && v.Status == 1 { // 如果t代表的时间点在u之后，返回真；否则返回假。
+				v.Status = 2
+				_, err = this.UpdateActivity(&v) // 更新etcd
+				if err != nil {
+					logs.Error("WatchActivity UpdateActivity err : %v , Activity is : %v ", err, v)
+				}
+				MutexLock.Lock()
+				SecKillActivityList[k] = v
+				MutexLock.Unlock()
+				fmt.Println(v, "status = 1")
+				continue
+			}
+			if now.After(v.EndTime) && v.Status == 2 {
+				v.Status = 3
+				_, err = this.UpdateActivity(&v)
+				if err != nil {
+					logs.Error("WatchActivity UpdateActivity err : %v , Activity is : %v ", err, v)
+				}
+				MutexLock.Lock()
+				SecKillActivityList[k] = v
+				MutexLock.Unlock()
+				err = this.syncActivityToEtcd("del", v)
+				if err != nil {
+					logs.Error("WatchActivity syncActivityToEtcd err : %v , Activity is : %v ", err, v)
+				}
+				fmt.Println(v, "status = 2")
+				continue
+			}
+			if v.Status == 3 {
+				MutexLock.Lock()
+				SecKillActivityList = append(SecKillActivityList[:k], SecKillActivityList[k+1:]...)
+				MutexLock.Unlock()
+				fmt.Println(v, "status = 3")
+				continue
+			}
+		}
+	}
 }

@@ -168,7 +168,7 @@ func (this *ActivityController) getDataFormHtml() (activity models.SecKillActivi
 		err = errors.New("请选择开始时间")
 		return
 	}
-	StartTime, err := time.ParseInLocation("2006-01-02 15:04:05", receiveStartTime, time.Local)
+	StartTime, err := time.ParseInLocation("2006-01-02 15:04:05", receiveStartTime, time.Local) // 2006年1月2日下午3时04分
 	if err != nil {
 		logs.Warn("switch time receiveStartTime err : %v", err)
 		return
@@ -189,12 +189,12 @@ func (this *ActivityController) getDataFormHtml() (activity models.SecKillActivi
 		err = errors.New("活动开始时间必须早于结束时间")
 		return
 	}
-
-	if StartTime.Before(time.Now().Local()) {
-		err = errors.New("活动开始时间必须晚于当前时间")
-		return
-	}
-
+	/*
+		if StartTime.Before(time.Now().Local()) {
+			err = errors.New("活动开始时间必须晚于当前时间")
+			return
+		}
+	*/
 	Total, err := this.GetInt("Total")
 	if err != nil {
 		err = errors.New("Total 必须是有效数字")
