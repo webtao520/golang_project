@@ -1,11 +1,16 @@
 package initall
 
 import (
+	"time"
+
+	"github.com/astaxie/beego/logs"
 	"github.com/astaxie/beego/orm"
+	"github.com/coreos/etcd/clientv3"
 )
 
 var (
 	Db          orm.Ormer
+	EtcdClient  *clientv3.Client
 	SecKillConf ConfigAll
 )
 
@@ -47,3 +52,21 @@ func InitMysql() (Db orm.Ormer, err error) {
 	return
 }
 */
+
+/**
+  创建client
+*/
+func InitEtcd() (EtcdClient *clientv3.Client, err error) {
+	cli, err := clientv3.New(clientv3.Config{
+		Endpoints:   []string{SecKillConf.EtcdConfig.Address},
+		DialTimeout: time.Duration(SecKillConf.EtcdConfig.DailTimeOut) * time.Second,
+	})
+
+	if err != nil {
+		logs.Error("connect etcd failed, err:", err)
+		return
+	}
+	EtcdClient = cli
+	logs.Debug("init etcd success")
+	return
+}

@@ -6,11 +6,15 @@ import (
 
 	"github.com/astaxie/beego/orm"
 	"github.com/beego/admin/src/models"
+	"github.com/coreos/etcd/clientv3"
 )
 
 var (
-	DB          orm.Ormer
-	SecKillConf initall.ConfigAll
+	DB                  orm.Ormer
+	EtcdClient          *clientv3.Client
+	SecKillConf         initall.ConfigAll
+	SecKillActivityList []SecKillActivity // 活动数据
+	ActivityModel       *SecKillActivity  = NewActivityModel()
 )
 
 func init() {
@@ -27,13 +31,23 @@ func init() {
 		panic(fmt.Sprintln("init database failed, err:%v", err))
 	}
 
+	go ActivityModel.WatchActivity()
+
 }
 
 func initAll() (err error) {
+	// 初始话配置信息
 	if SecKillConf, err = initall.InitConfig(); err != nil {
 		return
 	}
-	// fmt.Println("-------->", SecKillConf)  // --------> {{root root123 3306 admin_admin localhost}}
+	// 连接etcd数据库
+	if EtcdClient, err = initall.InitEtcd(); err != nil {
+		return
+	}
+
+	etcdKey := GetEtcdKey()
+	SecKillActivityList, err = loadActivityFromEtcd(etcdKey)
+	//fmt.Println("=====", SecKillActivityList)
 	if err != nil {
 		return
 	}

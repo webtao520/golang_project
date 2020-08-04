@@ -6,6 +6,7 @@ import (
 	"errors"
 	"fmt"
 	"time"
+	"strings"
 
 	"github.com/astaxie/beego/logs"
 )
@@ -23,28 +24,55 @@ func GetEtcdKey() (etcdKey string) {
 	return
 }
 
-// 添加，修改，删除 活动到mysql 成功后同步到etcd
-func (this *SecKillActivity) syncActivityToEtcd(types string, activity SecKillActivity)(err error) {
-	 typeMap:=map[string]int{"add":1,"update":2,"del":3}
-	 // 判断是否时有效参数
-	 typeValue,ok:=typeMap[types]
-	 if !ok {
+// 添加、修改、删除 活动到 mysql 成功后同步到 etde
+func (this *SecKillActivity) syncActivityToEtcd(types string, activity SecKillActivity) (err error) {
+	typeMap := map[string]int{"add": 1, "update": 2, "del": 3}
+	// 判断是否是有效参数
+	typeValue, ok := typeMap[types]
+	if !ok {
 		err = errors.New(fmt.Sprintln("sync Activity To Etcd 参数错误，错误参数：%v", types))
 		logs.Warn(err)
 		return
-	 }
-	// fmt.Println(typeValue)
+	}
 	etcdKey := GetEtcdKey()
 	activityList, err := loadActivityFromEtcd(etcdKey)
 	switch typeValue {
 	case 1:
-		activityList=append(activityList,activity)
+		activityList = append(activityList, activity)
 	case 2:
-		
+		for k, v := range activityList {
+			if v.ActivityId == activity.ActivityId {
+				activityList[k] = activity
+			}
+		}
+	case 3:
+		for k, v := range activityList {
+			if v.ActivityId == activity.ActivityId {
+				activityList = append(activityList[:k], activityList[k+1:]...)
+			}
+		}
+	default:
+		logs.Error("sync Activity To Etcd warning : %v", types)
 	}
 
+	jsonActivityList, err := json.Marshal(activityList)
+	if err != nil {
+		logs.Error("json marshal activityList failed, err : %v", err)
+		return
+	}
+	// 设置超时时间
+	putTimeOut := time.Second * time.Duration(SecKillConf.EtcdConfig.PutTimeOut)
+	ctx, cancel := context.WithTimeout(context.Background(), putTimeOut)
+	defer func(cancel context.CancelFunc) { cancel() }(cancel)
+	// 存入ETCD
+	stringActivityList := string(jsonActivityList)
+	_, err = EtcdClient.Put(ctx, etcdKey, stringActivityList)
+	if err != nil {
+		logs.Error("put [%s] to etcd [%s] failed, err : %v", stringActivityList, etcdKey, err)
+		return
+	}
+	fmt.Println(activityList)
 	return
-
 }
 
 // 获取 etcd etcdKey 下的数据
@@ -59,7 +87,7 @@ func loadActivityFromEtcd(etcdKey string) (activityList []SecKillActivity, err e
 			logs.Error("get [%s] from etcd failed, err : %v", etcdKey, err)
 			return
 		}
-		for _v:=range etcdActivityInfo.Kvs {
+		for _,v:=range etcdActivityInfo.Kvs {
 			err = json.Unmarshal(v.Value, &activityList)
 			if err !=nil {
 				logs.Error("Unmarshal activityInfo failed, err : %v", err)

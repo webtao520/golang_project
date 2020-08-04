@@ -96,6 +96,7 @@ func (this *SecKillActivity) UpdateActivity(Activity *SecKillActivity) (num int6
 		logs.Warn("update activity err : %v", err)
 		return
 	}
+	err = this.syncActivityToEtcd("update", *Activity)
 	if err != nil {
 		return
 	}
@@ -104,9 +105,21 @@ func (this *SecKillActivity) UpdateActivity(Activity *SecKillActivity) (num int6
 
 // 删除活动
 func (this *SecKillActivity) DelActivity(Activity *SecKillActivity) (num int64, err error) {
+	// 先删除etcd
+	// 因为 DB.Delete(Activity) 删除成功后 Activity.ActivityId 将变成 0
+	err = this.syncActivityToEtcd("del", *Activity)
+	if err != nil {
+		return
+	}
+
 	if num, err = DB.Delete(Activity); err != nil {
 		logs.Warn("del Activity err : %v ", err)
 		return
 	}
 	return
+}
+
+// // 监听 SecKillActivityList 变化
+func (this *SecKillActivity) WatchActivity() {
+
 }
