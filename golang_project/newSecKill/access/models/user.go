@@ -2,9 +2,12 @@ package models
 
 import (
 	"crypto/md5"
+	"errors"
 	"fmt"
 	"time"
+
 	"github.com/astaxie/beego/logs"
+	"github.com/astaxie/beego/orm"
 	//"github.com/astaxie/beego/orm"
 )
 
@@ -54,4 +57,28 @@ func (this *SecKillUser) UserPwdMd5(str string) string {
 	data := []byte(str + "sec kill")
 	has := md5.Sum(data)
 	return fmt.Sprintf("%x", has) //将[]byte转成16进制
+}
+
+// 根据username userpwd 查询
+func (this *SecKillUser) GetUserByNameAndPwd(UserName, UserPwd string) (user *SecKillUser,err error) {
+   if len (UserName) == 0 || len(UserPwd) == 0 {
+	return
+   }
+
+    user= &SecKillUser{
+		UserName: UserName,
+		UserPwd: this.UserPwdMd5(UserPwd),
+	}
+	err =DB.Read(user,"UserName","UserPwd")
+	if err !=nil {
+		if err == orm.ErrNoRows {
+			err=errors.New("用户名 or 密码错误")
+			return
+		}
+		err = errors.New(fmt.Sprintf("GetUserByNameAndPwd err : %v , UserName is %s UserPwd is %s", err, UserName, UserPwd))
+		logs.Warn(err)
+		return
+	}
+	return
+
 }

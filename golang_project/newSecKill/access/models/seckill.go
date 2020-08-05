@@ -1,5 +1,9 @@
 package models
 
+import (
+	//"fmt"
+)
+
 /*
 	ActivityId    int    //活动id
 	ActivityName  string //活动名称
@@ -25,6 +29,30 @@ func NewNowSecKillModel() *NowSecKillInfo {
 	return &NowSecKillInfo{}
 }
 
-func (this *NowSecKillInfo) GetSecKillInfo()(nowSecKillInfo []NowSecKillInfo){
-	
+
+func (this *NowSecKillInfo) GetSecKillInfo() (nowSecKillInfo []NowSecKillInfo) {
+	// now := time.Now().Local()
+	secKillInfo := NowSecKillInfo{}
+	//fmt.Println("原始切片默认值", nowSecKillInfo)
+    //fmt.Println(SecKillInfoMap)
+	for _, v := range SecKillInfoMap {
+		if v.Status != 2 || v.Total < 1 {
+			continue
+		}
+		secKillInfo.ActivityId = v.ActivityId
+		secKillInfo.ActivityName = v.ActivityName
+		secKillInfo.Total = v.Total
+		nowSecKillInfo = append(nowSecKillInfo, secKillInfo)
+		//fmt.Println("==========nowSecKillInfo=============>",nowSecKillInfo)
+	}
+	return
+}
+
+type  SecKillRequest struct {
+	ActivityId int 
+	UserId int 
+	Ip string
+	ClientAddr    string
+	ClientRefence string
+	CloseNotify   <-chan bool `json:"-"`
 }

@@ -8,9 +8,12 @@ import (
 )
 
 var (
+	EtcdKey   string
 	DB orm.Ormer
 	SecKillConf  initall.ConfigAll
 	EtcdClient         *clientv3.Client
+	SecKillInfoMap     =make(map[int]*SecKillInfo)
+	SecKillInfoList    []SecKillInfo  //etcd 配置修改
 )
 
 func init() {
@@ -41,6 +44,13 @@ func initAll()(err error){
 		return
 	}
 
+	// 初始化 EtcdKey
+	EtcdKey = GetEtcdKey()
+	//加载秒杀信息
+	SecKillInfoList,err=GetSecKillInfoListFromEtcd()
+	//fmt.Println("秒杀信息======>",SecKillInfoList)
+	if err != nil {
+		return
+	}
 	return
-
 }

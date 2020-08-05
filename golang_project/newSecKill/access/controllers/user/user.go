@@ -104,3 +104,50 @@ func (this *UserController) Register() {
 
 	return
 }
+
+
+// 登陆
+func (this *UserController) Login(){
+	if this.Ctx.Input.IsGet() {
+		// 获取session
+		userInfo:=this.GetSession("user")
+		fmt.Println("========>", userInfo)
+		if userInfo !=nil {
+			// 重定向
+			this.Redirect("index", 302) // TODO
+		}
+					// 获取 cookie
+		this.Data["UserName"] = this.Ctx.GetCookie("UserName")
+		this.Data["UserPwd"] = this.Ctx.GetCookie("UserPwd")
+		this.TplName = "user/login.html"
+	}else {
+		 UserName:=this.GetString("UserName")
+		 if len(UserName) < 1 {
+			this.Error("请输入用户名")
+			return
+		 }
+		 UserPwd:=this.GetString("UserPwd")
+		 if len(UserPwd) < 6 {
+			this.Error("密码长度不小于6位")
+			return
+		 }
+		 // 验证码输入校验
+		 captcha := cpt.VerifyReq(this.Ctx.Request)
+		 if !captcha {
+			 this.Error("验证码有误！")
+			 return
+		 }
+		 user, err := UserModel.GetUserByNameAndPwd(UserName, UserPwd)
+		 if err != nil {
+			 this.Error(err)
+			 return
+		 }
+			// 设置 session
+			this.SetSession("user", user)
+			// 设置 cookie
+			this.Ctx.SetCookie("UserName", UserName)
+			this.Ctx.SetCookie("UserPwd", UserPwd)
+			this.Redirect("/seckill/index", 302)
+	}
+	return
+}

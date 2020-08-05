@@ -1,15 +1,5 @@
 package models
 
-import (
-	"context"
-	"encoding/json"
-	"strings"
-	"time"
-
-	"github.com/astaxie/beego/logs"
-	"github.com/coreos/etcd/mvcc/mvccpb"
-)
-
 /*
 
 loadsecConf
@@ -21,6 +11,16 @@ loadsecConf
 	前后台都在用配置，更改时需要加读写锁
 
 */
+
+import (
+	"context"
+	"encoding/json"
+	"strings"
+	"time"
+
+	"github.com/astaxie/beego/logs"
+	"github.com/coreos/etcd/mvcc/mvccpb"
+)
 
 type SecKillInfo struct {
 	ActivityId    int
@@ -116,5 +116,6 @@ func SecKillInfoSwitchover(secKillInfoList []SecKillInfo) {
 	for _, v := range secKillInfoList {
 		mapInfo[v.ActivityId] = &v
 	}
+	//  map[3:0xc00005a000 4:0xc00005a000]
 	SecKillInfoMap = mapInfo
 }

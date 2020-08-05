@@ -72,6 +72,7 @@
    * goroutine 和 channel
    * 反射
    * slice
+   * map
 
 ### ETCD
 
@@ -128,7 +129,7 @@
 
 ### 插件/package
 
-   *  发送邮件库 https://github.com/go-gomail/gomail
+   * 发送邮件库 https://github.com/go-gomail/gomail
    * 读写Microsoft Excel https://github.com/360EntSecGroup-Skylar/excelize 详细资料
    * 生成uuid https://github.com/satori/go.uuid
    * 开源，分布式，简单高效的搜索引擎 https://github.com/go-ego/riot
