@@ -63,7 +63,7 @@ func (this *SecKillUser) GetUserByNameAndPwd(UserName, UserPwd string) (user *Se
 
 func (this *SecKillUser) InsertUser(user *SecKillUser) (num int64, err error) {
 	user.UserPwd = this.UserPwdMd5(user.UserPwd)
-	fmt.Println(user)
+	//fmt.Println(user)
 	num, err = DB.Insert(user)
 	if err != nil {
 		logs.Warn("insert SecKillUser err : %v", err)

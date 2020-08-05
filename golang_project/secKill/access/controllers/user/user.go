@@ -143,7 +143,7 @@ func (this *UserController) Register() {
 		// 设置 cookie
 		this.Ctx.SetCookie("user_name", UserName)
 		this.Ctx.SetCookie("user_pwd", UserPwd)
-
+		fmt.Println(user)
 		this.Redirect("/seckill/index", 302)
 
 	} else {

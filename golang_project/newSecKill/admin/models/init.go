@@ -16,7 +16,7 @@ var (
 	SecKillConf         initall.ConfigAll
 	SecKillActivityList []SecKillActivity // 活动数据
 	ActivityModel       *SecKillActivity  = NewActivityModel()
-	MutexLock           sync.Mutex        // 互斥锁是一种常用的控制共享资源访问的方法，它能够保证同时只有一个 goroutine 可以访问到共享资源（同一个时刻只有一个线程能够拿到锁）
+	MutexLock           sync.Mutex        //
 )
 
 func init() {

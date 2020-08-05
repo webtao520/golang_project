@@ -67,9 +67,11 @@
    * 定时器
    * 类型断言
    * 内置函数
+   * 锁
    * go控制并发两种方式
    * goroutine 和 channel
    * 反射
+   * slice
 
 ### ETCD
 
