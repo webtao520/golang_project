@@ -56,3 +56,17 @@ type  SecKillRequest struct {
 	ClientRefence string
 	CloseNotify   <-chan bool `json:"-"`
 }
+
+type SecKillResult struct {
+	ActivityId int 
+	UserId int 
+	Token string
+    Error error
+}
+
+// 秒杀业务处理
+func SecKill(req *SecKillRequest) (data map[string]interface{},err error) {
+  data= make (map[string]interface{})
+  
+}
+

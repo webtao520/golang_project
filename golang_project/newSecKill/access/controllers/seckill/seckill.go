@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"newSecKill/access/models"
 	"strings"
+	"strconv"
+	"github.com/astaxie/beego/logs"
 
 	"github.com/astaxie/beego"
 )
@@ -73,13 +75,27 @@ func (this *SecKillController) SecKill(){
 	// 获取用户UserId
 	UserId := this.GetSession("user").(*models.SecKillUser).UserId
 	secKillRequest := &models.SecKillRequest{
-		UserId:        UserId,
-		Ip:            UserIp,
-		ActivityId:    ActivityId,
-		ClientAddr:    ClientAddr,
-		ClientRefence: ClientRefence,
-		CloseNotify:   CloseNotify,
+		UserId:        UserId,  // 5
+		Ip:            UserIp, // 18
+		ActivityId:    ActivityId, // [::1]:65307
+		ClientAddr:    ClientAddr, // http://localhost:8080/seckill/index
+		ClientRefence: ClientRefence, // localhost
+		CloseNotify:   CloseNotify, // 0xc0004be2a0
 	}
-	
+	/*
+	 ====秒杀请求=== &{5 18 [::1]:65307 http://localhost:8080/seckill/index localhost 0xc0004be2a0}
+	 fmt.Println("====秒杀请求===",secKillRequest) 
+	*/
+	// 处理秒杀结果
+	data,err:=models.SecKill(secKillRequest)
+	if err != nil {
+		this.Failed()
+		return
+	}
+	this.Data["UserId"]=data["UserId"]
+	this.Data["token"]=data["token"]
+	this.Data["ActivityId"]=data["ActivityId"]
+	this.Data["UserName"]=this.GetSession("user").(*models.SecKillUser).UserName
+	this.TplName = "seckill/success.html"
 
 }
