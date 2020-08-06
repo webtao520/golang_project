@@ -56,6 +56,14 @@
    * net  熟悉http/https
    * select  chan 通道分支
    * singleton_pattern_config  sync 通过单例模式初始化全局配置，函数执行一次（优化性能）
+   * sort
+   * strings
+   * sync
+   * time
+   * viper
+   * md5
+   * context
+   * mysql
 
 ### 语言学习路线图
 
