@@ -3,10 +3,11 @@ package models
 import (
 	"bytes"
 	"fmt"
-	"github.com/astaxie/beego/orm"
 	"regexp"
 	"strings"
 	"time"
+
+	"github.com/astaxie/beego/orm"
 )
 
 type Post struct {

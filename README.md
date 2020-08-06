@@ -65,6 +65,7 @@
    * context
    * mysql
    * atomic 「atomic包提供了底层的原子级内存操作，对于同步算法的实现很有用」
+   * fmt  「mt包实现了类似C语言printf和scanf的格式化I/O。格式化动作（'verb'）源自C语言但更简单」
 
 ### 语言学习路线图
 
