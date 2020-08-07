@@ -67,6 +67,7 @@
    * atomic 「atomic包提供了底层的原子级内存操作，对于同步算法的实现很有用」
    * fmt  「mt包实现了类似C语言printf和scanf的格式化I/O。格式化动作（'verb'）源自C语言但更简单」
    * url  「url包解析URL并实现了查询的逸码」
+   * bytes 「bytes包实现了操作[]byte的常用函数。本包的函数和strings包的函数相当类似」
 
 ### 语言学习路线图
 
