@@ -1,7 +1,9 @@
 package models
 
 import (
+	"bytes"
 	"fmt"
+	"strings"
 	"time"
 
 	"github.com/astaxie/beego/orm"
@@ -35,14 +37,28 @@ func (m *Post) Query() orm.QuerySeter {
 }
 
 // 内容URL
-func (m *Post) Link()string {
-	fmt.Println("=====link==", m.Urlname)
+func (m *Post) Link() string {
+	fmt.Printf("Urlname=====>%s, Urltype=====>%d\n", m.Urlname, m.Urltype)
    if m.Urlname != "" {
-	   if  m.Urlname == 1{
+	   if  m.Urltype == 1{
 		return fmt.Sprintf("/%s",Rawurlencode(m.Urlname))
 	   }
 	   return fmt.Sprintf("/article/%s",Rawurlencode(m.Urlname))
    }
    return fmt.Sprintf("/article/%d",m.Id)
-  
+
+}
+
+//带链接的标签
+func (m *Post) TagsLink() string {
+   if m.Tags == "" {
+	   return ""
+   }
+   var buf bytes.Buffer
+   arr := strings.Split(strings.Trim(m.Tags, ","), ",")
+   for k,v:=range arr {
+	   if k > 0 {
+			buf.WriteString(", ")
+	   }
+   }
 }

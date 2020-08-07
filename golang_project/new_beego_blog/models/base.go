@@ -28,7 +28,7 @@ func init() {
 		new(User), new(Post),
 		new(Comments))
 	if beego.AppConfig.String("runmode") == "dev" {
-		orm.Debug = true // 开始sql调试
+		orm.Debug = true // 开始sql
 	}
 	//orm.RunSyncdb("default", false, true)
 }
