@@ -30,3 +30,24 @@ func (m *User) TableName() string {
 	//fmt.Println("自定义表名====>",TableName("user"))  自定义表名====> tb_user
 	return TableName("user")
 }
+
+//用户json模型
+type UserJson struct {
+	Id         int64
+	Username   string    `json:"username"`
+	Username1  string    `json:"username1"`
+	Password   string    `json:"password"`
+	Password1  string    `json:"password1"`
+	Password2  string    `json:"password2"`
+	Nickname   string    `json:"nickname"`
+	Email      string    `json:"email"`
+	Lastlogin  time.Time `json:"lastlogin"`
+	Logincount int64     `json:"logincount"`
+	Lastip     string    `json:"lastip"`
+	Authkey    string    `json:"authkey"`
+	Active     int8      `json:"active"`
+	Permission string    `json:"permission"`
+	Avator     string    `json:"avator"`
+	Upcount    int64     `json:"upcount"`
+	Captcha    string    `json:"captcha"`
+}
