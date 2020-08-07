@@ -2,6 +2,8 @@ package models
 
 import (
 	"fmt"
+	"net/url"
+	"strings"
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
@@ -34,4 +36,8 @@ func init() {
 // 返回带前缀的表名
 func TableName(str string) string {
 	return fmt.Sprintf("%s%s", beego.AppConfig.String("dbprefix"), str)
+}
+
+func Rawurlencode(str string) string {
+	return strings.Replace(url.QueryEscape(str), "+", "%20", -1)
 }

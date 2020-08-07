@@ -1,8 +1,9 @@
 package models
 
 import (
-	//"fmt"
+	"fmt"
 	"time"
+
 	"github.com/astaxie/beego/orm"
 )
 
@@ -31,4 +32,17 @@ func (m *Post) TableName() string {
 // 组合QuerySeter 
 func (m *Post) Query() orm.QuerySeter {
 	return orm.NewOrm().QueryTable(m)
+}
+
+// 内容URL
+func (m *Post) Link()string {
+	fmt.Println("=====link==", m.Urlname)
+   if m.Urlname != "" {
+	   if  m.Urlname == 1{
+		return fmt.Sprintf("/%s",Rawurlencode(m.Urlname))
+	   }
+	   return fmt.Sprintf("/article/%s",Rawurlencode(m.Urlname))
+   }
+   return fmt.Sprintf("/article/%d",m.Id)
+  
 }
