@@ -51,9 +51,20 @@ func (m *Post) Link() string {
 
 //带链接的标签
 func (m *Post) TagsLink() string {
-	 if m.Tags == "" {
-		 return ""
-	 }
-	 var buf bytes.Buffer
-	 //arr:=strings.Split(strings.)
+	if m.Tags == "" {
+		return ""
+	}
+	var buf bytes.Buffer
+	arr := strings.Split(strings.Trim(m.Tags, ","), ",")
+	for k, v := range arr {
+		if k > 0 {
+			buf.WriteString(", ")
+		}
+		tag := Tag{Name: v}
+		if tag.Read("Name") != nil {
+			return ""
+		}
+		buf.WriteString(tag.Link())
+	}
+	return buf.String()
 }
