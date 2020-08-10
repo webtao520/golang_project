@@ -4,12 +4,13 @@ import (
 	"beego_blog/models"
 	"encoding/json"
 	"fmt"
-	"github.com/astaxie/beego/logs"
-	"github.com/astaxie/beego/validation"
 	"os"
 	"regexp"
 	"strconv"
 	"strings"
+
+	"github.com/astaxie/beego/logs"
+	"github.com/astaxie/beego/validation"
 )
 
 type AccountController struct {

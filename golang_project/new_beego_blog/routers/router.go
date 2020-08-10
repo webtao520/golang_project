@@ -15,6 +15,7 @@ func init() {
 
 	// 博客后台路由
 	beego.Router("/admin", &admin.IndexController{}, "*:Index")
+	beego.Router("/admin/login", &admin.AccountController{}, "post:Login")
 	beego.Router("/admin/register", &admin.AccountController{}, "post:Register")
 
 	// 使用命名空间

@@ -1,6 +1,7 @@
 package models
 
 import (
+	"fmt"
 	"time"
 
 	"github.com/astaxie/beego/orm"
@@ -62,4 +63,28 @@ func (m *User) Insert() error {
 		return err
 	}
 	return nil
+}
+
+// 读取用户
+func (m *User) Read(fields ...string) error {
+	var cacheName string
+	if m.Id > 0 {
+		cacheName = fmt.Sprintf("userid_%d", m.Id)
+	} else {
+		if m.Username != "" {
+			cacheName = fmt.Sprintf("username_%s", m.Username)
+		} else if m.Nickname != "" {
+			cacheName = fmt.Sprintf("nickname_%s", m.Nickname)
+		}
+	}
+	if !Cache.IsExist(cacheName) {
+		//  不存在 查询数据库
+		if err := orm.NewOrm().Read(m, fields...); err != nil {
+			return err
+		}
+		_ = Cache.Put(cacheName, m)
+	}
+	*m = *Cache.Get(cacheName).(*User)
+	return nil
+
 }

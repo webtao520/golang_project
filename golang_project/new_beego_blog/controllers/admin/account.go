@@ -15,6 +15,71 @@ type AccountController struct {
 	baseController
 }
 
+// 登录
+func (this *AccountController) Login() {
+	aul := new(models.UserJson)
+	data := this.Ctx.Input.RequestBody
+	if err := json.Unmarshal(data, &aul); err != nil {
+		logs.Warning(err.Error())
+		this.Data["json"] = RetResource(false, nil, "参数错误")
+		this.ServeJSON()
+		return
+	}
+	code := this.GetSession("Captcha")
+	if code == nil {
+		logs.Warning("Session中没有获取到验证码")
+		this.Data["json"] = RetResource(false, nil, "请求异常")
+		this.ServeJSON()
+		return
+	}
+	if code != aul.Captcha {
+		logs.Warning(fmt.Sprintf("sessCaptcha:%s,inputCaptcha:%s", code, aul.Captcha))
+		this.Data["json"] = RetResource(false, nil, "验证码不正确")
+		this.ServeJSON()
+		return
+	}
+
+	if aul.Username == "" {
+		this.Data["json"] = RetResource(false, nil, "请输入账号")
+		this.ServeJSON()
+		return
+	}
+	if aul.Password == "" {
+		this.Data["json"] = RetResource(false, nil, "请输入密码")
+		this.ServeJSON()
+		return
+	}
+
+	var user models.User
+	user.Username = aul.Username
+	if user.Read("username") != nil || user.Password != models.Md5([]byte(aul.Password)) {
+		this.Data["json"] = RetResource(false, nil, "帐号或密码错误")
+		this.ServeJSON()
+		return
+	}
+
+	if user.Active == 0 {
+		this.Data["json"] = RetResource(false, nil, "该帐号未激活")
+		this.ServeJSON()
+		return
+	}
+	user.Logincount += 1
+	user.Lastip = this.getClientIp()
+	fmt.Println("--------------------user-----------", user)
+	user.Lastlogin = this.getTime()
+	/*
+		_ = user.Update()
+		authkey := models.Md5([]byte(this.getClientIp() + "|" + user.Password))
+		this.Ctx.SetCookie("auth", strconv.FormatInt(user.Id, 10)+"|"+authkey, 86400)
+		this.SetSession("userId", user.Id)
+		this.SetSession("userName", user.Username)
+		logs.Info(fmt.Sprintf("userid:%d,username:%s,登录成功", user.Id, user.Username))
+		this.Data["json"] = RetResource(true, nil, "登录成功")
+		this.ServeJSON()
+	*/
+
+}
+
 // 注册 beego api 开发
 func (this *AccountController) Register() {
 	aul := new(models.UserJson) // 分配内存
@@ -135,12 +200,12 @@ func (this *AccountController) Register() {
 	}
 	authkey := models.Md5([]byte(this.getClientIp() + "|" + user.Password))
 	this.Ctx.SetCookie("auth", strconv.FormatInt(user.Id, 10)+"|"+authkey, 86400)
+	//fmt.Println("========FormatInt========", strconv.FormatInt(user.Id, 10))
 	this.SetSession("userId", user.Id)
 	this.SetSession("userName", user.Username)
 	logs.Info(fmt.Sprintf("userid:%d,username:%s,注册成功", user.Id, user.Username))
 	this.Data["json"] = RetResource(true, nil, "注册成功")
 	this.ServeJSON()
-
 }
 
 func checkUsername(username string) (b bool) {
