@@ -2,9 +2,11 @@ package admin
 
 import (
 	"encoding/json"
+	"fmt"
 	"new_beego_blog/models"
 
 	"github.com/astaxie/beego/logs"
+	"github.com/astaxie/beego/validation"
 )
 
 type AccountController struct {
@@ -24,5 +26,38 @@ func (this *AccountController) Register() {
 		this.ServeJSON()
 		return
 	}
+	code := this.GetSession("Captcha")
+	if code == nil {
+		logs.Warning("Session中没有获取到验证码")
+		this.Data["json"] = RetResource(false, nil, "请求异常")
+		this.ServeJSON()
+		return
+	}
+
+	if code != aul.Captcha {
+		logs.Warning(fmt.Sprintf("sessCaptcha:%s,inputCaptcha:%s", code, aul.Captcha))
+		this.Data["json"] = RetResource(false, nil, "验证码不正确")
+		this.ServeJSON()
+		return
+	}
+	valid := validation.Validation{}
+	if v := valid.Required(aul.Username1, "username"); !v.Ok {
+		this.Data["json"] = RetResource(false, nil, "请输入用户名")
+		this.ServeJSON()
+		return
+	}
+	if v := valid.MaxSize(aul.Username1, 30, "username"); !v.Ok {
+		this.Data["json"] = RetResource(false, nil, "用户名长度不能大于15个字符")
+		this.ServeJSON()
+		return
+	}
+	if !checkUsername(aul.Username1) {
+		this.Data["json"] = RetResource(false, nil, "输入的用户名不符合要求(仅允许字母开头,并以字母、数字、-、_组成)")
+		this.ServeJSON()
+		return
+	}
+}
+
+func checkUsername(username string) (b bool) {
 
 }
