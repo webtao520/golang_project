@@ -1,6 +1,7 @@
 package models
 
 import (
+	"crypto/md5"
 	"fmt"
 	"net/url"
 	"strings"
@@ -40,4 +41,11 @@ func TableName(str string) string {
 
 func Rawurlencode(str string) string {
 	return strings.Replace(url.QueryEscape(str), "+", "%20", -1)
+}
+
+// md5 加密
+func Md5(buf []byte) string {
+	hash := md5.New()
+	hash.Write(buf)
+	return fmt.Sprintf("%x", hash.Sum(nil))
 }

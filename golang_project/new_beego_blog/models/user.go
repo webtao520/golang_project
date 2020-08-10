@@ -1,9 +1,9 @@
 package models
 
 import (
-	//"fmt"
 	"time"
-	//"github.com/astaxie/beego/orm"
+
+	"github.com/astaxie/beego/orm"
 )
 
 // 用户表模型
@@ -50,4 +50,16 @@ type UserJson struct {
 	Avator     string    `json:"avator"`
 	Upcount    int64     `json:"upcount"`
 	Captcha    string    `json:"captcha"`
+}
+
+func (m *User) Query() orm.QuerySeter {
+	return orm.NewOrm().QueryTable(m)
+}
+
+// 保存数据
+func (m *User) Insert() error {
+	if _, err := orm.NewOrm().Insert(m); err != nil {
+		return err
+	}
+	return nil
 }

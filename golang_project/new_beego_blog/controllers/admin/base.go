@@ -2,6 +2,7 @@ package admin
 
 import (
 	//"fmt"
+	"fmt"
 	"strings"
 
 	"github.com/astaxie/beego"
@@ -55,4 +56,22 @@ type RetJson struct {
 func RetResource(status bool, data interface{}, msg string) (apijson *RetJson) {
 	apijson = &RetJson{Status: status, Data: data, Msg: msg}
 	return
+}
+
+// 获取用ip地址
+func (this *baseController) getClientIp() string {
+	s := this.Ctx.Request.Header.Get("X-Real-IP")
+	fmt.Println("====X-Real-IP=====", s)
+	if s == "" {
+		forwarded := this.Ctx.Request.Header.Get("X-Forwarded-For")
+		if forwarded != "" {
+			list := strings.Split(forwarded, ":")
+			if len(list) > 0 {
+				s = list[0]
+			}
+		} else {
+			s = strings.Split(this.Ctx.Request.RemoteAddr, ":")[0]
+		}
+	}
+	return s
 }
