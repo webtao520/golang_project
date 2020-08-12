@@ -1,8 +1,9 @@
 package models
 
 import (
-	"github.com/astaxie/beego/orm"
 	"fmt"
+
+	"github.com/astaxie/beego/orm"
 )
 
 // 标签表
@@ -19,13 +20,18 @@ func (m *Tag) TableName() string {
 
 // 读取
 func (m *Tag) Read(fields ...string) error {
-	if err:=orm.NewOrm().Read(m,fields...);err !=nil {
+	if err := orm.NewOrm().Read(m, fields...); err != nil {
 		return err
 	}
-	return nil 
-} 
+	return nil
+}
 
 //标签连接
 func (m *Tag) Link() string {
 	return fmt.Sprintf("<a class=\"category\" href=\"/category/%d\">%s</a>", m.Id, m.Name)
+}
+
+//表查询
+func (m *Tag) Query() orm.QuerySeter {
+	return orm.NewOrm().QueryTable(m)
 }

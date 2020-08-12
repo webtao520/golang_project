@@ -20,23 +20,21 @@ func init() {
 
 	// 使用命名空间
 
-	// front api
-	front := beego.NewNamespace("v1",
+	//front api
+	front := beego.NewNamespace("/v1",
 		beego.NSNamespace("/front",
 			beego.NSInclude(
 				&api.FrontController{},
 			),
 		),
 	)
-
-	// login api
+	//login api
 	login := beego.NewNamespace("/v1",
-		beego.NSNamespace("/login", // NS 进行子路由的定义
+		beego.NSNamespace("/login",
 			beego.NSInclude(
 				&api.FrontController{},
 			),
 		),
 	)
-	//注册路由组
 	beego.AddNamespace(front, login)
 }

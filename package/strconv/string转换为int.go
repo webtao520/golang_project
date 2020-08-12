@@ -18,6 +18,11 @@ func main() {
 	i, _ := strconv.Atoi("3")
 	fmt.Println(3 + i)
 	fmt.Printf("%T", i)
+	// Atoi() 转换失败
+	i, err := strconv.Atoi("a")
+	if err != nil {
+		fmt.Println("converted failed")
+	}
 }
 
 /*

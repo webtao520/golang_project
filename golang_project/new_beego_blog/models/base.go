@@ -24,10 +24,10 @@ func init() {
 	//&loc=Asia%2FShanghai（已单独做了时区自动处理）
 	dburl := dbuser + ":" + dbpassword + "@tcp(" + dbhost + ":" + dbport + ")/" + dbname + "?charset=utf8"
 	orm.RegisterDataBase("default", "mysql", dburl)
-	// 注册models
+	// 注册models, 遇到一个大坑
 	orm.RegisterModel(
 		new(User), new(Post),
-		new(Comments))
+		new(Comments), new(Tag), new(Option), new(TagPost))
 	if beego.AppConfig.String("runmode") == "dev" {
 		orm.Debug = true // 开始sql
 	}
