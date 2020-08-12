@@ -38,9 +38,8 @@ func (this *AccountController) Login() {
 		this.ServeJSON()
 		return
 	}
-
 	if aul.Username == "" {
-		this.Data["json"] = RetResource(false, nil, "请输入账号")
+		this.Data["json"] = RetResource(false, nil, "请输入帐号")
 		this.ServeJSON()
 		return
 	}
@@ -49,7 +48,6 @@ func (this *AccountController) Login() {
 		this.ServeJSON()
 		return
 	}
-
 	var user models.User
 	user.Username = aul.Username
 	if user.Read("username") != nil || user.Password != models.Md5([]byte(aul.Password)) {
@@ -57,7 +55,6 @@ func (this *AccountController) Login() {
 		this.ServeJSON()
 		return
 	}
-
 	if user.Active == 0 {
 		this.Data["json"] = RetResource(false, nil, "该帐号未激活")
 		this.ServeJSON()
@@ -65,19 +62,15 @@ func (this *AccountController) Login() {
 	}
 	user.Logincount += 1
 	user.Lastip = this.getClientIp()
-	fmt.Println("--------------------user-----------", user)
 	user.Lastlogin = this.getTime()
-	/*
-		_ = user.Update()
-		authkey := models.Md5([]byte(this.getClientIp() + "|" + user.Password))
-		this.Ctx.SetCookie("auth", strconv.FormatInt(user.Id, 10)+"|"+authkey, 86400)
-		this.SetSession("userId", user.Id)
-		this.SetSession("userName", user.Username)
-		logs.Info(fmt.Sprintf("userid:%d,username:%s,登录成功", user.Id, user.Username))
-		this.Data["json"] = RetResource(true, nil, "登录成功")
-		this.ServeJSON()
-	*/
-
+	_ = user.Update()
+	authkey := models.Md5([]byte(this.getClientIp() + "|" + user.Password))
+	this.Ctx.SetCookie("auth", strconv.FormatInt(user.Id, 10)+"|"+authkey, 86400)
+	this.SetSession("userId", user.Id)
+	this.SetSession("userName", user.Username)
+	logs.Info(fmt.Sprintf("userid:%d,username:%s,登录成功", user.Id, user.Username))
+	this.Data["json"] = RetResource(true, nil, "登录成功")
+	this.ServeJSON()
 }
 
 // 注册 beego api 开发

@@ -49,3 +49,21 @@ func Md5(buf []byte) string {
 	hash.Write(buf)
 	return fmt.Sprintf("%x", hash.Sum(nil))
 }
+
+func GetOptions() map[string]string {
+	if !Cache.IsExist("options") {
+		var result []*Option
+		o := orm.NewOrm()
+		o.QueryTable(&Option{}).All(&result)
+		options := make(map[string]string)
+		for _, v := range result {
+			if v.Name == "myworkdesc" {
+				v.Value = strings.Replace(v.Value, "\r\n", "<br/>", -1)
+			}
+			options[v.Name] = v.Value
+		}
+		Cache.Put("options", options)
+	}
+	v := Cache.Get("options")
+	return v.(map[string]string)
+}

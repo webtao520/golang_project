@@ -3,7 +3,10 @@ package admin
 import (
 	//"fmt"
 	"fmt"
+	"new_beego_blog/models"
+	"strconv"
 	"strings"
+	"time"
 
 	"github.com/astaxie/beego"
 )
@@ -74,4 +77,14 @@ func (this *baseController) getClientIp() string {
 		}
 	}
 	return s
+}
+
+func (this *baseController) getTime() time.Time {
+	options := models.GetOptions()
+	timezone := float64(0)
+	if v, ok := options["timezone"]; ok {
+		timezone, _ = strconv.ParseFloat(v, 64)
+	}
+	add := timezone * float64(time.Hour)
+	return time.Now().UTC().Add(time.Duration(add))
 }

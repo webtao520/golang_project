@@ -35,3 +35,10 @@ func (this *localCache) IsExist(key string) bool {
 	}
 	return false
 } 
+
+// 删除缓存
+func (this *localCache) Delete(key string) error{
+	delete(this.data,key)
+	return nil
+}
+

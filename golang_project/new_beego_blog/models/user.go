@@ -86,5 +86,15 @@ func (m *User) Read(fields ...string) error {
 	}
 	*m = *Cache.Get(cacheName).(*User)
 	return nil
+}
 
+func (m *User) Update(fields ...string) error {
+	if _, err := orm.NewOrm().Update(m, fields...); err != nil {
+		return err
+	}
+	_ = Cache.Delete(fmt.Sprintf("userid_%d", m.Id))
+	_ = Cache.Delete(fmt.Sprintf("username_%s", m.Username))
+	_ = Cache.Delete(fmt.Sprintf("nickname_%s", m.Nickname))
+	_ = Cache.Delete(fmt.Sprintf("userPermissionList_%d", m.Id))
+	return nil
 }
