@@ -46,3 +46,10 @@ PS D:\goLang\github\golang_project\package\strconv> go  run 简单的转换操�
 					main.IT
 					5 5
 */
+
+/**
+但注意:
+		1. 不是所有数据类型都能转换，例如字母格式的string类型 "abcd" 转换为int 肯定会失败
+		2. 低精度转换为高精度时是安全的，高精度的值转换为低精度时会丢失精度，例如int32转换为int16。 float32转换为int
+		3. 这种简单的转换方式不能对int(float)string 进行互转，要跨大类型转换，可以使用strconv包提供的函数
+*/
