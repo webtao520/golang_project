@@ -59,6 +59,7 @@ func (m *User) Query() orm.QuerySeter {
 
 // 保存数据
 func (m *User) Insert() error {
+	fmt.Println("用户保存数据....")
 	if _, err := orm.NewOrm().Insert(m); err != nil {
 		return err
 	}
@@ -78,7 +79,6 @@ func (m *User) Read(fields ...string) error {
 		}
 	}
 	if !Cache.IsExist(cacheName) {
-		//  不存在 查询数据库
 		if err := orm.NewOrm().Read(m, fields...); err != nil {
 			return err
 		}

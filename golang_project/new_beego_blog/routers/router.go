@@ -22,6 +22,10 @@ func init() {
 
 	// 用户管理
 	beego.Router("/admin/user/add", &admin.UserController{}, "*:Add")
+	beego.Router("/admin/user/list", &admin.UserController{}, "*:List") //  用户列表
+
+	// 独立fileupload
+	beego.Router("/admin/upload", &admin.FileuploadController{}, "*:Upload")
 
 	// ##################### 使用命名空间 #####################
 

@@ -131,3 +131,35 @@ func (this *baseController) getTime() time.Time {
 	add := timezone * float64(time.Hour)
 	return time.Now().UTC().Add(time.Duration(add))
 }
+
+// 显示错误提示
+func (this *baseController) showmsg(msg ...string) {
+	redirect := this.Ctx.Request.Referer()
+	if redirect == "" {
+		redirect = "/admin"
+	}
+	if len(msg) == 1 {
+		if this.userid == 0 {
+			redirect = "/"
+		}
+		msg = append(msg, redirect)
+	}
+	this.Data["adminid"] = this.userid
+	this.Data["adminname"] = this.username
+	this.Data["msg"] = msg[0]
+	this.Data["redirect"] = msg[1]
+	this.Layout = this.moduleName + "/layout.html"
+	this.TplName = this.moduleName + "/" + "showmsg.html"
+	_ = this.Render()
+	this.StopRun()
+}
+
+func (this *baseController) Isdefaultsrc(value string) bool {
+	var defaultdir = "/static/upload/default/"
+	if value != "" {
+		if index := strings.Index(value, defaultdir); index != -1 {
+			return true
+		}
+	}
+	return false
+}

@@ -1,7 +1,7 @@
 package admin
 
 import (
-	"beego_blog/models"
+	"new_beego_blog/models"
 	"bytes"
 	"errors"
 	"fmt"
