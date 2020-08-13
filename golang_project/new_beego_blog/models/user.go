@@ -98,3 +98,14 @@ func (m *User) Update(fields ...string) error {
 	_ = Cache.Delete(fmt.Sprintf("userPermissionList_%d", m.Id))
 	return nil
 }
+
+func (m *User) Delete() error {
+	if _, err := orm.NewOrm().Delete(m); err != nil {
+		return err
+	}
+	_ = Cache.Delete(fmt.Sprintf("userid_%d", m.Id))
+	_ = Cache.Delete(fmt.Sprintf("username_%s", m.Username))
+	_ = Cache.Delete(fmt.Sprintf("nickname_%s", m.Nickname))
+	_ = Cache.Delete(fmt.Sprintf("userPermissionList_%d", m.Id))
+	return nil
+}

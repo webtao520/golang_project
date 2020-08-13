@@ -8,6 +8,7 @@ import (
 	"github.com/astaxie/beego/logs"
 	"github.com/astaxie/beego/orm"
 	"github.com/coreos/etcd/clientv3"
+	"github.com/garyburd/redigo/redis"
 	_ "github.com/go-sql-driver/mysql"
 )
 
@@ -68,5 +69,26 @@ func InitEtcd() (EtcdClient *clientv3.Client, err error) {
 	}
 	EtcdClient = cli
 	logs.Debug("init etcd success")
+	return
+}
+
+// redis 配置
+func InitAccessRedis() (pool *redis.Pool, err error) {
+	pool = &redis.Pool{ //实例化一个连接池
+		MaxIdle:     SecKillConf.AccessRedisConfig.MaxIdle,
+		MaxActive:   SecKillConf.AccessRedisConfig.MaxActive,
+		IdleTimeout: time.Duration(SecKillConf.AccessRedisConfig.IdleTimeout),
+		Dial: func() (redis.Conn, error) {
+			return redis.Dial("tcp", SecKillConf.AccessRedisConfig.Address)
+		},
+	}
+	conn := pool.Get()
+	defer func(conn redis.Conn) { conn.Close() }(conn)
+	_, err = conn.Do("ping")
+	if err != nil {
+		err = errors.New(fmt.Sprintf("ping AccessRedis failed, err : %v", err))
+		logs.Error(err)
+		return
+	}
 	return
 }

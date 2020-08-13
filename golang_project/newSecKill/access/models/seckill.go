@@ -1,8 +1,6 @@
 package models
 
-import (
-	//"fmt"
-)
+//"fmt"
 
 /*
 	ActivityId    int    //活动id
@@ -29,12 +27,11 @@ func NewNowSecKillModel() *NowSecKillInfo {
 	return &NowSecKillInfo{}
 }
 
-
 func (this *NowSecKillInfo) GetSecKillInfo() (nowSecKillInfo []NowSecKillInfo) {
 	// now := time.Now().Local()
 	secKillInfo := NowSecKillInfo{}
 	//fmt.Println("原始切片默认值", nowSecKillInfo)
-    //fmt.Println(SecKillInfoMap)
+	//fmt.Println(SecKillInfoMap)
 	for _, v := range SecKillInfoMap {
 		if v.Status != 2 || v.Total < 1 {
 			continue
@@ -48,25 +45,26 @@ func (this *NowSecKillInfo) GetSecKillInfo() (nowSecKillInfo []NowSecKillInfo) {
 	return
 }
 
-type  SecKillRequest struct {
-	ActivityId int 
-	UserId int 
-	Ip string
+type SecKillRequest struct {
+	ActivityId    int
+	UserId        int
+	Ip            string
 	ClientAddr    string
 	ClientRefence string
 	CloseNotify   <-chan bool `json:"-"`
 }
 
 type SecKillResult struct {
-	ActivityId int 
-	UserId int 
-	Token string
-    Error error
+	ActivityId int
+	UserId     int
+	Token      string
+	Error      error
 }
 
 // 秒杀业务处理
-func SecKill(req *SecKillRequest) (data map[string]interface{},err error) {
-  data= make (map[string]interface{})
-  
-}
+func SecKill(req *SecKillRequest) (data map[string]interface{}, err error) {
+	data = make(map[string]interface{})
 
+	return
+
+}

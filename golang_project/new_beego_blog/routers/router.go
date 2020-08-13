@@ -21,8 +21,10 @@ func init() {
 	beego.Router("/admin/register", &admin.AccountController{}, "post:Register")
 
 	// 用户管理
-	beego.Router("/admin/user/add", &admin.UserController{}, "*:Add")
-	beego.Router("/admin/user/list", &admin.UserController{}, "*:List") //  用户列表
+	beego.Router("/admin/user/add", &admin.UserController{}, "*:Add")       // 用户添加
+	beego.Router("/admin/user/list", &admin.UserController{}, "*:List")     //  用户列表
+	beego.Router("/admin/user/edit", &admin.UserController{}, "*:Edit")     // 用户编辑
+	beego.Router("/admin/user/delete", &admin.UserController{}, "*:Delete") // 用户删除
 
 	// 独立fileupload
 	beego.Router("/admin/upload", &admin.FileuploadController{}, "*:Upload")

@@ -26,10 +26,22 @@ type EtcdConfig struct {
 	GetTimeOut  int
 }
 
+// redis 连接配置
+type AccessRedisConfig struct {
+	Address           string
+	MaxIdle           int
+	MaxActive         int
+	IdleTimeout       int
+	WriteGoroutineNum int
+	ReadGoroutineNum  int
+	ListName          string
+}
+
 // 系统所有配置信息
 type ConfigAll struct {
 	MysqlConfig
 	EtcdConfig
+	AccessRedisConfig
 }
 
 var conf config.Configer
@@ -54,8 +66,69 @@ func InitConfig() (ConfigAll ConfigAll, err error) {
 		return
 	}
 	ConfigAll.EtcdConfig = EtcdConfig
+	// redis 配置
+	AccessRedisConfig, err := GetAccessRedisConfig()
+	if err != nil {
+		return
+	}
+	ConfigAll.AccessRedisConfig = AccessRedisConfig
+
 	SecKillConf = ConfigAll
 	logs.Debug("init config success")
+	return
+}
+
+// 读取 redis 配置项
+func GetAccessRedisConfig() (AccessRedisConfig AccessRedisConfig, err error) {
+	Address := conf.String("redis::access_to_dispose_addr")
+	if len(Address) == 0 {
+		err = errors.New("load config of access_to_dispose_addr , is null")
+		logs.Error(err)
+		return
+	}
+	AccessRedisConfig.Address = Address
+	MaxIdle, err := conf.Int("redis::access_to_dispose_MaxIdle")
+	if err != nil {
+		err = errors.New(fmt.Sprintf("load config of access_to_dispose_MaxIdle err : %v", err))
+		logs.Error(err)
+		return
+	}
+	AccessRedisConfig.MaxIdle = MaxIdle
+	MaxActive, err := conf.Int("redis::access_to_dispose_MaxActive")
+	if err != nil {
+		err = errors.New(fmt.Sprintf("load config of access_to_dispose_MaxActive err : %v", err))
+		logs.Error(err)
+		return
+	}
+	AccessRedisConfig.MaxActive = MaxActive
+	IdleTimeout, err := conf.Int("redis::access_to_dispose_IdleTimeout")
+	if err != nil {
+		err = errors.New(fmt.Sprintf("load config of access_to_dispose_IdleTimeout err : %v", err))
+		logs.Error(err)
+		return
+	}
+	AccessRedisConfig.IdleTimeout = IdleTimeout
+	WriteGoroutineNum, err := conf.Int("redis::write_access_to_dispose_goroutine_num")
+	if err != nil {
+		err = errors.New(fmt.Sprintf("load config of write_access_to_dispose_goroutine_num err : %v", err))
+		logs.Error(err)
+		return
+	}
+	AccessRedisConfig.WriteGoroutineNum = WriteGoroutineNum
+	ReadGoroutineNum, err := conf.Int("redis::read_dispose_to_access_goroutine_num")
+	if err != nil {
+		err = errors.New(fmt.Sprintf("load config of read_dispose_to_access_goroutine_num err : %v", err))
+		logs.Error(err)
+		return
+	}
+	AccessRedisConfig.ReadGoroutineNum = ReadGoroutineNum
+	ListName := conf.String("redis::ccess_list_name")
+	if len(ListName) == 0 {
+		err = errors.New("load config of ccess_list_name failed , is null")
+		logs.Error(err)
+		return
+	}
+	AccessRedisConfig.ListName = ListName
 	return
 }
 
