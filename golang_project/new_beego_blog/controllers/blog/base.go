@@ -2,6 +2,7 @@ package blog
 
 import (
 	//"fmt"
+	"new_beego_blog/models"
 	"strconv"
 	"strings"
 
@@ -10,42 +11,85 @@ import (
 
 type baseController struct {
 	beego.Controller
-	options      map[string]string
-	right string
-	page int 
+	options  map[string]string
+	right    string
+	page     int
 	pagesize int
 }
 
 //  在所有方法之前加载
-func (this *baseController) Prepare(){
+func (this *baseController) Prepare() {
+	this.Data["IsLogin"] = this.IsLogin()
+	this.options = models.GetOptions()
 	this.Data["hidejs"] = `<!--[if lt IE 9]>
 	<script src="/static/js/html5shiv.min.js"></script>
 	<![endif]-->`
 
 	var (
-		pagesize int 
-		err error 
-		page int 
+		pagesize int
+		err      error
+		page     int
 	)
-	if page,err = strconv.Atoi(this.Ctx.Input.Param(":page")); err !=nil || page < 1 {
+	if page, err = strconv.Atoi(this.Ctx.Input.Param(":page")); err != nil || page < 1 {
 		page = 1
 	}
 
 	if pagesize, err = strconv.Atoi(this.getOption("pagesize")); err != nil || pagesize < 1 {
 		pagesize = 10
 	}
-	this.page=page 
-	this.pagesize=pagesize
+	this.page = page
+	this.pagesize = pagesize
 }
 
-func (this *baseController)getOption(name string)string {
-	if v,ok:=this.options[name];ok{
+// 判断是否登陆
+func (this *baseController) IsLogin() bool {
+	//session预先判断是否登录
+	userId := this.GetSession("userId")
+	if userId != nil && userId.(int64) > 0 {
+		return true
+	} else {
+		arr := strings.Split(this.Ctx.GetCookie("auth"), "|")
+		if len(arr) == 2 {
+			idstr, password := arr[0], arr[1]
+			userid, _ := strconv.ParseInt(idstr, 10, 0)
+			if userid > 0 {
+				var user models.User
+				user.Id = userid
+				if user.Read() == nil && password == models.Md5([]byte(this.getClientIp()+"|"+user.Password)) {
+					this.SetSession("userId", user.Id)
+					this.SetSession("userName", user.Username)
+					return true
+				}
+			}
+		}
+	}
+	return false
+}
+
+//获取用户IP地址
+func (this *baseController) getClientIp() string {
+	s := this.Ctx.Request.Header.Get("X-Real-IP")
+	if s == "" {
+		forwarded := this.Ctx.Request.Header.Get("X-Forwarded-For")
+		if forwarded != "" {
+			list := strings.Split(forwarded, ":")
+			if len(list) > 0 {
+				s = list[0]
+			}
+		} else {
+			s = strings.Split(this.Ctx.Request.RemoteAddr, ":")[0]
+		}
+	}
+	return s
+}
+
+func (this *baseController) getOption(name string) string {
+	if v, ok := this.options[name]; ok {
 		return v
-	}else {
+	} else {
 		return ""
 	}
 }
-
 
 func (this *baseController) setHeadMetas(params ...string) {
 	title_buf := make([]string, 0, 3)
@@ -84,7 +128,7 @@ func (this *baseController) display(tpl string) {
 		theme = v
 	}
 	this.Layout = theme + "/layout.html"
-	this.Data["root"] = "/" + beego.BConfig.WebConfig.ViewsPath + "/" + theme + "/"  // /views/double/
+	this.Data["root"] = "/" + beego.BConfig.WebConfig.ViewsPath + "/" + theme + "/" // /views/double/
 	this.TplName = theme + "/" + tpl + ".html"
 	this.LayoutSections = make(map[string]string)
 	this.LayoutSections["head"] = theme + "/head.html"

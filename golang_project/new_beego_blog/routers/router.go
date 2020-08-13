@@ -13,12 +13,17 @@ func init() {
 	//beego.Router("/", &controllers.MainController{})
 	beego.Router("/", &blog.MainController{}, "*:Index")
 
-	// 博客后台路由
+	//  ##################### 博客后台路由 #####################
+
+	// 用户登陆注册
 	beego.Router("/admin", &admin.IndexController{}, "*:Index")
 	beego.Router("/admin/login", &admin.AccountController{}, "post:Login")
 	beego.Router("/admin/register", &admin.AccountController{}, "post:Register")
 
-	// 使用命名空间
+	// 用户管理
+	beego.Router("/admin/user/add", &admin.UserController{}, "*:Add")
+
+	// ##################### 使用命名空间 #####################
 
 	//front api
 	front := beego.NewNamespace("/v1",

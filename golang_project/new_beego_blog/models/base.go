@@ -27,7 +27,7 @@ func init() {
 	// 注册models, 遇到一个大坑
 	orm.RegisterModel(
 		new(User), new(Post),
-		new(Comments), new(Tag), new(Option), new(TagPost))
+		new(Comments), new(Tag), new(Option), new(TagPost), new(Permission))
 	if beego.AppConfig.String("runmode") == "dev" {
 		orm.Debug = true // 开始sql
 	}

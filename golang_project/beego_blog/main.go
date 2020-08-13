@@ -4,11 +4,12 @@ import (
 	_ "beego_blog/controllers/ipfilter"
 	_ "beego_blog/models"
 	_ "beego_blog/routers"
+	"strconv"
+	"strings"
+
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/context"
 	"github.com/astaxie/beego/logs"
-	"strconv"
-	"strings"
 )
 
 func initLogger() {

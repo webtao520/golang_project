@@ -6,6 +6,7 @@ import (
 	"new_beego_blog/models"
 	"regexp"
 	"strconv"
+	"strings"
 
 	"github.com/astaxie/beego/logs"
 	"github.com/astaxie/beego/validation"
@@ -213,4 +214,26 @@ func checkPassword(password string) (b bool) {
 		return false
 	}
 	return true
+}
+
+func MakePermissionList(user models.User) (permissionList map[string]int) {
+	cacheName := fmt.Sprintf("userPermissionList_%d", user.Id)
+	if !models.Cache.IsExist(cacheName) {
+		//允许任何人默认拥有访问account，comments的权限
+		permissionList = map[string]int{"account": 0, "comments": 0}
+		var permission models.Permission
+		for _, id := range strings.Split(user.Permission, "|") {
+			err := permission.Query().Filter("id", id).One(&permission)
+			if err == nil {
+				permissionList[permission.Name] = permission.Id
+			}
+		}
+		if _, ok := permissionList["fileupload"]; !ok && user.Upcount > 0 {
+			permissionList["fileupload"] = 0
+		}
+		permissionList["index"] = 0
+		_ = models.Cache.Put(cacheName, permissionList)
+	}
+	permissionList = models.Cache.Get(cacheName).(map[string]int)
+	return
 }

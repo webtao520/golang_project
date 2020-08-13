@@ -30,9 +30,52 @@ func (this *baseController) Prepare() {
 	//this.controllerName=strings.ToLower()
 	this.controllerName = strings.ToLower(controllerName[0 : len(controllerName)-10])
 	this.actionName = strings.ToLower(actionName)
+	this.auth() // 登陆状态验证 显示菜单项
+	//this.checkPermission()
 }
 
-// 后台模板渲染
+//登录状态验证
+func (this *baseController) auth() {
+	//允许任何人默认拥有访问account，comments的权限
+	this.permissionlist = map[string]int{"account": 0, "comments": 0}
+	//session预先判断是否登录
+	if userId := this.GetSession("userId"); userId != nil {
+		this.userid = userId.(int64)
+	}
+	if this.userid > 0 {
+		if userName := this.GetSession("userName"); userName != nil {
+			this.username = userName.(string)
+		}
+		var user models.User
+		user.Id = this.userid
+		if user.Read() == nil {
+			this.permissionlist = MakePermissionList(user)
+		}
+	} else {
+		//未登录时，将获取cookie，如cookie存在则认证1次并保存相关信息到session，
+		arr := strings.Split(this.Ctx.GetCookie("auth"), "|")
+		if len(arr) == 2 {
+			idstr, password := arr[0], arr[1]
+			userid, _ := strconv.ParseInt(idstr, 10, 0)
+			if userid > 0 {
+				var user models.User
+				user.Id = userid
+				if user.Read() == nil && password == models.Md5([]byte(this.getClientIp()+"|"+user.Password)) {
+					this.userid = user.Id
+					this.username = user.Username
+					this.SetSession("userId", user.Id)
+					this.SetSession("userName", user.Username)
+					this.permissionlist = MakePermissionList(user)
+				}
+			}
+		}
+	}
+	if this.userid > 0 && this.actionName == "login" {
+		this.Redirect("/admin", 302)
+	}
+}
+
+//渲染模版
 func (this *baseController) display(tpl ...string) {
 	var tplname string
 	if len(tpl) == 1 {
@@ -40,13 +83,13 @@ func (this *baseController) display(tpl ...string) {
 	} else {
 		tplname = this.moduleName + "/" + this.controllerName + "_" + this.actionName + ".html"
 	}
-	this.Layout = this.moduleName + "/layout.html"
 	this.Data["version"] = beego.AppConfig.String("AppVer")
 	this.Data["adminid"] = this.userid
 	this.Data["adminname"] = this.username
 	this.Data["userpermission"] = this.permissionlist
+	fmt.Println("后台管理菜单数据信息", this.userid, this.username, this.permissionlist)
+	this.Layout = this.moduleName + "/layout.html"
 	this.TplName = tplname
-
 }
 
 // 创建json结构体数据
