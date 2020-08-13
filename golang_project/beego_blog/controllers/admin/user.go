@@ -3,9 +3,10 @@ package admin
 import (
 	"beego_blog/models"
 	"fmt"
-	"github.com/astaxie/beego/validation"
 	"os"
 	"strings"
+
+	"github.com/astaxie/beego/validation"
 )
 
 type UserController struct {
