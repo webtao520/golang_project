@@ -3,10 +3,11 @@ package models
 import (
 	"fmt"
 	"newSecKill/common/initall"
+	"sync"
 
 	"github.com/astaxie/beego/orm"
 	"github.com/coreos/etcd/clientv3"
-	"github.com/gomodule/redigo/redis"
+	"github.com/garyburd/redigo/redis"
 )
 
 var (
@@ -16,8 +17,10 @@ var (
 	EtcdClient      *clientv3.Client
 	SecKillInfoMap  = make(map[int]*SecKillInfo)
 	SecKillInfoList []SecKillInfo //etcd 配置修改
-	AccessRedisPool *redis.Pool
-	//BlacklistRedisPool *redis.Pool // 加载redis 中的黑名单
+	//AccessRedisPool    *redis.Pool
+	BlacklistRedisPool *redis.Pool
+	MutexLock          sync.Mutex
+	RWLock             sync.RWMutex
 )
 
 func init() {
@@ -49,10 +52,13 @@ func initAll() (err error) {
 	}
 
 	//加载redis
-	if AccessRedisPool, err = initall.InitAccessRedis(); err != nil {
+	// if AccessRedisPool, err = initall.InitAccessRedis(); err != nil {
+	// 	return
+	// }
+
+	if BlacklistRedisPool, err = initall.InitBlacklistRedis(); err != nil {
 		return
 	}
-	//
 
 	// 初始化 EtcdKey
 	EtcdKey = GetEtcdKey()

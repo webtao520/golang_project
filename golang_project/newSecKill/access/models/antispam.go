@@ -23,9 +23,12 @@ func (this *Antispam) SecKillAntispam(UserId, ActivityId int, Ip string)(err err
    if err = this.AntispamByUserId(UserId);err !=nil {
 	   return
    }
+   return
 }
 
 // UserId 防刷
 func (this *Antispam) AntispamByUserId(UserId int)(err error){
-    
+	fmt.Println("读取userid名单用户")
+	
+	return
 }

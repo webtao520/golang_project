@@ -37,11 +37,19 @@ type AccessRedisConfig struct {
 	ListName          string
 }
 
+type BlacklistRedisConfig struct {
+	Address     string
+	MaxIdle     int
+	MaxActive   int
+	IdleTimeout int
+}
+
 // 系统所有配置信息
 type ConfigAll struct {
 	MysqlConfig
 	EtcdConfig
 	AccessRedisConfig
+	BlacklistRedisConfig
 }
 
 var conf config.Configer
@@ -72,9 +80,49 @@ func InitConfig() (ConfigAll ConfigAll, err error) {
 		return
 	}
 	ConfigAll.AccessRedisConfig = AccessRedisConfig
-
+	BlacklistRedisConfig, err := GetBlacklistRedisConfig()
+	if err != nil {
+		return
+	}
+	ConfigAll.BlacklistRedisConfig = BlacklistRedisConfig
 	SecKillConf = ConfigAll
 	logs.Debug("init config success")
+	return
+}
+
+func GetBlacklistRedisConfig() (BlacklistRedisConfig BlacklistRedisConfig, err error) {
+	// Address     string
+	// MaxIdle     int
+	// MaxActive   int
+	// IdleTimeout int
+	Address := conf.String("redis::redis_blacklist_addr")
+	if len(Address) == 0 {
+		err = errors.New("load config of redis_blacklist_addr , is null")
+		logs.Error(err)
+		return
+	}
+	BlacklistRedisConfig.Address = Address
+	MaxIdle, err := conf.Int("redis::redis_blacklist_MaxIdle")
+	if err != nil {
+		err = errors.New(fmt.Sprintf("load config of redis_blacklist_MaxIdle err : %v", err))
+		logs.Error(err)
+		return
+	}
+	BlacklistRedisConfig.MaxIdle = MaxIdle
+	MaxActive, err := conf.Int("redis::redis_blacklist_MaxActive")
+	if err != nil {
+		err = errors.New(fmt.Sprintf("load config of redis_blacklist_MaxActive err : %v", err))
+		logs.Error(err)
+		return
+	}
+	BlacklistRedisConfig.MaxActive = MaxActive
+	IdleTimeout, err := conf.Int("redis::redis_blacklist_IdleTimeout")
+	if err != nil {
+		err = errors.New(fmt.Sprintf("load config of redis_blacklist_IdleTimeout err : %v", err))
+		logs.Error(err)
+		return
+	}
+	BlacklistRedisConfig.IdleTimeout = IdleTimeout
 	return
 }
 

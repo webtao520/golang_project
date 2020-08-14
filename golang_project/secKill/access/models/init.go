@@ -67,7 +67,7 @@ func initAll() (err error) {
 	EtcdKey = GetEtcdKey()
 	// 加载秒杀的信息
 	SecKillInfoList, err = GetSecKillInfoListFromEtcd()
-	fmt.Println(SecKillInfoList)
+	fmt.Println(EtcdKey)
 	if err != nil {
 		return
 	}

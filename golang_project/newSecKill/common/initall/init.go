@@ -16,6 +16,8 @@ var (
 	Db          orm.Ormer
 	EtcdClient  *clientv3.Client
 	SecKillConf ConfigAll
+	//AccessRedisPool  *redis.Pool
+	//DisposeRedisPool *redis.Pool
 )
 
 /*
@@ -87,6 +89,26 @@ func InitAccessRedis() (pool *redis.Pool, err error) {
 	_, err = conn.Do("ping")
 	if err != nil {
 		err = errors.New(fmt.Sprintf("ping AccessRedis failed, err : %v", err))
+		logs.Error(err)
+		return
+	}
+	return
+}
+
+func InitBlacklistRedis() (pool *redis.Pool, err error) {
+	pool = &redis.Pool{ //实例化一个连接池
+		MaxIdle:     SecKillConf.BlacklistRedisConfig.MaxIdle,
+		MaxActive:   SecKillConf.BlacklistRedisConfig.MaxActive,
+		IdleTimeout: time.Duration(SecKillConf.BlacklistRedisConfig.IdleTimeout),
+		Dial: func() (redis.Conn, error) {
+			return redis.Dial("tcp", SecKillConf.BlacklistRedisConfig.Address)
+		},
+	}
+	conn := pool.Get()
+	defer func(conn redis.Conn) { conn.Close() }(conn)
+	_, err = conn.Do("ping")
+	if err != nil {
+		err = errors.New(fmt.Sprintf("ping BlacklistRedisConfig failed, err : %v", err))
 		logs.Error(err)
 		return
 	}
