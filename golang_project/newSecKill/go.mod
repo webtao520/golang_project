@@ -9,7 +9,9 @@ require (
 	github.com/coreos/go-semver v0.3.0 // indirect
 	github.com/coreos/pkg v0.0.0-20180928190104-399ea9e2e55f // indirect
 	github.com/envoyproxy/go-control-plane v0.9.4 // indirect
+	github.com/garyburd/redigo v1.6.2
 	github.com/go-sql-driver/mysql v1.5.0
+	github.com/gomodule/redigo v2.0.0+incompatible
 	github.com/google/go-cmp v0.5.0 // indirect
 	github.com/google/uuid v1.1.1 // indirect
 	go.uber.org/zap v1.15.0 // indirect

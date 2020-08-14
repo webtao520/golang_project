@@ -16,7 +16,8 @@ var (
 	EtcdClient      *clientv3.Client
 	SecKillInfoMap  = make(map[int]*SecKillInfo)
 	SecKillInfoList []SecKillInfo //etcd 配置修改
-	AccessRedisPool *redis.Pool   //redis连接配置
+	AccessRedisPool *redis.Pool
+	//BlacklistRedisPool *redis.Pool // 加载redis 中的黑名单
 )
 
 func init() {

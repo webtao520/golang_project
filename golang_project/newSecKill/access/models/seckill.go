@@ -45,6 +45,10 @@ func (this *NowSecKillInfo) GetSecKillInfo() (nowSecKillInfo []NowSecKillInfo) {
 	return
 }
 
+var (
+	SecKillRequestChan chan *SecKillRequest = make(chan *SecKillRequest, 10000)
+)
+
 type SecKillRequest struct {
 	ActivityId    int
 	UserId        int
@@ -64,7 +68,11 @@ type SecKillResult struct {
 // 秒杀业务处理
 func SecKill(req *SecKillRequest) (data map[string]interface{}, err error) {
 	data = make(map[string]interface{})
-
+	// 处理防刷机制
+	err = NewAntispamModel().SecKillAntispam(req.UserId, req.ActivityId, req.Ip)
+	if err != nil {
+		return
+	}
 	return
 
 }

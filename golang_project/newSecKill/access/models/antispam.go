@@ -27,10 +27,5 @@ func (this *Antispam) SecKillAntispam(UserId, ActivityId int, Ip string)(err err
 
 // UserId 防刷
 func (this *Antispam) AntispamByUserId(UserId int)(err error){
-	/*
-	if _, ok := SecKillBlacklist.UserIdBlacklist[UserId]; ok {
-		err = fmt.Errorf("UserId 黑名单用户，UserId : %v", UserId)
-		return
-	}
-	*/
+    
 }
