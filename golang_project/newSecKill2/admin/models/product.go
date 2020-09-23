@@ -27,14 +27,14 @@ func NewProductModel() *SecKillProduct {
 }
 
 
-func (this *SecKillProduct) GetProductList(slimit,elimit uint) (lists []SecKillProduct,err error) {
-    if slimit == 0 && elimit == 0 {
-		slimit =0 
+func (this *SecKillProduct) GetProductList(slimit, elimit uint) (lists []SecKillProduct, err error) {
+	if slimit == 0 && elimit == 0 {
+		slimit = 0
 		elimit = 20
 	}
-	num,err:=DB.Raw("select * from sec_kill_product limit ?,?",slimit,elimit).QueryRows(&lists)
-	if err !=nil && num<0{
-		logs.Warn("get Product list err : %v",err)
+	num, err := DB.Raw("select * from sec_kill_product limit ?,?", slimit, elimit).QueryRows(&lists)
+	if err != nil && num < 0 {
+		logs.Warn("get Product list err : %v ", err)
 		return
 	}
 	return

@@ -34,6 +34,8 @@ func InitConfig()(ConfigAll ConfigAll,err error){
     if err !=nil {
 		return
 	}
+	ConfigAll.MysqlConfig = MysqlConfig
+	
 	return
 }
 
@@ -46,5 +48,38 @@ func  GetMysqlConfig()(MysqlConfig MysqlConfig,err error){
 		return
 	}
 	MysqlConfig.UserName=UserName
-	 return
+
+	PassWd := conf.String("mysql::mysql_pass")
+	if(len(PassWd) ==0){
+		logs.Error("load config of mysql_pass failed, is null")
+		err = errors.New("load config of mysql_pass failed, is null")
+		return
+	}
+	MysqlConfig.PassWd=PassWd
+	
+	Port, err := conf.Int("mysql::mysql_port")
+	if err != nil {
+		logs.Error("load config of mysql_port failed, is err : ", err)
+		err = errors.New(fmt.Sprintf("load config of mysql_port failed, is err : ", err))
+		return
+	}
+	MysqlConfig.Port=Port
+
+	Host := conf.String("mysql::mysql_host")
+	if len(Host) == 0 {
+		logs.Error("load config of mysql_host failed , is null")
+		err = errors.New("load config of mysql_host failed , is null")
+		return
+	}
+	MysqlConfig.Host=Host
+
+	DbName := conf.String("mysql::mysql_db_name")
+	if len(DbName) == 0 {
+		logs.Error("load config of mysql_db_name failed , is null")
+		err = errors.New("load config of mysql_db_name failed , is null")
+		return
+	}
+	MysqlConfig.DbName = DbName
+
+	return
 }

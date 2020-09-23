@@ -10,6 +10,7 @@ import (
 
 var (
 	DB  orm.Ormer
+	SecKillConf         initall.ConfigAll
 )
 
 func init (){
