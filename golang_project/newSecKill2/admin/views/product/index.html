@@ -1,0 +1,29 @@
+<div class="container">
+    <h1>产品列表</h1>
+    <a type="submit" class="btn btn-default" href='{{urlfor "ProductController.AddProduct"}}'>添加产品</a>
+    <table width="95%" border="1" cellpadding="2" cellspacing="1">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>产品名称</th>
+                <th>产品总数</th>
+                <th>产品状态</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{range .ProductList}}
+            <tr>
+                <td>{{.ProductId}}</td>
+                <td>{{.ProductName}}</td>
+                <td>{{.Total}}</td>
+                <td>{{.Status}}</td>
+                <td>
+                    <a href="/seckill/product/updateProduct?id={{.ProductId}}">修改</a>
+                    <a href="/seckill/product/delProduct?id={{.ProductId}}">删除</a>
+                </td>
+            </tr>
+            {{end}}
+        </tbody>
+    </table>
+</div>
