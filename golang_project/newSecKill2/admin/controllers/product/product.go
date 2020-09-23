@@ -28,6 +28,6 @@ func (this *ProductController) Index() {
 		return
 	}
 	this.Data["ProductList"] = ProductList
-	this.TplName = "newSecKill2/product/index.html"
+	this.TplName = "product/index.html"
 	return
 }

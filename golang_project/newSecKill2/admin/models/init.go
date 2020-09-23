@@ -30,6 +30,7 @@ func init (){
 }
 
 func initAll() (err error) {
+	//  记载秒杀系统配置信息
 	if SecKillConf, err = initall.InitConfig(); err != nil {
 		return
 	}
