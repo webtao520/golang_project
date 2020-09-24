@@ -10,6 +10,6 @@ import (
 func init() {
 	admin.Run()
 	// 产品
-	beego.Router("/newSecKill2/product/index", &product.ProductController{}, "*:Index") // 产品列表页
-	//beego.Router()                                                                  // 添加产品
+	beego.Router("/seckill/product/index", &product.ProductController{}, "*:Index")          // 产品列表页
+	beego.Router("/seckill/product/addProuct", &product.ProductController{}, "*:AddProduct") // 添加产品
 }

@@ -31,3 +31,12 @@ func (this *ProductController) Index() {
 	this.TplName = "product/index.html"
 	return
 }
+
+// 添加产品
+func (this *ProductController) AddProduct() {
+	if this.Ctx.Input.IsPost() {
+
+	} else {
+
+	}
+}
