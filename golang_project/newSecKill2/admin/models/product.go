@@ -3,7 +3,10 @@ package models
 import (
 	//"fmt"
 
+	"fmt"
+
 	"github.com/astaxie/beego/logs"
+	"github.com/astaxie/beego/orm"
 )
 
 type SecKillProduct struct {
@@ -53,23 +56,45 @@ func (this *SecKillProduct) GetProductListByName(name string,limit uint)(num int
 		return
 }
 
-/**
-*  添加产品
-		o := orm.NewOrm()
-		var user User
-		user.Name = "slene"
-		user.IsActive = true
+func (this *SecKillProduct) GetProductListById(id int64)(result SecKillProduct,err error){
+	err=DB.Raw("select * from sec_kill_product where product_id = ?",id).QueryRow(&result) // 获取一条数据 
+	//err := o.Raw("SELECT id, user_name FROM user WHERE id = ?", 1).QueryRow(&user)
+	if err !=nil {
+		logs.Warn("get product by name err : %v", err)
+		return
+	}
+	return
+}
 
-		id, err := o.Insert(&user)
-		if err == nil {
-			fmt.Println(id)
-		}
-*/
+
 func (this *SecKillProduct) InsertProduct(p *SecKillProduct)(num int64,err error){
 	num,err=DB.Insert(p)  //num  是创建主键id值
 	if err !=nil {
 		logs.Warn("add product err : %v", err)
 		return
+	}
+	return
+}
+
+func (this *SecKillProduct) UpdateProduct(p *SecKillProduct)(err error){
+	if _, err = DB.Update(p); err != nil {
+		return
+	}
+	return
+}
+
+func (this *SecKillProduct)  DelProduct(p *SecKillProduct)(err error){
+	err=DB.Read(p)
+	if err == orm.ErrNoRows{
+		fmt.Println("查询不到")
+	}else if err == orm.ErrMissPK {
+		fmt.Println("找不到主键")
+	}else {
+		fmt.Println(p.ProductId,p.ProductName)
+	}
+	_,err=DB.Delete(p)
+	if  err !=nil{
+		logs.Warn("del product err : %v", err)
 	}
 	return
 }

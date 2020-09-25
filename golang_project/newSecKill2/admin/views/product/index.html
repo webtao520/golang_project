@@ -17,7 +17,7 @@
                 <td>{{.ProductId}}</td>
                 <td>{{.ProductName}}</td>
                 <td>{{.Total}}</td>
-                <td>{{.Status}}</td>
+                <td> {{if eq .Status 1}} 是 {{end}}  {{if eq .Status 2}} 否 {{end}}</td>
                 <td>
                     <a href="/seckill/product/updateProduct?id={{.ProductId}}">修改</a>
                     <a href="/seckill/product/delProduct?id={{.ProductId}}">删除</a>
