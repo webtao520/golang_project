@@ -89,6 +89,7 @@ func (this *ProductController) AddProduct() {
  */
 func (this *ProductController) UpdateProduct() {
 	if this.Ctx.Input.IsPost() {
+		fmt.Println("edit 456")
 		Id, err := this.GetInt64("ProductId")                           // 产品id
 		ProductName := strings.TrimSpace(this.GetString("ProductName")) // 产品名称
 		Total, err := this.GetInt("Total")                              // 数量
@@ -115,6 +116,7 @@ func (this *ProductController) UpdateProduct() {
 		}
 		this.Success("index", "添加成功")
 	} else {
+		fmt.Println("edit 123")
 		//Id, err := this.GetInt("ProductId")
 		Id, err := this.GetInt64("id")
 		if err != nil {

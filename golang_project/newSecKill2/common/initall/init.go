@@ -5,16 +5,20 @@ import (
 	//"fmt"
 
 	//"github.com/astaxie/beego"
+	"time"
+
+	"github.com/astaxie/beego/logs"
 	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql"
+	"go.etcd.io/etcd/clientv3"
 	//"github.com/astaxie/beego/logs"
 )
 
-var (  
-	Db  orm.Ormer
-	//SecKillConf      ConfigAll
+var (
+	Db          orm.Ormer
+	SecKillConf ConfigAll
+	EtcdClient  *clientv3.Client
 )
-
 
 /*
 func InitAll() (SecKillConf ConfigAll, err error) {
@@ -51,3 +55,22 @@ func InitMysql() (Db orm.Ormer, err error) {
 	return
 }
 */
+
+func InitEtcd() (EtcdClient *clientv3.Client, err error) {
+	cli, err := clientv3.New(clientv3.Config{
+		Endpoints:   []string{SecKillConf.EtcdConfig.Address},
+		DialTimeout: time.Duration(SecKillConf.EtcdConfig.DailTimeOut) * time.Second,
+	})
+	/**
+	要将整数个某时间单元表示为Duration类型值
+	seconds := 10
+	fmt.Print(time.Duration(seconds)*time.Second) // prints 10s
+	*/
+	if err != nil {
+		logs.Error("connect etcd failed, err:", err)
+		return
+	}
+	EtcdClient = cli
+	logs.Debug("init etcd success")
+	return
+}

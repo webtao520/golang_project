@@ -1,0 +1,62 @@
+<div class="container">
+    <h1>添加活动</h1>{{.error}}
+    <form method="post" action='{{urlfor "ActivityController.UpdateActivity"}}' enctype="multipart/form-data" >
+        {{with .activityInfo}}
+            <input type="hidden" name="ActivityId" value="{{.Activity.ActivityId}}">
+        <div class="form-group">
+            <label>活动名称：</label>
+            <input type="text" class="form-control" name="ActivityName" value="{{.Activity.ActivityName}}">
+        </div>
+        <div class="form-group">
+            <label>活动商品：</label>
+            <select name="ProductId" id="">
+                <option value="">--请选择--</option>
+                {{range .ProductList}}
+                <option {{if eq .ProductId $.activityInfo.Activity.ProductId }}selected{{end}} value="{{.ProductId}}">{{.ProductName}}</option>
+                {{end}}
+            </select>
+        </div>
+        <div class="form-group">
+            <label>开始时间：</label>
+            <input type="text" class="form-control" name="StartTime" value="{{.Activity.StartTime}}">格式：Y-m-d H:i:s
+        </div>
+        <div class="form-group">
+            <label>结束时间：</label>
+            <input type="text" class="form-control" name="EndTime" value="{{.Activity.EndTime}}">格式：Y-m-d H:i:s
+        </div>
+        <div class="form-group">
+            <label>活动商品总数：</label>
+            <input type="text" class="form-control" name="Total" value="{{.Activity.Total}}">
+        </div>
+        <div class="form-group">
+            <label>活动状态：</label>
+            {{if eq .Activity.Status 1}}
+                未开始<br/>
+                <input type="radio" name="Status" checked value="1">未开始
+                <input type="radio" name="Status"  value="2">开始此活动
+                <input type="radio" name="Status"  value="3">结束此活动
+            {{else if eq .Activity.Status 2}}
+                进行中<br/>
+                <input type="radio" name="Status" checked value="3">活动进行中
+                <input type="radio" name="Status"  value="3">结束此活动
+            {{else if eq .Activity.Status 3}}
+                已结束
+            {{end}}
+        </div>
+        <div class="form-group">
+            <label>每秒可售商品个数：</label>
+            <input type="text" class="form-control" name="SecondLimit" value="{{.Activity.SecondLimit}}">
+        </div>
+        <div class="form-group">
+            <label>每人限购商品数：</label>
+            <input type="text" class="form-control" name="EveryoneLimit" value="{{.Activity.EveryoneLimit}}">
+        </div>
+        <div class="form-group">
+            <label>购买概率：</label>
+            <input type="text" class="form-control" name="BuyRate" value="{{.Activity.BuyRate}}">%
+        </div>
+        {{end}}
+        <button type="submit" class="btn btn-default">保存</button>
+    </form>
+    <a href='{{urlfor "ActivityController.Index"}}'>返回</a>
+</div>
