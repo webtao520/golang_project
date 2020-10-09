@@ -1,0 +1,35 @@
+2020/10/09 14:02:17.212 [D] [init.go:49]  init logs success
+2020/10/09 14:02:17.712 [I] [asm_amd64.s:1373]  http server Running on http://:8090
+2020/10/09 14:02:32.563 [D] [server.go:2807]  |            ::1|[43m 404 [0m|           0s| nomatch|[44m GET     [0m /robots.txt
+2020/10/09 14:02:32.566 [D] [server.go:2807]  |            ::1|[47m 302 [0m|     3.9887ms|   match|[44m GET     [0m /     r:/
+2020/10/09 14:02:35.922 [D] [server.go:2807]  |            ::1|[42m 200 [0m|        998µs|   match|[44m GET     [0m /public/login   r:/public/login
+2020/10/09 14:02:35.957 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     4.9877ms|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/easyui.css
+2020/10/09 14:02:35.958 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     2.9918ms|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/icon.css
+2020/10/09 14:02:35.961 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     3.9892ms|   match|[44m GET     [0m /static/easyui/jquery-easyui/jquery.min.js
+2020/10/09 14:02:35.964 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     5.9829ms|   match|[44m GET     [0m /static/easyui/jquery-easyui/jquery.easyui.min.js
+2020/10/09 14:02:35.965 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     4.9868ms|   match|[44m GET     [0m /static/easyui/jquery-easyui/phpjs-min.js
+2020/10/09 14:02:35.966 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     7.9781ms|   match|[44m GET     [0m /static/easyui/jquery-easyui/easyui_expand.js
+2020/10/09 14:02:35.968 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     9.9754ms|   match|[44m GET     [0m /static/easyui/jquery-easyui/common.js
+2020/10/09 14:02:36.058 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      951.5µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/validatebox_warning.png
+2020/10/09 14:02:36.064 [D] [server.go:2807]  |            ::1|[42m 200 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/linkbutton_bg.png
+2020/10/09 14:02:36.065 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      997.5µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/icons/filesave.png
+2020/10/09 14:02:36.065 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      997.5µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/icons/cancel.png
+2020/10/09 14:02:36.069 [D] [server.go:2807]  |            ::1|[42m 200 [0m|        997µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/blank.gif
+2020/10/09 14:02:36.129 [D] [server.go:2807]  |            ::1|[43m 404 [0m|      997.6µs| nomatch|[44m GET     [0m /favicon.ico
+2020/10/09 14:02:38.081 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     4.9783ms|   match|[46m POST    [0m /public/login   r:/public/login
+2020/10/09 14:02:38.112 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     1.9884ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/10/09 14:02:38.164 [D] [server.go:2807]  |            ::1|[42m 200 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/icons/undo.png
+2020/10/09 14:02:38.164 [D] [server.go:2807]  |            ::1|[42m 200 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/icons/redo.png
+2020/10/09 14:02:38.179 [D] [server.go:2807]  |            ::1|[42m 200 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/panel_tools.png
+2020/10/09 14:02:38.180 [D] [server.go:2807]  |            ::1|[42m 200 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/layout_arrows.png
+2020/10/09 14:02:38.190 [D] [server.go:2807]  |            ::1|[42m 200 [0m|           0s|   match|[46m POST    [0m /public/index   r:/public/index
+2020/10/09 14:02:38.192 [D] [server.go:2807]  |            ::1|[42m 200 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/tabs_icons.png
+2020/10/09 14:02:38.198 [D] [server.go:2807]  |            ::1|[42m 200 [0m|           0s|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/icons/reload.png
+2020/10/09 14:02:38.234 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      997.5µs|   match|[44m GET     [0m /static/easyui/jquery-easyui/themes/default/images/tree_icons.png
+2020/10/09 14:02:39.390 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     3.9902ms|   match|[44m GET     [0m /seckill/activity/index   r:/seckill/activity/index
+2020/10/09 14:02:40.655 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     2.9924ms|   match|[44m GET     [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
+2020/10/09 14:03:08.292 [D] [server.go:2807]  |            ::1|[47m 302 [0m|     5.4925ms|   match|[46m POST    [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
+2020/10/09 14:03:08.298 [D] [server.go:2807]  |            ::1|[42m 200 [0m|      2.992ms|   match|[44m GET     [0m /seckill/activity/index   r:/seckill/activity/index
+2020/10/09 14:53:49.550 [D] [server.go:2807]  |            ::1|[47m 302 [0m|50m23.3851948s|   match|[44m GET     [0m /seckill/activity/delActivity   r:/seckill/activity/delActivity
+2020/10/09 14:53:49.572 [D] [server.go:2807]  |            ::1|[47m 302 [0m|           0s| nomatch|[44m GET     [0m /seckill/activity/index
+2020/10/09 14:53:49.593 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     7.9831ms|   match|[44m GET     [0m /public/login   r:/public/login

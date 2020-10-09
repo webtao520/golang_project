@@ -13,10 +13,6 @@ import (
 
 func GetEtcdKey() (etcdKey string) {
 	PrefixKey := SecKillConf.EtcdConfig.PrefixKey
-	/**
-	func HasSuffix(s, suffix string) bool
-	判断s是否有后缀字符串suffix。
-	*/
 	if strings.HasSuffix(PrefixKey, "/") == false {
 		PrefixKey = PrefixKey + "/"
 	}
@@ -28,13 +24,13 @@ func GetEtcdKey() (etcdKey string) {
 	return
 }
 
-// 添加，修改，删除 活动到mysql 成功后同步到etcd
+// 添加、修改、删除 活动到 mysql 成功后同步到 etde
 func (this *SecKillActivity) syncActivityToEtcd(types string, activity SecKillActivity) (err error) {
 	typeMap := map[string]int{"add": 1, "update": 2, "del": 3}
-	// 判断是否有效参数
+	// 判断是否是有效参数
 	typeValue, ok := typeMap[types]
 	if !ok {
-		err = errors.New(fmt.Sprintln("sync Activity To Etcd 参数错误, 错误参数:%v", types))
+		err = errors.New(fmt.Sprintln("sync Activity To Etcd 参数错误，错误参数：%v", types))
 		logs.Warn(err)
 		return
 	}
@@ -43,11 +39,23 @@ func (this *SecKillActivity) syncActivityToEtcd(types string, activity SecKillAc
 	switch typeValue {
 	case 1:
 		activityList = append(activityList, activity)
+	case 2:
+		for k, v := range activityList {
+			if v.ActivityId == activity.ActivityId {
+				activityList[k] = activity
+			}
+		}
+	case 3:
+		for k, v := range activityList {
+			if v.ActivityId == activity.ActivityId {
+				activityList = append(activityList[:k], activityList[k+1:]...)
+			}
+		}
 	default:
 		logs.Error("sync Activity To Etcd warning : %v", types)
 	}
-	jsonActivityList, err := json.Marshal(activityList)
 
+	jsonActivityList, err := json.Marshal(activityList)
 	if err != nil {
 		logs.Error("json marshal activityList failed, err : %v", err)
 		return
@@ -63,10 +71,11 @@ func (this *SecKillActivity) syncActivityToEtcd(types string, activity SecKillAc
 		logs.Error("put [%s] to etcd [%s] failed, err : %v", stringActivityList, etcdKey, err)
 		return
 	}
-	fmt.Println("etcdKey====>", etcdKey)
+	fmt.Println(activityList)
 	return
 }
 
+// 获取 etcd etcdKey 下的数据
 func loadActivityFromEtcd(etcdKey string) (activityList []SecKillActivity, err error) {
 	// 设置超时时间
 	getTimeOut := time.Second * time.Duration(SecKillConf.EtcdConfig.GetTimeOut)

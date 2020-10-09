@@ -6,17 +6,19 @@ import (
 
 	"github.com/astaxie/beego/orm"
 	"github.com/beego/admin/src/models"
+	"github.com/coreos/etcd/clientv3"
 	_ "github.com/go-sql-driver/mysql"
-	"go.etcd.io/etcd/clientv3"
 )
 
 var (
-	DB          orm.Ormer
-	EtcdClient  *clientv3.Client
-	SecKillConf initall.ConfigAll
+	DB                  orm.Ormer
+	EtcdClient          *clientv3.Client
+	SecKillConf         initall.ConfigAll
+	SecKillActivityList []SecKillActivity
 )
 
 func init() {
+
 	// 需要在init中注册定义的model
 	orm.RegisterModel(new(SecKillProduct), new(SecKillActivity))
 	//数据库连接
@@ -33,12 +35,20 @@ func init() {
 }
 
 func initAll() (err error) {
-	//  记载秒杀系统配置信息
 	if SecKillConf, err = initall.InitConfig(); err != nil {
 		return
 	}
+
+	
 	if EtcdClient, err = initall.InitEtcd(); err != nil {
 		return
 	}
+	/*
+	etcdKey := GetEtcdKey()
+	SecKillActivityList, err = loadActivityFromEtcd(etcdKey)
+	if err != nil {
+		return
+	}
+	*/
 	return
 }
