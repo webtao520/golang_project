@@ -87,6 +87,7 @@
    * 反射
    * slice
    * map
+   * slice切片去重(传入的是string类型,传入的是int类型)
 
 ### Go语言并发  
 
