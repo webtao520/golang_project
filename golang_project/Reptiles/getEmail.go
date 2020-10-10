@@ -35,13 +35,33 @@ import (
 		 // func (re *Regexp) FindAllStringSubmatch(s string, n int) [][]string
 		 results := re.FindAllStringSubmatch(pageStr, -1)
 		 //fmt.Println(results)
+		 mapEmali:=[]string{}
+		 mapQQ:=[]string{}
 		     // 遍历结果
 			 for _, result := range results {
-				fmt.Println("email:", result[0])
-				fmt.Println("qq:", result[1])
+				//fmt.Println("email:", result[0])
+				mapEmali = append(mapEmali, result[0])  // 向切片中添加元素
+				mapQQ = append(mapQQ, result[1]) 
+				//fmt.Println("qq:", result[1])
 			}
-	  
+			resEmali:=removeRepByMap(mapEmali)
+			resQQ:=removeRepByMap(mapQQ)
+			fmt.Println(resEmali,resQQ)
   }
+
+  func removeRepByMap(slc []string) []string {
+    result := []string{}        
+    tempMap := map[string]byte{}
+    for _, e := range slc {
+		l := len(tempMap)
+        tempMap[e] = 0 
+		
+        if len(tempMap) != l { 
+            result = append(result, e) 
+        }
+    }
+    return result
+}
 
   // 处理异常
   func HandleError (err error, why string){
