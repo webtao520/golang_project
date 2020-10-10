@@ -14,7 +14,6 @@ func main (){
 	fmt.Println(res2)
 }
 
-
 /*
 // 如果传入的是string类型 slice去重
 func removeRepByMap(slc []string) []string {
