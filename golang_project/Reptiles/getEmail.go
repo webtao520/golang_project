@@ -27,12 +27,10 @@ import (
 	   pageStr:=string(pageBytes)
 	   //fmt.Println(pageStr)
 	   // 过滤数据 过滤qq邮箱
+	  // re := regexp.MustCompile(reStr)，传入正则表达式，得到正则表达式对象
+	 //	ret := re.FindAllStringSubmatch(srcStr,-1)：用正则对象，获取页面页面，srcStr是页面内容，-1代表取全部
 	   re:=regexp.MustCompile(reQQEmail)
 		 // -1代表取全部
-		 // Find返回一个保管正则表达式re在b中的所有不重叠的匹配结果
-		 //及其对应的（可能有的）分组匹配的结果的[][]string切片。
-		 //如果没有匹配到，会返回nil。
-		 // func (re *Regexp) FindAllStringSubmatch(s string, n int) [][]string
 		 results := re.FindAllStringSubmatch(pageStr, -1)
 		 //fmt.Println(results)
 		 mapEmali:=[]string{}
