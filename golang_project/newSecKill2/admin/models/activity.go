@@ -54,19 +54,18 @@ func (this *SecKillActivity) GetActivityList(slimit, elimit int) (lists []SecKil
 }
 
 func (this *SecKillActivity) InsertActivity(activity *SecKillActivity) (num int64, err error) {
-	// 	fmt.Println("===============>", *activity)  ===============> {0 秒杀了 3 2020-09-28 16:14:09 +0800 CST 2020-09-30 16:14:09 +0800 CST 300 1 2 2 50}
-	// fmt.Println("===========>", activity) ===========> &{0 秒杀了 3 2020-09-28 16:14:09 +0800 CST 2020-09-30 00:14:09 +0800 CST 300 1 2 2 60}
-
-	num, err = DB.Insert(activity)
-	if err != nil {
-		logs.Warn("add activity err : %v", err)
-		return
-	}
-
+	/*
+		num, err = DB.Insert(activity)
+		if err != nil {
+			logs.Warn("add activity err : %v", err)
+			return
+		}
+	*/
 	err = this.syncActivityToEtcd("add", *activity)
 	if err != nil {
 		return
 	}
+
 	return
 }
 

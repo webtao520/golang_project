@@ -12,9 +12,9 @@ import (
 
 var (
 	DB                  orm.Ormer
-	EtcdClient          *clientv3.Client
 	SecKillConf         initall.ConfigAll
 	SecKillActivityList []SecKillActivity
+	EtcdClient          *clientv3.Client
 )
 
 func init() {
@@ -38,17 +38,15 @@ func initAll() (err error) {
 	if SecKillConf, err = initall.InitConfig(); err != nil {
 		return
 	}
-
-	
 	if EtcdClient, err = initall.InitEtcd(); err != nil {
 		return
 	}
 	/*
-	etcdKey := GetEtcdKey()
-	SecKillActivityList, err = loadActivityFromEtcd(etcdKey)
-	if err != nil {
-		return
-	}
+		etcdKey := GetEtcdKey()
+		SecKillActivityList, err = loadActivityFromEtcd(etcdKey)
+		if err != nil {
+			return
+		}
 	*/
 	return
 }

@@ -31,12 +31,6 @@ func InitAll() (SecKillConf ConfigAll, err error) {
 		return
 	}
 
-	EtcdClient, err = InitEtcd()
-	if err != nil {
-		err = errors.New(fmt.Sprintf("init etcd err : ", err))
-		return
-	}
-
 	return
 }
 

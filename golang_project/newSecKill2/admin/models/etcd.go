@@ -11,9 +11,10 @@ import (
 	"github.com/astaxie/beego/logs"
 )
 
+//  获取etcd key
 func GetEtcdKey() (etcdKey string) {
 	PrefixKey := SecKillConf.EtcdConfig.PrefixKey
-	if strings.HasSuffix(PrefixKey, "/") == false {
+	if strings.HasSuffix(PrefixKey, "/") == false { // 判断是否有后缀字符串
 		PrefixKey = PrefixKey + "/"
 	}
 	ProductKey := SecKillConf.EtcdConfig.ProductKey
@@ -24,7 +25,7 @@ func GetEtcdKey() (etcdKey string) {
 	return
 }
 
-// 添加、修改、删除 活动到 mysql 成功后同步到 etde
+// 添加、修改、删除 活动到 mysql 成功后同步到 etcd
 func (this *SecKillActivity) syncActivityToEtcd(types string, activity SecKillActivity) (err error) {
 	typeMap := map[string]int{"add": 1, "update": 2, "del": 3}
 	// 判断是否是有效参数
@@ -75,7 +76,7 @@ func (this *SecKillActivity) syncActivityToEtcd(types string, activity SecKillAc
 	return
 }
 
-// 获取 etcd etcdKey 下的数据
+// 获取etcd etcdKey 下数据
 func loadActivityFromEtcd(etcdKey string) (activityList []SecKillActivity, err error) {
 	// 设置超时时间
 	getTimeOut := time.Second * time.Duration(SecKillConf.EtcdConfig.GetTimeOut)

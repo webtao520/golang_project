@@ -22,7 +22,7 @@ type MysqlConfig struct {
 	Host     string
 }
 
-// etcd
+// Etcd
 type EtcdConfig struct {
 	Address     string
 	PrefixKey   string
@@ -49,12 +49,13 @@ func InitConfig() (ConfigAll ConfigAll, err error) {
 	}
 	ConfigAll.MysqlConfig = MysqlConfig
 
-	// 初始化etcd配置信息
 	EtcdConfig, err := GetEtcdConfig()
 	if err != nil {
 		return
 	}
+
 	ConfigAll.EtcdConfig = EtcdConfig
+
 	return
 }
 
@@ -102,7 +103,6 @@ func GetMysqlConfig() (MysqlConfig MysqlConfig, err error) {
 	return
 }
 
-// 读取etcd 配置信息
 func GetEtcdConfig() (EtcdConfig EtcdConfig, err error) {
 	Address := conf.String("etcd::etcd_addr")
 	if len(Address) == 0 {
