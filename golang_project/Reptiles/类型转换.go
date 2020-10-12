@@ -1,4 +1,8 @@
 /**
+参考博客：
+https://www.cnblogs.com/f-ck-need-u/p/9863915.html#append%E7%B1%BB%E5%87%BD%E6%95%B0
+
+
 go  不会对数据隐式的类型转换，只能手动去执行转换操作
 简单的转换操作
 转换数据类型的方式很简单。
