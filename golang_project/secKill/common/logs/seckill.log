@@ -33,3 +33,5 @@
 2020/10/09 14:53:49.550 [D] [server.go:2807]  |            ::1|[47m 302 [0m|50m23.3851948s|   match|[44m GET     [0m /seckill/activity/delActivity   r:/seckill/activity/delActivity
 2020/10/09 14:53:49.572 [D] [server.go:2807]  |            ::1|[47m 302 [0m|           0s| nomatch|[44m GET     [0m /seckill/activity/index
 2020/10/09 14:53:49.593 [D] [server.go:2807]  |            ::1|[42m 200 [0m|     7.9831ms|   match|[44m GET     [0m /public/login   r:/public/login
+2020/10/12 09:47:25.180 [D] [init.go:49]  init logs success
+2020/10/12 09:47:45.182 [E] [init.go:53]  get [/seckill/activity/product/] from etcd failed, err : context deadline exceeded
