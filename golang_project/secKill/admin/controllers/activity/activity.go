@@ -82,10 +82,10 @@ func (this *ActivityController) getDataFormHtml() (activity models.SecKillActivi
 		err = errors.New("活动开始时间必须早于结束时间")
 		return
 	}
-	if StartTime.Before(time.Now().Local()) {
-		err = errors.New("活动开始时间必须晚于当前时间")
-		return
-	}
+	// if StartTime.Before(time.Now().Local()) {
+	// 	err = errors.New("活动开始时间必须晚于当前时间")
+	// 	return
+	// }
 	Total, err := this.GetInt("Total")
 	if err != nil {
 		err = errors.New("Total 必须是有效数字")
