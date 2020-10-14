@@ -52,6 +52,7 @@ type SecKillResult struct {
 func SecKill(req *SecKillRequest) (data map[string]interface{}, err error) {
 	//data = make(map[string]interface{})
 	//fmt.Println(req) // &{3 12 127.0.0.1:57261 http://127.0.0.1:8888/seckill/index 127.0.0.1 0xc0005a40e0 <nil>}
+	// TODO 秒杀逻辑
 	t := time.NewTicker(time.Second * 10)
 	defer func(t *time.Ticker) {
 		t.Stop()
