@@ -56,7 +56,6 @@ func (this *SecKillController) SecKill() {
 	//fmt.Println(ClientAddr)
 	var ClientRefence string
 	if len(ClientAddr) > 0 {
-		//ClientRefence = strings.TrimLeft(strings.Split(ClientAddr, ":")[1], "//")
-		fmt.Println(strings.Split(ClientAddr, ":"))
+		ClientRefence = strings.TrimLeft(strings.Split(ClientAddr, ":")[1], "//")
 	}
 }
