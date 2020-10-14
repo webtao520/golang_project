@@ -104,4 +104,12 @@ func (this *UserController) Register() {
 	return
 }
 
-
+// 登陆
+func (this *UserController) Login(){
+	 if this.Ctx.Input.IsGet() {
+		this.TplName = "user/login.html"
+	 }else {
+		this.Redirect("/seckill/index", 302)
+	 }
+	 return
+}
