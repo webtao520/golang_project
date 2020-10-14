@@ -1,8 +1,8 @@
 package models
 
-import (
-	//"fmt"
-)
+import "time"
+
+//"fmt"
 
 //"fmt"
 
@@ -21,14 +21,43 @@ import (
 
 // 当前的秒杀信息
 type NowSecKillInfo struct {
-	ActivityId int // 活动id
-	ActivityName  string // 活动名称
-	Total       int32 // 活动商品数量
+	ActivityId   int    // 活动id
+	ActivityName string // 活动名称
+	Total        int32  // 活动商品数量
 }
 
 // 实例化秒杀信息model
 func NewNowSecKillModel() *NowSecKillInfo {
 	return &NowSecKillInfo{}
+}
+
+type SecKillRequest struct {
+	ActivityId    int
+	UserId        int
+	Ip            string
+	ClientAddr    string
+	ClientRefence string
+	CloseNotify   <-chan bool         `json:"_"`
+	ResultChan    chan *SecKillResult `json:"_"`
+}
+
+type SecKillResult struct {
+	ActivityId int
+	UserId     int
+	Token      string
+	Error      error
+}
+
+// 秒杀
+func SecKill(req *SecKillRequest) (data map[string]interface{}, err error) {
+	//data = make(map[string]interface{})
+	//fmt.Println(req) // &{3 12 127.0.0.1:57261 http://127.0.0.1:8888/seckill/index 127.0.0.1 0xc0005a40e0 <nil>}
+	t := time.NewTicker(time.Second * 10)
+	defer func(t *time.Ticker) {
+		t.Stop()
+	}(t)
+
+	return
 }
 
 // 获取秒杀信息

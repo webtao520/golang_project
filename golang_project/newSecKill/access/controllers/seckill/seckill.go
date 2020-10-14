@@ -3,9 +3,11 @@ package seckill
 import (
 	"fmt"
 	"newSecKill/access/models"
+	"strconv"
 	"strings"
 
 	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/logs"
 )
 
 type SecKillController struct {
@@ -56,6 +58,38 @@ func (this *SecKillController) SecKill() {
 	//fmt.Println(ClientAddr)
 	var ClientRefence string
 	if len(ClientAddr) > 0 {
-		ClientRefence = strings.TrimLeft(strings.Split(ClientAddr, ":")[1], "//")
+		ClientRefence = strings.TrimLeft(strings.Split(ClientAddr, ":")[1], "//") //获取主机地址
 	}
+	CloseNotify := this.Ctx.ResponseWriter.CloseNotify()               // golang捕获http.ResponseWriter被close
+	ActivityId, _ := strconv.Atoi(this.Ctx.Input.Param(":ActivityId")) //字符串转换为int 按给定的键返回路由器参数。
+	if ActivityId < 1 {
+		logs.Error("SecKill get ActivityId err")
+		this.Failed()
+		return
+	}
+	// 获取客户端的地址和端口号
+	UserIp := this.Ctx.Request.RemoteAddr // 127.0.0.1:55512
+	// 获取用户userid
+	UserId := this.GetSession("user").(*models.SecKillUser).UserId
+
+	secKillRequest := &models.SecKillRequest{
+		UserId:        UserId,
+		Ip:            UserIp,
+		ActivityId:    ActivityId,
+		ClientAddr:    ClientAddr,
+		ClientRefence: ClientRefence,
+		CloseNotify:   CloseNotify,
+	}
+	// 处理秒杀结果
+	data, err := models.SecKill(secKillRequest)
+	if err != nil {
+		this.Failed()
+		return
+	}
+	this.Data["UserId"] = data["UserId"]
+	this.Data["token"] = data["token"]
+	this.Data["ActivityId"] = data["ActivityId"]
+	this.Data["UserName"] = this.GetSession("user").(*models.SecKillUser).UserName
+	this.TplName = "seckill/success.html"
+
 }
