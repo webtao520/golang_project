@@ -1,10 +1,8 @@
 package models
 
-import "time"
-
-//"fmt"
-
-//"fmt"
+import (
+	"time"
+)
 
 /*
 	ActivityId    int    //活动id
