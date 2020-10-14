@@ -2,10 +2,12 @@ package models
 
 import (
 	"crypto/md5"
+	"errors"
 	"fmt"
 	"time"
 
 	"github.com/astaxie/beego/logs"
+	"github.com/astaxie/beego/orm"
 )
 
 type SecKillUser struct {
@@ -38,12 +40,35 @@ func NewUserModel() *SecKillUser {
 	return &SecKillUser{}
 }
 
+//根据username 和 userpwd 查询用户信息
+func (this *SecKillUser) GetUserByNameAndPwd(UserName, UserPwd string) (user *SecKillUser, err error) {
+	if len(UserName) == 0 || len(UserPwd) == 0 {
+		return
+	}
+
+	user = &SecKillUser{
+		UserName: UserName,
+		UserPwd:  this.UserPwdMd5(UserPwd),
+	}
+	err = DB.Read(user, "UserName", "UserPwd")
+	if err != nil {
+		if err == orm.ErrNoRows {
+			err = errors.New("用户名 or 密码错误")
+			return
+		}
+		err = errors.New(fmt.Sprintf("GetUserByNameAndPwd err : %v , UserName is %s UserPwd is %s", err, UserName, UserPwd))
+		logs.Warn(err)
+		return
+	}
+	return
+}
+
 // 保存秒杀用户数据
 func (this *SecKillUser) InsertUser(user *SecKillUser) (num int64, err error) {
 	// 密码加密
 	user.UserPwd = this.UserPwdMd5(user.UserPwd)
-	num,err=DB.Insert(user)
-	if err !=nil {
+	num, err = DB.Insert(user)
+	if err != nil {
 		logs.Warn("insert SecKillUser err : %v", err)
 		return
 	}
@@ -52,7 +77,7 @@ func (this *SecKillUser) InsertUser(user *SecKillUser) (num int64, err error) {
 
 // 密码加密
 func (this *SecKillUser) UserPwdMd5(str string) string {
-	data:=[]byte(str + "sec kill")
-	has:=md5.Sum(data)
-	return fmt.Sprintf("%x",has)
-} 
+	data := []byte(str + "sec kill")
+	has := md5.Sum(data)
+	return fmt.Sprintf("%x", has)
+}

@@ -11,16 +11,14 @@ import (
 	"github.com/astaxie/beego/validation"
 )
 
-
-
-type UserController struct{
+type UserController struct {
 	beego.Controller
 }
 
 var (
 	cpt       *captcha.Captcha
 	valid                         = validation.Validation{}
-	UserModel  *models.SecKillUser  = models.NewUserModel()
+	UserModel *models.SecKillUser = models.NewUserModel()
 )
 
 func init() {
@@ -32,11 +30,11 @@ func init() {
 	cpt.StdHeight = 80
 }
 
-func (this *UserController) Error(err interface{}){
+func (this *UserController) Error(err interface{}) {
 	// 获取当前页面url
-	url:=this.Ctx.Request.Referer()
-	this.Data["error"]=fmt.Sprintln(err)
-	this.Redirect(url,302)
+	url := this.Ctx.Request.Referer()
+	this.Data["error"] = fmt.Sprintln(err)
+	this.Redirect(url, 302)
 	return
 }
 
@@ -105,11 +103,51 @@ func (this *UserController) Register() {
 }
 
 // 登陆
-func (this *UserController) Login(){
-	 if this.Ctx.Input.IsGet() {
-		this.TplName = "user/login.html"
-	 }else {
+func (this *UserController) Login() {
+	if this.Ctx.Input.IsGet() {
+		// 获取 session
+		userInfo := this.GetSession("user")
+
+		if userInfo != nil {
+			// 重定向
+			this.Redirect("index", 302)
+		} else {
+			// 获取 cookie
+			this.Data["UserName"] = this.Ctx.GetCookie("UserName")
+			this.Data["UserPwd"] = this.Ctx.GetCookie("UserPwd")
+
+			this.TplName = "user/login.html"
+		}
+	} else {
+		UserName := this.GetString("UserName")
+		if len(UserName) < 1 {
+			this.Error("请输入用户名")
+			return
+		}
+		UserPwd := this.GetString("UserPwd")
+		if len(UserPwd) < 6 {
+			this.Error("密码长度不小于6位")
+			return
+		}
+		// 验证输入的验证码
+		captcha := cpt.VerifyReq(this.Ctx.Request)
+		if !captcha {
+			this.Error("验证码有误！")
+			return
+		}
+		user, err := UserModel.GetUserByNameAndPwd(UserName, UserPwd)
+		if err != nil {
+			this.Error(err)
+			return
+		}
+		// 设置 session
+		this.SetSession("user", user)
+		// 设置 cookie
+		this.Ctx.SetCookie("UserName", UserName)
+		this.Ctx.SetCookie("UserPwd", UserPwd)
+
 		this.Redirect("/seckill/index", 302)
-	 }
-	 return
+
+	}
+	return
 }

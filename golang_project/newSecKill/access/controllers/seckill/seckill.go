@@ -3,10 +3,12 @@ package seckill
 import (
 	"fmt"
 	"newSecKill/access/models"
+	"strings"
+
 	"github.com/astaxie/beego"
 )
 
-type SecKillController struct{
+type SecKillController struct {
 	beego.Controller
 }
 
@@ -48,3 +50,13 @@ func (this *SecKillController) Index() {
 	return
 }
 
+// 用户秒杀
+func (this *SecKillController) SecKill() {
+	ClientAddr := this.Ctx.Request.Referer() // http://127.0.0.1:8888/seckill/index 返回请求url
+	//fmt.Println(ClientAddr)
+	var ClientRefence string
+	if len(ClientAddr) > 0 {
+		//ClientRefence = strings.TrimLeft(strings.Split(ClientAddr, ":")[1], "//")
+		fmt.Println(strings.Split(ClientAddr, ":"))
+	}
+}
