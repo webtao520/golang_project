@@ -26,3 +26,37 @@ go 函数名( 参数列表 )
 使用 go 关键字，将 running() 函数并发执行，每隔一秒打印一次计数器，而 main 的 goroutine 则等待用户输入，两个行为可以同时进行。请参考下面代码：
  + 案例
     * 1.go 
+
+这个例子中，Go 程序在启动时，运行时（runtime）会默认为 main() 函数创建一个 goroutine。在 main() 函数的 goroutine 中执行到 go running 语句时，
+归属于 running() 函数的 goroutine 被创建，running() 函数开始在自己的 goroutine 中执行。
+此时，main() 继续执行，两个 goroutine 通过 Go 程序的调度机制同时运作。    
+
+### 使用匿名函数创建goroutine
+
+go 关键字后也可以为匿名函数或闭包启动 goroutine。
+1) 使用匿名函数创建goroutine的格式
+使用匿名函数或闭包创建 goroutine 时，除了将函数定义部分写在 go 的后面之外，还需要加上匿名函数的调用参数，格式如下：
+
+go func( 参数列表 ){
+    函数体
+}( 调用参数列表 )
+
+
+其中：
+参数列表：函数体内的参数变量列表。
+函数体：匿名函数的代码。
+调用参数列表：启动 goroutine 时，需要向匿名函数传递的调用参数。
+2) 使用匿名函数创建goroutine的例子
+在 main() 函数中创建一个匿名函数并为匿名函数启动 goroutine。匿名函数没有参数。代码将并行执行定时打印计数的效果。参见下面的代码：
+ + 案例
+    * 2.go 
+
+提示
+所有 goroutine 在 main() 函数结束时会一同结束。
+
+goroutine 虽然类似于线程概念，但是从调度性能上没有线程细致，而细致程度取决于 Go 程序的 goroutine 调度器的实现和运行环境。
+
+终止 goroutine 的最好方法就是自然返回 goroutine 对应的函数。虽然可以用 golang.org/x/net/context 包进行 goroutine 生命期深度控制，
+但这种方法仍然处于内部试验阶段，并不是官方推荐的特性。
+
+截止 Go 1.9 版本，暂时没有标准接口获取 goroutine 的 ID。    
