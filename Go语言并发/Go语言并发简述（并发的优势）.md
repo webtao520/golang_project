@@ -63,9 +63,11 @@ channel 是类型相关的，也就是说，一个 channel 只能传递一种类
 就不难理解 channel，可以将其认为是一种类型安全的管道。
 
 定义一个 channel 时，也需要定义发送到 channel 的值的类型，注意，必须使用 make 创建 channel，代码如下所示：
+
 ci := make(chan int)
 cs := make(chan string)
 cf := make(chan interface{})
+
 回到在 Windows 和 Linux 出现之前的古老年代，在开发程序时并没有并发的概念，因为命令式程序设计语言是以串行为基础的，
 程序会顺序执行每一条指令，整个程序只有一个执行上下文，即一个调用栈，一个堆。
 
@@ -87,3 +89,5 @@ cf := make(chan interface{})
 并发能更客观地表现问题模型；
 并发可以充分利用 CPU 核心的优势，提高程序的执行效率；
 并发能充分利用 CPU 与其他硬件设备固有的异步性。
+
+
