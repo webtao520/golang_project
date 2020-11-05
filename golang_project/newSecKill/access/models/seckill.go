@@ -1,21 +1,16 @@
 package models
 
 import (
+	"fmt"
+	"sync/atomic"
 	"time"
 )
 
-/*
-	ActivityId    int    //活动id
-	ActivityName  string //活动名称
-	ProductId     int    //商品id
-	StartTime     int    //活动开始时间
-	EndTime       int    //活动结束时间
-	Total         int    //活动商品数量
-	Status        int    //活动状态（1.未开始，2.进行中，3.已结束）
-	SecondLimit   int    //每秒可售商品个数
-	EveryoneLimit int    //每人限购商品数
-	BuyRate       int    //购买到的概率 （百分比）
-*/
+var (
+	// 通道在声明后，要分配内存
+	SecKillRequestChan chan *SecKillRequest           = make(chan *SecKillRequest, 10000)
+	SecKillUserMap     map[string]chan *SecKillResult = make(map[string]chan *SecKillResult, 10000)
+)
 
 // 当前的秒杀信息
 type NowSecKillInfo struct {
@@ -35,7 +30,7 @@ type SecKillRequest struct {
 	Ip            string
 	ClientAddr    string
 	ClientRefence string
-	CloseNotify   <-chan bool         `json:"_"`
+	CloseNotify   <-chan bool         `json:"_"` // 单项通道，只能读取通道
 	ResultChan    chan *SecKillResult `json:"_"`
 }
 
@@ -48,21 +43,50 @@ type SecKillResult struct {
 
 // 秒杀
 func SecKill(req *SecKillRequest) (data map[string]interface{}, err error) {
-	//data = make(map[string]interface{})
 	//fmt.Println(req) // &{3 12 127.0.0.1:57261 http://127.0.0.1:8888/seckill/index 127.0.0.1 0xc0005a40e0 <nil>}
-	// TODO 秒杀逻辑
+	data = make(map[string]interface{})
+	// TODO 秒杀逻辑  创建一个打点器 || 计时器 ，每到整点就会触发
 	t := time.NewTicker(time.Second * 10)
 	defer func(t *time.Ticker) {
 		t.Stop()
 	}(t)
 
+	UserKey := fmt.Sprintln(req.ActivityId, "seckill", req.UserId)
+
+	// 创建带缓存通道
+	req.ResultChan = make(chan *SecKillResult, 1)
+	SecKillUserMap[UserKey] = req.ResultChan
+	SecKillRequestChan <- req
+
+	// 总数减 1
+	atomic.AddInt32(&SecKillInfoMap[req.ActivityId].Total, -1)
+	//Go语言通道的多路复用
+	select {
+	case <-t.C:
+		fmt.Println("req.ResultChan : ", req.ResultChan)
+		err = fmt.Errorf("超时")
+		return
+	case <-req.CloseNotify:
+		err = fmt.Errorf("client already closed")
+		return
+	case result := <-req.ResultChan:
+		err = result.Error
+		if err != nil {
+			return
+		}
+
+		data["ActivityId"] = result.ActivityId
+		data["token"] = result.Token
+		data["UserId"] = result.UserId
+		return
+	}
 	return
 }
 
 // 获取秒杀信息
 func (this *NowSecKillInfo) GetSecKillInfo() (nowSecKillInfo []NowSecKillInfo) {
 	secKillInfo := NowSecKillInfo{}
-	// fmt.Println("===============>",SecKillInfoMap)    ===============> map[3:0xc0001a0300]
+	fmt.Println("===============>", SecKillInfoMap) // ===============> map[3:0xc0001a0300]
 	for _, v := range SecKillInfoMap {
 		if v.Status != 2 || v.Total < 1 {
 			continue
