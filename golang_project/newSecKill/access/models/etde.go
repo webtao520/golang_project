@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"strings"
 	"time"
+
 	//"fmt"
 
 	"github.com/astaxie/beego/logs"
@@ -78,17 +79,24 @@ func GetSecKillInfoListFromEtcd() (SecKillInfoList []SecKillInfo, err error) {
 		}
 	}
 	// 将 []SecKillInfo 转成 map
+	//fmt.Println("etcd===", SecKillInfoList)
 	SecKillInfoSwitchover(SecKillInfoList)
 	return
 }
 
-
 // 将 []SecKillInfo 转成 map
 func SecKillInfoSwitchover(secKillInfoList []SecKillInfo) {
 	mapInfo := make(map[int]*SecKillInfo)
-	for _, v := range secKillInfoList {
-		mapInfo[v.ActivityId] = &v
+	for i, v := range secKillInfoList {
+		/*
+			 fmt.Println("=====值", v)
+			=====值 {9 秒杀了 5 2020-11-05 16:14:09 +0800 CST 2020-11-17 16:14:09 +0800 CST 15000 2 300 100 60}
+			=====值 {10 秒杀了999 5 2020-11-05 16:14:09 +0800 CST 2020-11-17 16:14:09 +0800 CST 13000 2 400 200 100}
+			=====值 {11 秒杀了888 5 2020-11-05 16:14:09 +0800 CST 2020-11-17 16:14:09 +0800 CST 16000 2 500 300 100}
+		*/
+		mapInfo[v.ActivityId] = &secKillInfoList[i]
 	}
+	//fmt.Println(mapInfo)
 	//  map[3:0xc00005a000 4:0xc00005a000]
 	SecKillInfoMap = mapInfo
 }

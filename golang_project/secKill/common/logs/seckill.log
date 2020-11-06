@@ -91,3 +91,130 @@
 2020/11/05 15:35:50.532 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|      2.992ms|   match|[44m GET     [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
 2020/11/05 15:36:19.844 [D] [server.go:2807]  |      127.0.0.1|[47m 302 [0m|    13.9784ms|   match|[46m POST    [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
 2020/11/05 15:36:19.853 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|      997.7µs|   match|[44m GET     [0m /seckill/activity/index   r:/seckill/activity/index
+2020/11/05 17:10:42.529 [D] [init.go:49]  init logs success
+2020/11/05 17:10:42.946 [I] [asm_amd64.s:1373]  http server Running on http://:8090
+2020/11/05 17:36:34.249 [D] [init.go:49]  init logs success
+2020/11/05 17:36:34.649 [I] [asm_amd64.s:1373]  http server Running on http://:8090
+2020/11/05 17:36:36.539 [D] [server.go:2807]  |      127.0.0.1|[47m 302 [0m|      5.982ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/11/05 17:36:36.547 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     1.9933ms|   match|[44m GET     [0m /public/login   r:/public/login
+2020/11/05 17:36:38.052 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     6.4912ms|   match|[46m POST    [0m /public/login   r:/public/login
+2020/11/05 17:36:38.083 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     2.9889ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/11/05 17:36:38.155 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|      1.994ms|   match|[46m POST    [0m /public/index   r:/public/index
+2020/11/05 17:36:41.783 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     4.9858ms|   match|[44m GET     [0m /seckill/activity/index   r:/seckill/activity/index
+2020/11/05 17:36:42.794 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     3.9905ms|   match|[44m GET     [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
+2020/11/05 17:37:20.854 [D] [server.go:2807]  |      127.0.0.1|[47m 302 [0m|     7.4931ms|   match|[46m POST    [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
+2020/11/05 17:37:20.859 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|      997.8µs|   match|[44m GET     [0m /seckill/activity/index   r:/seckill/activity/index
+2020/11/05 17:39:09.729 [D] [server.go:2807]  |      127.0.0.1|[47m 302 [0m|      997.1µs| nomatch|[44m GET     [0m /seckill/product/index
+2020/11/05 17:39:09.735 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     1.9878ms|   match|[44m GET     [0m /public/login   r:/public/login
+2020/11/05 17:39:25.402 [D] [init.go:49]  init logs success
+2020/11/05 17:39:25.834 [I] [asm_amd64.s:1373]  http server Running on http://:8090
+2020/11/05 17:39:29.517 [D] [server.go:2807]  |      127.0.0.1|[47m 302 [0m|      995.9µs|   match|[44m GET     [0m /public/index   r:/public/index
+2020/11/05 17:39:29.526 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     1.9922ms|   match|[44m GET     [0m /public/login   r:/public/login
+2020/11/05 17:39:30.836 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|      997.2µs|   match|[46m POST    [0m /public/login   r:/public/login
+2020/11/05 17:39:30.861 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|      1.994ms|   match|[44m GET     [0m /public/index   r:/public/index
+2020/11/05 17:39:30.936 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|      998.4µs|   match|[46m POST    [0m /public/index   r:/public/index
+2020/11/05 17:39:36.415 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     1.9944ms|   match|[44m GET     [0m /seckill/activity/index   r:/seckill/activity/index
+2020/11/05 17:39:37.878 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     1.9957ms|   match|[44m GET     [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
+2020/11/05 17:40:28.232 [D] [server.go:2807]  |      127.0.0.1|[47m 302 [0m|     6.9811ms|   match|[46m POST    [0m /seckill/activity/addActivity   r:/seckill/activity/addActivity
+2020/11/05 17:40:28.240 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     1.9934ms|   match|[44m GET     [0m /seckill/activity/index   r:/seckill/activity/index
+2020/11/06 10:09:11.456 [D] [init.go:63]  init logs success
+2020/11/06 10:09:11.772 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/11/06 10:09:11.772 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/11/06 10:09:11.772 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/11/06 10:09:11.772 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/11/06 10:09:11.772 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/11/06 10:09:11.772 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/11/06 10:09:11.772 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/11/06 10:09:11.772 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/11/06 10:09:11.772 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/11/06 10:09:11.772 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/11/06 10:09:11.772 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/11/06 10:09:11.772 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/11/06 10:09:11.772 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/11/06 10:09:11.772 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/11/06 10:09:11.772 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/11/06 10:09:11.772 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/11/06 10:09:11.772 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/11/06 10:09:11.772 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/11/06 10:09:11.772 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/11/06 10:09:11.772 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/11/06 10:09:11.772 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/11/06 10:09:11.772 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/11/06 10:09:11.772 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/11/06 10:09:11.772 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/11/06 10:09:11.772 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/11/06 10:09:11.772 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/11/06 10:09:11.772 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/11/06 10:09:11.772 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/11/06 10:09:11.772 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/11/06 10:09:11.772 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/11/06 10:09:11.772 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/11/06 10:09:11.772 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/11/06 10:09:11.871 [I] [asm_amd64.s:1373]  http server Running on http://:8080
+2020/11/06 10:12:23.124 [D] [server.go:2807]  |      127.0.0.1|[43m 404 [0m|           0s| nomatch|[44m GET     [0m /robots.txt
+2020/11/06 10:12:23.125 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|      996.7µs|   match|[44m GET     [0m /     r:/
+2020/11/06 10:12:26.046 [D] [server.go:2807]  |      127.0.0.1|[43m 404 [0m|           0s| nomatch|[44m GET     [0m /robots.txt
+2020/11/06 10:12:26.085 [D] [server.go:2807]  |      127.0.0.1|[43m 404 [0m|           0s| nomatch|[44m GET     [0m /favicon.ico
+2020/11/06 10:12:29.249 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|      996.5µs|   match|[44m GET     [0m /seckill/user/login   r:/seckill/user/login
+2020/11/06 10:12:29.302 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     1.9963ms| nomatch|[44m GET     [0m /captcha/jaQwYio6ieKGlgY.png
+2020/11/06 10:12:49.223 [C] [panic.go:969]  the request url is  /seckill/user/login
+2020/11/06 10:12:49.225 [C] [panic.go:969]  Handler crashed with error invalid connection
+2020/11/06 10:12:49.226 [C] [panic.go:969]  D:/soft/src/runtime/panic.go:969
+2020/11/06 10:12:49.229 [C] [panic.go:969]  C:/Users/zhangtao/go/pkg/mod/github.com/astaxie/beego@v1.12.2/orm/db_alias.go:205
+2020/11/06 10:12:49.230 [C] [panic.go:969]  C:/Users/zhangtao/go/pkg/mod/github.com/astaxie/beego@v1.12.2/orm/db.go:360
+2020/11/06 10:12:49.231 [C] [panic.go:969]  C:/Users/zhangtao/go/pkg/mod/github.com/astaxie/beego@v1.12.2/orm/orm.go:129
+2020/11/06 10:12:49.231 [C] [panic.go:969]  D:/goLang/github/golang_project/golang_project/secKill/access/models/user.go:51
+2020/11/06 10:12:49.232 [C] [panic.go:969]  D:/goLang/github/golang_project/golang_project/secKill/access/controllers/user/user.go:75
+2020/11/06 10:12:49.235 [C] [panic.go:969]  D:/soft/src/reflect/value.go:460
+2020/11/06 10:12:49.238 [C] [panic.go:969]  D:/soft/src/reflect/value.go:321
+2020/11/06 10:12:49.239 [C] [panic.go:969]  C:/Users/zhangtao/go/pkg/mod/github.com/astaxie/beego@v1.12.2/router.go:891
+2020/11/06 10:12:49.239 [C] [panic.go:969]  D:/soft/src/net/http/server.go:2807
+2020/11/06 10:12:49.240 [C] [panic.go:969]  D:/soft/src/net/http/server.go:1895
+2020/11/06 10:12:49.241 [C] [panic.go:969]  D:/soft/src/runtime/asm_amd64.s:1373
+2020/11/06 10:12:49.242 [server.go:3059]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/11/06 10:13:19.784 [D] [server.go:2807]  |      127.0.0.1|[47m 302 [0m|      996.2µs|   match|[46m POST    [0m /seckill/user/login   r:/seckill/user/login
+2020/11/06 10:13:19.790 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|      997.5µs|   match|[44m GET     [0m /seckill/user/login   r:/seckill/user/login
+2020/11/06 10:13:19.835 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     1.9953ms| nomatch|[44m GET     [0m /captcha/ZiHujl8LfqHnmri.png
+2020/11/06 10:13:33.736 [D] [server.go:2807]  |      127.0.0.1|[47m 302 [0m|     5.9851ms|   match|[46m POST    [0m /seckill/user/login   r:/seckill/user/login
+2020/11/06 10:13:33.743 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|      1.995ms|   match|[44m GET     [0m /seckill/index   r:/seckill/index
+2020/11/06 10:13:40.752 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     3.9907ms|   match|[44m GET     [0m /seckill/index   r:/seckill/index
+2020/11/06 10:13:41.332 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     3.9876ms|   match|[44m GET     [0m /seckill/index   r:/seckill/index
+2020/11/06 10:13:41.515 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     7.0169ms|   match|[44m GET     [0m /seckill/index   r:/seckill/index
+2020/11/06 10:13:41.699 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     5.9845ms|   match|[44m GET     [0m /seckill/index   r:/seckill/index
+2020/11/06 10:13:41.877 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     2.9926ms|   match|[44m GET     [0m /seckill/index   r:/seckill/index
+2020/11/06 10:13:42.098 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|     1.9957ms|   match|[44m GET     [0m /seckill/index   r:/seckill/index
+2020/11/06 10:13:42.293 [D] [server.go:2807]  |      127.0.0.1|[42m 200 [0m|      1.995ms|   match|[44m GET     [0m /seckill/index   r:/seckill/index
+2020/11/06 10:23:56.222 [D] [init.go:63]  init logs success
+2020/11/06 10:23:56.545 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/11/06 10:23:56.545 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/11/06 10:23:56.545 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/11/06 10:23:56.545 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/11/06 10:23:56.545 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/11/06 10:23:56.545 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/11/06 10:23:56.545 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/11/06 10:23:56.546 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/11/06 10:23:56.546 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/11/06 10:23:56.546 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/11/06 10:23:56.546 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/11/06 10:23:56.546 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/11/06 10:23:56.546 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/11/06 10:23:56.545 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/11/06 10:23:56.546 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/11/06 10:23:56.545 [D] [asm_amd64.s:1373]  WriteAccessRedisNode is running
+2020/11/06 10:23:56.546 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/11/06 10:23:56.546 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/11/06 10:23:56.546 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/11/06 10:23:56.546 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/11/06 10:23:56.546 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/11/06 10:23:56.546 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/11/06 10:23:56.546 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/11/06 10:23:56.546 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/11/06 10:23:56.546 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/11/06 10:23:56.546 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/11/06 10:23:56.546 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/11/06 10:23:56.546 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/11/06 10:23:56.546 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/11/06 10:23:56.546 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/11/06 10:23:56.546 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/11/06 10:23:56.546 [D] [asm_amd64.s:1373]  ReadDisposeRedisNode is running
+2020/11/06 10:23:56.668 [I] [asm_amd64.s:1373]  http server Running on http://:8080

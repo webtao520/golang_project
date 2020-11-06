@@ -43,9 +43,15 @@ type SecKillResult struct {
 
 // 秒杀
 func SecKill(req *SecKillRequest) (data map[string]interface{}, err error) {
-	//fmt.Println(req) // &{3 12 127.0.0.1:57261 http://127.0.0.1:8888/seckill/index 127.0.0.1 0xc0005a40e0 <nil>}
 	data = make(map[string]interface{})
-	// TODO 秒杀逻辑  创建一个打点器 || 计时器 ，每到整点就会触发
+
+	/*
+		err = NewAntispamModel().SecKillAntispam(req.UserId, req.ActivityId, req.Ip)
+		if err != nil {
+			return
+		}
+	*/
+
 	t := time.NewTicker(time.Second * 10)
 	defer func(t *time.Ticker) {
 		t.Stop()
@@ -53,14 +59,13 @@ func SecKill(req *SecKillRequest) (data map[string]interface{}, err error) {
 
 	UserKey := fmt.Sprintln(req.ActivityId, "seckill", req.UserId)
 
-	// 创建带缓存通道
 	req.ResultChan = make(chan *SecKillResult, 1)
 	SecKillUserMap[UserKey] = req.ResultChan
 	SecKillRequestChan <- req
 
-	// 总数减 1
+	// 总数减 1  理解下面 逻辑含义
 	atomic.AddInt32(&SecKillInfoMap[req.ActivityId].Total, -1)
-	//Go语言通道的多路复用
+
 	select {
 	case <-t.C:
 		fmt.Println("req.ResultChan : ", req.ResultChan)
@@ -80,17 +85,17 @@ func SecKill(req *SecKillRequest) (data map[string]interface{}, err error) {
 		data["UserId"] = result.UserId
 		return
 	}
-	return
 }
 
 // 获取秒杀信息
 func (this *NowSecKillInfo) GetSecKillInfo() (nowSecKillInfo []NowSecKillInfo) {
 	secKillInfo := NowSecKillInfo{}
-	fmt.Println("===============>", SecKillInfoMap) // ===============> map[3:0xc0001a0300]
+	fmt.Println("===============>", SecKillInfoMap) // map[9:0xc00041a180 10:0xc00041a180 11:0xc00041a180]
 	for _, v := range SecKillInfoMap {
 		if v.Status != 2 || v.Total < 1 {
 			continue
 		}
+
 		secKillInfo.ActivityId = v.ActivityId
 		secKillInfo.ActivityName = v.ActivityName
 		secKillInfo.Total = v.Total

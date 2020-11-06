@@ -33,7 +33,7 @@ func NewNowSecKillModel() *NowSecKillInfo {
 func (this *NowSecKillInfo) GetSecKillInfo() (nowSecKillInfo []NowSecKillInfo) {
 	// now := time.Now().Local()
 	secKillInfo := NowSecKillInfo{}
-	fmt.Println(SecKillInfoMap)
+	//fmt.Println(SecKillInfoMap)
 	for _, v := range SecKillInfoMap {
 		if v.Status != 2 || v.Total < 1 {
 			continue
@@ -88,7 +88,7 @@ func SecKill(req *SecKillRequest) (data map[string]interface{}, err error) {
 	SecKillUserMap[UserKey] = req.ResultChan
 	SecKillRequestChan <- req
 
-	// 总数减 1
+	// 总数减 1  理解下面 逻辑含义
 	atomic.AddInt32(&SecKillInfoMap[req.ActivityId].Total, -1)
 
 	select {
