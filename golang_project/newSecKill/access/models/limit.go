@@ -11,5 +11,53 @@ type  SecLimit strunct {
 	 curTime int64 
 }
 
+// Count
+func (this *SecLimit) Count(nowTime int64) (curCount int) {
+	if this.curTime != nowTime {
+		this.count = 1
+		this.curTime = nowTime
+		curCount = this.count
+		return
+	}
+
+	this.count++
+	curCount = this.count
+	return
+}
+
+// Check
+func (this *SecLimit) Check(nowTime int64) int {
+	if this.curTime != nowTime {
+		return 0
+	}
+	return this.count
+}
+
+// 每分钟限流 防刷
+type MinLimit struct {
+	count int
+	curTime int64 
+}
+
+func (this *MinLimit) Count(nowTime int64) (curCount int) {
+	if nowTime-this.curTime > 60 {
+		this.count = 1
+		this.curTime = nowTime
+		curCount = this.count
+		return
+	}
+
+	this.count++
+	curCount = this.count
+	return
+}
+
+func (this *MinLimit) Check(nowTime int64) int {
+	if this.curTime != nowTime {
+		return 0
+	}
+
+	return this.count
+}
 
 

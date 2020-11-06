@@ -50,5 +50,6 @@ func (this *Antispam)  AntispamByIp(UserIp string)(err error){
 			SecKillSecLimit: &SecLimit{},
 		 }
 	}
+
 	return 
 }
