@@ -44,13 +44,25 @@ type SecKillResult struct {
 // 秒杀
 func SecKill(req *SecKillRequest) (data map[string]interface{}, err error) {
 	data = make(map[string]interface{})
-
+	fmt.Println("=======>", req)
 	/*
+		UserId:        UserId,
+		Ip:            UserIp,
+		ActivityId:    ActivityId,
+		ClientAddr:    ClientAddr,
+		ClientRefence: ClientRefence,
+		CloseNotify:   CloseNotify,
+
 		err = NewAntispamModel().SecKillAntispam(req.UserId, req.ActivityId, req.Ip)
 		if err != nil {
 			return
 		}
 	*/
+
+	err = NewAntispamModel().SecKillAntispam(req.UserId, req.ActivityId, req.Ip)
+	if err != nil {
+		return
+	}
 
 	t := time.NewTicker(time.Second * 10)
 	defer func(t *time.Ticker) {
@@ -90,7 +102,6 @@ func SecKill(req *SecKillRequest) (data map[string]interface{}, err error) {
 // 获取秒杀信息
 func (this *NowSecKillInfo) GetSecKillInfo() (nowSecKillInfo []NowSecKillInfo) {
 	secKillInfo := NowSecKillInfo{}
-	fmt.Println("===============>", SecKillInfoMap) // map[9:0xc00041a180 10:0xc00041a180 11:0xc00041a180]
 	for _, v := range SecKillInfoMap {
 		if v.Status != 2 || v.Total < 1 {
 			continue

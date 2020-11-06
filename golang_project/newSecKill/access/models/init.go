@@ -6,15 +6,18 @@ import (
 
 	"github.com/astaxie/beego/orm"
 	"github.com/coreos/etcd/clientv3"
+	"github.com/garyburd/redigo/redis"
 )
 
 var (
-	EtcdKey         string
-	SecKillConf     initall.ConfigAll
-	DB              orm.Ormer
-	EtcdClient      *clientv3.Client
-	SecKillInfoMap  = make(map[int]*SecKillInfo)
-	SecKillInfoList []SecKillInfo
+	EtcdKey            string
+	SecKillConf        initall.ConfigAll
+	DB                 orm.Ormer
+	EtcdClient         *clientv3.Client
+	SecKillInfoMap     = make(map[int]*SecKillInfo)
+	SecKillInfoList    []SecKillInfo
+	AccessRedisPool    *redis.Pool
+	BlacklistRedisPool *redis.Pool
 )
 
 func init() {
@@ -43,7 +46,12 @@ func initAll() (err error) {
 	if EtcdClient, err = initall.InitEtcd(); err != nil {
 		return
 	}
-
+	if AccessRedisPool, err = initall.InitAccessRedis(); err != nil {
+		return
+	}
+	if BlacklistRedisPool, err = initall.InitBlacklistRedis(); err != nil {
+		return
+	}
 	// 初始化	EtcdKey
 	EtcdKey = GetEtcdKey()
 	// 从etcd 中加载秒杀信息

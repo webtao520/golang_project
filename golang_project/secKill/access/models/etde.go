@@ -113,8 +113,8 @@ func WatchSecKillEtcd(EtcdKey string) {
 // 将 []SecKillInfo 转成 map
 func SecKillInfoSwitchover(secKillInfoList []SecKillInfo) {
 	mapInfo := make(map[int]*SecKillInfo)
-	for _, v := range secKillInfoList {
-		mapInfo[v.ActivityId] = &v
+	for i, v := range secKillInfoList {
+		mapInfo[v.ActivityId] = &secKillInfoList[i]
 	}
 	//  map[3:0xc00005a000 4:0xc00005a000]
 	SecKillInfoMap = mapInfo
