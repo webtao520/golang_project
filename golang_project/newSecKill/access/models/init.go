@@ -3,6 +3,7 @@ package models
 import (
 	"fmt"
 	"newSecKill/common/initall"
+	"sync"
 
 	"github.com/astaxie/beego/orm"
 	"github.com/coreos/etcd/clientv3"
@@ -18,6 +19,8 @@ var (
 	SecKillInfoList    []SecKillInfo
 	AccessRedisPool    *redis.Pool
 	BlacklistRedisPool *redis.Pool
+	MutexLock          sync.Mutex   // 互斥锁（写锁）
+	RWLock             sync.RWMutex // 互斥读写锁（读锁）
 )
 
 func init() {

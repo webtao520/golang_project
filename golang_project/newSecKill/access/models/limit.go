@@ -1,17 +1,17 @@
-package   models 
+package models
 
-type TimeLimit  interface {
+//  接口定义的方法
+type TimeLimit interface {
 	Count(nowTime int64) (curCount int)
 	Check(nowTime int64) int
 }
 
-// 每秒限流  防刷
-type  SecLimit strunct {
-	 count int
-	 curTime int64 
+// 每秒限流  防刷  count, curTime 属性
+type SecLimit struct {
+	count   int
+	curTime int64
 }
 
-// Count
 func (this *SecLimit) Count(nowTime int64) (curCount int) {
 	if this.curTime != nowTime {
 		this.count = 1
@@ -25,18 +25,18 @@ func (this *SecLimit) Count(nowTime int64) (curCount int) {
 	return
 }
 
-// Check
 func (this *SecLimit) Check(nowTime int64) int {
 	if this.curTime != nowTime {
 		return 0
 	}
+
 	return this.count
 }
 
-// 每分钟限流 防刷
+// 每分钟限流， 防刷
 type MinLimit struct {
-	count int
-	curTime int64 
+	count   int
+	curTime int64
 }
 
 func (this *MinLimit) Count(nowTime int64) (curCount int) {
@@ -46,7 +46,6 @@ func (this *MinLimit) Count(nowTime int64) (curCount int) {
 		curCount = this.count
 		return
 	}
-
 	this.count++
 	curCount = this.count
 	return
@@ -60,4 +59,27 @@ func (this *MinLimit) Check(nowTime int64) int {
 	return this.count
 }
 
+// SecondLimit 每秒限购
+type SecondLimit struct {
+	count   int
+	curTime int64
+}
 
+func (this *SecondLimit) Count(nowTime int64) (curCount int) {
+	if nowTime-this.curTime > 60 {
+		this.count = 1
+		this.curTime = nowTime
+		curCount = this.count
+		return
+	}
+	this.count++
+	curCount = this.count
+	return
+}
+
+func (this *SecondLimit) Check(nowTime int64) int {
+	if this.curTime != nowTime {
+		return 0
+	}
+	return this.count
+}
