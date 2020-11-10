@@ -13,14 +13,15 @@
 package sort
 
 type Interface interface {
-    Len() int            // 获取元素数量
-    Less(i, j int) bool // i，j是序列元素的指数。
+    Len() int              // 获取元素数量
+    Less(i, j int) bool   // i，j是序列元素的指数。
     Swap(i, j int)        // 交换元素
 }
 
 
 
-为了对序列进行排序，我们需要定义一个实现了这三个方法的类型，然后对这个类型的一个实例应用 sort.Sort 函数。思考对一个字符串切片进行排序，
+为了对序列进行排序，我们需要定义一个实现了这三个方法的类型，然后对这个类型的一个实例应用 sort.Sort 函数。
+思考对一个字符串切片进行排序，
 这可能是最简单的例子了。下面是这个新的类型 MyStringList  和它的 Len，Less 和 Swap 方法
 
 type MyStringList  []string
