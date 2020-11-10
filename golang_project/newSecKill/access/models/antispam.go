@@ -34,11 +34,19 @@ func NewAntispamModel() *Antispam {
 	return &Antispam{}
 }
 
-func (this *Antispam) SecKillAntispam(UserIp, ActivityId int, Ip string) (err error) {
+func (this *Antispam) SecKillAntispam(UserId, ActivityId int, Ip string) (err error) {
 	if err = this.AntispamByIp(Ip); err != nil {
 		return
 	}
+
+	if err = this.AntispamByUserId(UserId); err != nil {
+		return
+	}
+
 	if err = this.AntispamByActivityId(ActivityId); err != nil {
+		return
+	}
+	if err = this.AntispamByUserId(ActivityId); err != nil {
 		return
 	}
 	return
@@ -128,5 +136,38 @@ func (this *Antispam) AntispamByIp(UserIp string) (err error) {
 	}
 
 	fmt.Println(AntispamInfo.UserIp[UserIp].SecKillMinLimit, "~~~", AntispamInfo.UserIp[UserIp].SecKillSecLimit)
+	return
+}
+
+// UserId 防刷
+func (this *Antispam) AntispamByUserId(UserId int) (err error) {
+	if _, ok := SecKillBlacklist.UserIdBlacklist[UserId]; ok {
+		err = fmt.Errorf("UserId 黑名单用户，UserId : %v", UserId)
+		return
+	}
+	now := time.Now().Local().Unix()
+	limit, ok := AntispamInfo.UserId[UserId]
+	MutexLock.Lock()
+	if !ok {
+		limit = &Limit{
+			SecKillSecLimit: &SecLimit{},
+			SecKillMinLimit: &MinLimit{},
+		}
+		AntispamInfo.UserId[UserId] = limit
+	}
+	SecIpCount := limit.SecKillSecLimit.Count(now)
+	MinIpCount := limit.SecKillMinLimit.Count(now)
+	MutexLock.Unlock()
+
+	//fmt.Println(AntispamInfo)
+
+	if SecIpCount > secMaxTime {
+		err = fmt.Errorf("UserId 秒级防刷超过次数")
+		return
+	}
+	if MinIpCount > minMaxTime {
+		err = fmt.Errorf("UserId 分钟级防刷超过次数")
+		return
+	}
 	return
 }

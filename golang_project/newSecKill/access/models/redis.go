@@ -7,12 +7,14 @@ import (
 )
 
 type Blacklist struct {
-	IpBlacklist map[string]bool
+	UserIdBlacklist map[int]bool
+	IpBlacklist     map[string]bool
 }
 
 var (
 	SecKillBlacklist *Blacklist = &Blacklist{
-		IpBlacklist: make(map[string]bool, 10000),
+		UserIdBlacklist: make(map[int]bool, 10000),
+		IpBlacklist:     make(map[string]bool, 10000),
 	}
 )
 

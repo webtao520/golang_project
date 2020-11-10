@@ -44,7 +44,6 @@ type SecKillResult struct {
 // 秒杀
 func SecKill(req *SecKillRequest) (data map[string]interface{}, err error) {
 	data = make(map[string]interface{})
-	fmt.Println("=======>", req)
 	/*
 		UserId:        UserId,
 		Ip:            UserIp,
