@@ -15,10 +15,10 @@ func printMsgType(msg *struct {
 
 func main() {
 	// 实例化 一个匿名结构体
-	msg := &struct { // 定义部门
+	msg := &struct { //定义部分
 		id   int
 		data string
-	}{ //值初始化部门
+	}{ //值初始化部分
 		1024,
 		"hello",
 	}
