@@ -1,10 +1,10 @@
 {
   "App": {
-    "Address": "0.0.0.0:8080",
+    "Address": "127.0.0.1:8080",
     "Static": "public",
     "Log": "logs",
     "Locale": "locales",
-    "Language": "zh"
+    "Language": "en"
   },
   "Db": {
     "Driver": "mysql",
@@ -13,4 +13,4 @@
     "User": "root",
     "Password": "root123"
   }
-} 
+}
