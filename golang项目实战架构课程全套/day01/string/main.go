@@ -68,4 +68,11 @@ func main (){
 	fmt.Println(strings.LastIndex(s4,"b")) // 5
 
 	fmt.Println(strings.LastIndex(s4,"gg")) // -1
+
+	/*
+	func Join(a []string, sep string) string
+	将一系列字符串连接为一个字符串，之间用sep来分隔。
+	*/
+	// 字符串拼接
+	fmt.Println(strings.Join(ret,"+")) // D:+Go+src+code.oldboyedu.com+studygo+day01
 }
