@@ -75,6 +75,13 @@ func main(){
 		fmt.Println("===>>",v)
 	}
 
-	// 
+		// 八进制数
+		var n1 = 0777
+		// 十六进制数
+		var n2 = 0xff
+		fmt.Println(n1, n2)
+		fmt.Printf("%o\n", n1) //  777
+		fmt.Printf("%x\n", n2) // ff
+	
 
 }
