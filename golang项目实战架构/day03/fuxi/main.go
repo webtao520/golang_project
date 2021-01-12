@@ -79,9 +79,36 @@ fmt.Println(addrV)
 */
 
 // map
+var m1 map[string]int 
+fmt.Println(m1 == nil) // true
+// 分配内存
+m1 = make(map[string]int,10)
+fmt.Println(m1) // map[]
+m1["理想"]=100
+fmt.Println(m1) // map[理想:100]
+fmt.Println(m1["ji"]) // 如果key不存在返回的是value对应类型的零值 0
+// 如果返回值是布尔型，我们通常用ok去接受它
+score,ok:=m1["ji"]
+if  !ok {
+	fmt.Println("没有姬无命这个人")
+}else{
+	fmt.Println("姬无命的分数是", score)
+}
+
+// map 删除 
+delete(m1,"lixiang") // 删除的key不存在什么都不干
+
+delete(m1, "理想")
+fmt.Println(m1)  // map[]
+fmt.Println(m1 == nil) // 已经开辟了内存 false
 
 
+x := [3]int{1, 2, 3}
+f1(x)
+fmt.Println(x) // ?[1 2 3]
+}
 
-
-	
+func f1(a [3]int) {
+	// // Go语言中的函数传递的都是值（Ctrl+C Ctrl+V）
+	a[1] = 100 // 此处修改的是副本的值
 }
