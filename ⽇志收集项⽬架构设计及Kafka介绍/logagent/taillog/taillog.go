@@ -8,11 +8,11 @@ import (
 
 // 专门从日志文件收集日志的模块
 var (
-	tailObj *tail.tail
+	tailObj *tail.Tail
 	LogChan chan string
 )
 
-func Init(fileName string) error {
+func Init(fileName string) (err error) {
 	config := tail.Config{
 		ReOpen:    true,                                 // 重新打开
 		Follow:    true,                                 // 是否跟随
@@ -20,12 +20,12 @@ func Init(fileName string) error {
 		MustExist: false,                                // 文件不存在不报错
 		Poll:      true,
 	}
-	tailObj, err := tail.TailFile(fileName, config)
+	tailObj, err = tail.TailFile(fileName, config)
 	if err != nil {
 		fmt.Println("tail file failed, err:", err)
 		return
 	}
-	return err
+	return
 }
 
 func ReadChan() <-chan *tail.Line {
