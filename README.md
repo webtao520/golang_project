@@ -242,6 +242,7 @@
    * yaml对Go语言的支持 https://github.com/go-yaml/yaml/tree/v2.2.7
    * Codis是一个分布式Redis解决方案数据库代理 https://github.com/CodisLabs/codis
    * 用Go语言编写的markdown解析器 https://github.com/yuin/goldmark
+   * 获取配置文件信息包 https://ini.unknwon.io/docs/intro/getting_started
 
 ### 项目
 
