@@ -38,6 +38,10 @@ func (p *person) dream(str string) {
 	 fmt.Print("%s的梦想是%s.\n",p.name,str)
 }
 
+func (p *person) test() {
+fmt.Println("========================>","lamp")
+}
+
 // func (p person) guonian() {
 // 	p.age++ // 此处的p是p1的副本,改的是副本
 // }
@@ -51,6 +55,9 @@ func (p *person) guonian() {
 }
 
 func main(){
+	var p8 person
+	p8.test()
+
    var b =tmp{
 	   10,
 	   20,
