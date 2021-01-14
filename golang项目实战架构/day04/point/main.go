@@ -7,7 +7,7 @@ import (
 func main() {
 	var a int
 	a = 100
-	b := &a
+	b := &a                                   // b 开辟一个新的内存空间来存放 a 地址
 	fmt.Printf("type a:%T type b:%T\n", a, b) // type a:int type b:*int
 	// 将a的十六进制内存地址打印出来
 	fmt.Printf("%p\n", &a)
