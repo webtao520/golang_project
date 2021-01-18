@@ -53,3 +53,12 @@ func main(){
 		如果多个case同时满足，select会随机选择一个。
 		对于没有case的select{}会一直等待，可用于阻塞main函数。
 */
+
+
+func f1(){
+	for {
+		data,ok := <-ch1 // 接收
+		data1,ok := <-ch2 // 接收
+		data2,ok := <-ch3 // 接收
+	}
+}
