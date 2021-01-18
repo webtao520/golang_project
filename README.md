@@ -119,6 +119,7 @@
 
 ### Go语言反射
 
+### Gin 框架
 
 ### ETCD
 
@@ -243,6 +244,7 @@
    * Codis是一个分布式Redis解决方案数据库代理 https://github.com/CodisLabs/codis
    * 用Go语言编写的markdown解析器 https://github.com/yuin/goldmark
    * 获取配置文件信息包 https://ini.unknwon.io/docs/intro/getting_started
+   * mysql 第三方orm   https://github.com/jmoiron/sqlx
 
 ### 项目
 
@@ -261,6 +263,9 @@
 ### Golang 设计模式文档
 
    * https://design-patterns.readthedocs.io/zh_CN/latest/creational_patterns/simple_factory.html#id2
+
+### Golang 推荐博客
+   * https://www.liwenzhou.com/posts/Go/go_menu/   
 
 ### ORM 引擎文档 
    * https://gobook.io/read/gitea.com/xorm/manual-zh-CN/chapter-01/index.html
