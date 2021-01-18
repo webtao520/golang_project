@@ -46,6 +46,7 @@ func zhoulin(zl  chan<- *job){
 		 zl <-newJob
 		 time.Sleep(time.Microsecond*500)
 	}
+	//close(zl)
 }
 
 // 开启24个goroutine从jobChan中取出随机数计算各位数的和，将结果发送到resultChan
@@ -66,6 +67,7 @@ func baodelu(zl <-chan *job, resultChan chan<- *result){
 		 }
 		 resultChan <- newResult
 	}
+	//close(zl)
 }
 
 func main(){
