@@ -44,3 +44,13 @@ func InsertBook(title string, price int64) (err error) {
 	}
 	return
 }
+
+// 删除图书
+func Delete(id int64) (err error) {
+	sqlStr := "delete from book where id = ?"
+	ret := db.MustExec(sqlStr, id)
+	if _, err := ret.RowsAffected(); err != nil {
+		panic(err.Error())
+	}
+	return
+}

@@ -2,6 +2,7 @@ package main
 
 import (
 	"book/db"
+	"fmt"
 	"net/http"
 	"strconv"
 
@@ -27,6 +28,7 @@ func main() {
 	// 添加图书 后端逻辑
 	r.POST("book/new", saveBook)
 	// 删除图书
+	r.GET("/book/delete", deleteBook)
 	_ = r.Run(":8000")
 }
 
@@ -65,4 +67,17 @@ func saveBook(c *gin.Context) {
 	if err != nil {
 		panic(err.Error())
 	}
+}
+
+// 删除图书
+func deleteBook(c *gin.Context) {
+
+	id := c.DefaultQuery("id", "0")
+	idInt64, _ := strconv.ParseInt(id, 10, 64)
+	err := db.Delete(idInt64)
+	if err != nil {
+		fmt.Println("删除失败")
+		return
+	}
+	return
 }
