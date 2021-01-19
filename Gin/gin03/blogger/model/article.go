@@ -17,12 +17,14 @@ import "time"
 // 	`update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
 // 	PRIMARY KEY (`id`)
 //   ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
-
+// id, summary, title, view_count,
+// create_time, comment_count, username, category_id
 // 文章的结构体  可以不写文章内容，因为是大文本
 type ArticleInfo struct {
 	Id           int64     `db:"id"`
 	CategoryId   int64     `db:"category_id"`
 	Summary      string    `db:"summary"`
+	Title        string    `db:"title"`
 	ViewCount    uint32    `db:"view_count"`
 	CreateTime   time.Time `db:"create_time"`
 	CommentCount uint32    `db:"comment_count"`

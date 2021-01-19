@@ -1,8 +1,4 @@
-package model 
-
-
-
-
+package model
 
 // CREATE TABLE `category` (
 //   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '分类id',
@@ -13,10 +9,9 @@ package model
 //   PRIMARY KEY (`id`)
 // ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
 
-
 // 定义分类实体
 type Category struct {
-	Id   int64  `db:"id"`
-	CategoryName string  `db:"category_name"`
-	CategoryNo    uint    `db:"category_no"`
+	CategoryId   int64  `db:"id"`
+	CategoryName string `db:"category_name"`
+	CategoryNo   uint   `db:"category_no"`
 }
