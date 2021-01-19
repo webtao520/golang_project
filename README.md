@@ -245,6 +245,8 @@
    * 用Go语言编写的markdown解析器 https://github.com/yuin/goldmark
    * 获取配置文件信息包 https://ini.unknwon.io/docs/intro/getting_started
    * mysql 第三方orm   https://github.com/jmoiron/sqlx
+   * mysql 驱动     https://github.com/go-sql-driver/mysql
+   * pprof 调试    	https://github.com/DeanThompson/ginpprof
 
 ### 项目
 

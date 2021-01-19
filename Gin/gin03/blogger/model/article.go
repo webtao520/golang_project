@@ -28,3 +28,18 @@ type ArticleInfo struct {
 	CommentCount uint32    `db:"comment_count"`
 	Username     string    `db:"username"`
 }
+
+// 用户文章详情页的实体
+// 为了提升效率
+type ArticleDetail struct {
+	ArticleInfo
+	// 文章内容
+	Content  string `db:"content"`
+	Category        // 匿名结构体嵌套 Category：Category
+}
+
+// 用于文章上下页
+type ArticleRecord struct {
+	ArticleInfo
+	Category
+}

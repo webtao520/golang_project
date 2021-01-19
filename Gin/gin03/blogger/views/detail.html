@@ -1,0 +1,186 @@
+{{ define "views/detail.html" }}
+<!doctype html>
+<html>
+<head>
+<meta charset="utf8">
+<title>首页_XXX个人博客 - 一个站在web前端设计之路的女技术员个人博客网站</title>
+<meta name="keywords" content="个人博客,XXX个人博客,个人博客模板,XXX" />
+<meta name="description" content="XXX个人博客，是一个站在web前端设计之路的女程序员个人网站，提供个人博客模板免费资源下载的个人原创网站。" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="/static/css/base.css" rel="stylesheet">
+<link href="/static/css/index.css" rel="stylesheet">
+<link href="/static/css/m.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+<script src="js/modernizr.js"></script>
+<![endif]-->
+<script>
+window.onload = function ()
+{
+  var oH2 = document.getElementsByTagName("h2")[0];
+  var oUl = document.getElementsByTagName("ul")[0];
+  oH2.onclick = function ()
+  {
+    var style = oUl.style;
+    style.display = style.display == "block" ? "none" : "block";
+    oH2.className = style.display == "block" ? "open" : ""
+  }
+}
+</script>
+</head>
+<body>
+<header>
+  <div class="tophead">
+    <div class="logo"><a href="/">我的博客</a></div>
+    
+    <nav class="topnav" id="topnav">
+      <ul>
+        <li><a href="/">网站首页</a></li>
+        <li><a href="/article/new/">投稿</a></li>
+        <li><a href="/leave/new/">留言</a></li>
+        <li><a href="/about/me/">关于我</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<article>
+  <h1 class="t_nav"><span>您现在的位置是：首页 > {{.detail.CategoryName}}</span>
+  </h1>
+  <div class="infos">
+    <div class="newsview">
+      <h3 class="news_title">{{.detail.Title}}</h3>
+      <div class="news_author">
+        <span class="au01">
+          <a href="mailto:dancesmiling@qq.com">{{.detail.Username}}</a>
+        </span><span class="au02">{{.detail.CreateTime}}</span>
+           <span class="au03">共<b>
+             <script src="/view/add_count/?article_id={{.Id}}}">
+             </script>{{.detail.ViewCount}}</b>人围观</span>
+             </div>
+      
+      
+      <div class="news_infos">{{.detail.Content}}</div>
+    </div>
+    <div class="share"> </div>
+    <div class="nextinfo">
+      <p>上一篇：
+        {{if eq .prev.ArticleId -1}}
+        没有上一篇文章了
+        {{else}}
+        <a href="/article/detail/?article_id={{.prev.ArticleId}}">{{.prev.Title}}</a>
+        {{end}}
+      </p>
+      <p>下一篇：
+          {{if eq .next.ArticleId -1}}
+          没有下一篇文章了
+          {{else}}
+          <a href="/article/detail/?article_id={{.next.ArticleId}}">{{.next.Title}}</a>
+          {{end}}
+      </p>
+    </div>
+    <div class="otherlink">
+      <h2>相关文章</h2>
+      
+      <ul>
+        {{range .relative_article}}
+        <li><a href="/article/detail/?article_id={{.ArticleId}}" title="{{.Title}}">{{.Title}}</a></li>
+        {{end}}
+      </ul>
+    </div>
+    <div>
+        <hr>
+        <h2>评论列表</h2>
+        {{range .comment_list}}
+        <li> 
+          <h3 class="blogtitle">作者:{{.Username}}</h3>
+          <div class="bloginfo">
+            <p>{{.Content}}</p>
+          </div>
+          <div class="autor">
+            
+            <span class="dtime">{{.CreateTime}}</span>
+        </li>
+        {{end}}
+    </div>
+    <div class="news_pl">
+      <h2>文章评论</h2>
+      
+      <ul>
+        <div class="gbko"> 
+          
+          <div class="newsview">
+            <div class="news_infos"> 
+                
+                <div class="register-container container">
+                  
+                    <div class="row">
+                        <div class="register span6">
+                            <form action="/comment/submit/" method="post">
+            
+                          <p class="comment-notes"><span id="email-notes">电子邮件地址不会被公开。</span> 必填项已用<span class="required">*</span>标注</p>
+                          <p class="comment-form-comment">
+                            <div><label for="comment">评论*</label> </div>
+                            <div><textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></div>
+                          </p>
+                          <p class="comment-form-author">
+                            <div><label for="author">姓名 <span class="required">*</span></label>
+                              </div><div>
+                                <input id="author" name="author" type="text" value="" size="30" maxlength="245" required="required">
+                              </div> </p>
+                          <p class="comment-form-email"><div><label for="email">电子邮件 <span class="required">*</span></label></div>
+                            <div>
+                               <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" required="required">
+                               <input id="email" name="article_id" type="hidden" value="{{.article_id}}" size="30" maxlength="100" aria-describedby="email-notes" required="required">
+                              </div>
+                              </p>
+                         
+                      
+                          <p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="发表评论"> <input type="hidden" name="comment_post_ID" value="2" id="comment_post_ID">
+                          <input type="hidden" name="comment_parent" id="comment_parent" value="0">
+                          </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+
+        </div>
+      </ul>
+    </div>
+  </div>
+  <div class="sidebar">
+    <div class="lmnav">
+      <h2 class="hometitle">栏目导航</h2>
+      <ul class="navbor">
+        <li><a href="">学无止境</a>
+          <ul>
+            {{range .category}}
+            <li><a href="/category/?category_id={{.CategoryId}}">{{.CategoryName}}</a></li>
+            {{end}}
+          </ul>
+        </li>
+      </ul>
+    </div>   
+  </div>
+</article>
+<footer>
+  <p>Design by <a href="/">XXX个人博客</a></p>
+</footer>
+<script src="js/nav.js"></script> 
+<script type="text/javascript">
+jQuery.noConflict();
+jQuery(function() { 
+    var elm = jQuery('#left_flow2'); 
+    var startPos = jQuery(elm).offset().top; 
+    jQuery.event.add(window, "scroll", function() { 
+        var p = jQuery(window).scrollTop(); 
+        jQuery(elm).css('position',((p) > startPos) ? 'fixed' : ''); 
+
+        jQuery(elm).css('top',((p) > startPos) ? '0' : '');
+    }); 
+}); 
+</script>
+</body>
+</html>
+{{end}}

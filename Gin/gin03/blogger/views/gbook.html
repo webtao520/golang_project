@@ -1,0 +1,121 @@
+{{ define "views/gbook.html" }}
+<!doctype html>
+<html>
+<head>
+<meta charset="utf8">
+<title>留言_XXX个人博客 - 一个站在web前端设计之路的女技术员个人博客网站</title>
+<meta name="keywords" content="个人博客,XXX个人博客,个人博客模板,XXX" />
+<meta name="description" content="XXX个人博客，是一个站在web前端设计之路的女程序员个人网站，提供个人博客模板免费资源下载的个人原创网站。" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="/static/css/base.css" rel="stylesheet">
+<link href="/static/css/index.css" rel="stylesheet">
+<link href="/static/css/m.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="js/modernizr.js"></script>
+<![endif]-->
+<script>
+window.onload = function ()
+{
+	var oH2 = document.getElementsByTagName("h2")[0];
+	var oUl = document.getElementsByTagName("ul")[0];
+	oH2.onclick = function ()
+	{
+		var style = oUl.style;
+		style.display = style.display == "block" ? "none" : "block";
+		oH2.className = style.display == "block" ? "open" : ""
+	}
+}
+</script>
+</head>
+<body><header>
+    <div class="tophead">
+      <div class="logo"><a href="/">XXX个人博客</a></div>
+     
+      <nav class="topnav" id="topnav">
+          <ul>
+            <li><a href="/">网站首页</a></li>
+            <li><a href="/article/new/">投稿</a></li>
+            <li><a href="/leave/new/">留言</a></li>
+            <li><a href="/about/me/">关于我</a></li>
+          </ul>
+        </nav>
+    </div>
+  </header>
+<article>
+  <h1 class="t_nav">
+    <span>像“草根”一样，紧贴着地面，低调的存在，冬去春来，枯荣无恙。</span>
+    <a href="/" class="n1">网站首页</a>
+    <a href="/" class="n2">留言</a>
+  </h1>
+  <div class="ab_box">
+      <div class="blogs">
+          {{range .}}
+          <li> 
+            <h3 class="blogtitle">作者: {{.Username}}</h3>
+            <div class="bloginfo">
+              <p>{{.Content}}</p>
+            </div>
+            <div class="autor">
+              
+              <span class="dtime">{{.CreateTime}}</span>
+        
+              <span class="readmore">{{.Email}}</div>
+          </li>
+          {{end}}
+      </div>
+    <div class="leftbox">
+      <div class="newsview">
+        <div class="news_infos"> 
+            
+            <div class="register-container container">
+              
+                <div class="row">
+                    <div class="register span6">
+                        <form action="/leave/submit/" method="post">
+        
+                      <p class="comment-notes"><span id="email-notes">电子邮件地址不会被公开。</span> 必填项已用<span class="required">*</span>标注</p>
+                      <p class="comment-form-comment">
+                        <div><label for="comment">留言*</label> </div>
+                        <div><textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></div>
+                      </p>
+                      <p class="comment-form-author">
+                        <div><label for="author">姓名 <span class="required">*</span></label>
+                          </div><div>
+                            <input id="author" name="author" type="text" value="" size="30" maxlength="245" required="required">
+                          </div> </p>
+                      <p class="comment-form-email"><div><label for="email">电子邮件 <span class="required">*</span></label></div>
+                        <div>
+                           <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" required="required">
+                          </div>
+                          </p>
+                     
+                  
+                      <p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="发表留言"> <input type="hidden" name="comment_post_ID" value="2" id="comment_post_ID">
+                      <input type="hidden" name="comment_parent" id="comment_parent" value="0">
+                      </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="rightbox">
+      <div class="aboutme">
+        <h2 class="hometitle">关于我</h2>
+        <div class="avatar"> <img src="/static/images/avatar.jpg"> </div>
+        <div class="ab_con">
+          <p>网名：XXX</p>
+          <p>职业：Web前端设计师、网页设计 </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+<footer>
+  <p>Design by <a href="/">XXX个人博客</a></p>
+</footer>
+<script src="/static/js/nav.js"></script>
+</body>
+</html>
+{{end}}
