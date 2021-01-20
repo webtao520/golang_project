@@ -10,6 +10,7 @@ func main() {
 	str := "abc张三你好啊"
 	//  fmt.Println(strs)
 	substr := "你好"
+	fmt.Println(len([]rune(substr)))
 	blen := strings.Index(str, substr)
 	if blen >= 0 {
 		prefix := []byte(str)[:blen]

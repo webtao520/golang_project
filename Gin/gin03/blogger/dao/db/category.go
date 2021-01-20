@@ -7,19 +7,17 @@ import (
 	"github.com/jmoiron/sqlx"
 )
 
+func GetCategoryList(categoryIds []int64) (categoryList []*model.Category, err error) {
 
+	sqlstr, args, err := sqlx.In("select id, category_name, "+
+		"category_no from category where id in(?)", categoryIds)
+	if err != nil {
+		return
+	}
 
-func GetCategoryList(categoryIds []int64) (categoryList []*model.Category,err error){
+	err = DB.Select(&categoryList, sqlstr, args...)
+	return
 
-	  sqlstr, args, err := sqlx.In("select id, category_name, " +
-	  "category_no from category where id in(?)", categoryIds)
-		if err != nil {
-			return
-		}
-
-	   err =DB.Select(&categoryList,sqlstr,args...)	
-	   return
-	   
 }
 
 func GetAllCategoryList() (categoryList []*model.Category, err error) {

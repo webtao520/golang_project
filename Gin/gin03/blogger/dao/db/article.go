@@ -6,6 +6,27 @@ import (
 	"fmt"
 )
 
+// 保存文章
+func InsertArticle(article *model.ArticleDetail) (articleId int64, err error) {
+	//fmt.Println(article) // &{{0 1 <p>This is some sample content.</p> 1 0 0001-01-01 00:00:00 +0000 UTC 0 1} <p>This is some sample content.</p> {0  0}}
+	if article == nil {
+		err = fmt.Errorf("invalid article parameter")
+		return
+	}
+	sqlstr := `insert into 
+	article(content, summary, title, username, 
+		category_id, view_count, comment_count)
+		values(?, ?, ?, ?, ?, ?, ?)`
+	result, err := DB.Exec(sqlstr, article.Content, article.Summary,
+		article.Title, article.Username, article.ArticleInfo.CategoryId,
+		article.ArticleInfo.ViewCount, article.ArticleInfo.CommentCount)
+	if err != nil {
+		return
+	}
+	articleId, err = result.LastInsertId()
+	return
+}
+
 //  获取文章列表
 func GetArticleList(pageNum, pageSize int) (articleList []*model.ArticleInfo, err error) {
 	// fmt.Println("======",articleList,err)//  ====== [] <nil>

@@ -1,21 +1,23 @@
 package db
 
 import (
-	"github.com/jmoiron/sqlx"
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/jmoiron/sqlx"
 )
 
 var DB *sqlx.DB
 
 func Init() (err error) {
-	// dbParams 	
-	addr:="root:root123@tcp(localhost:3306)/test?parseTime=true"
-	DB,err =sqlx.Open("mysql",addr) 
-	if err !=nil {
+	// dbParams
+	// parseTime=true 将mysql中时间类型，自动解析为go结构体中的时间类型
+	// 不加报错
+	addr := "root:root123@tcp(localhost:3306)/test?parseTime=true"
+	DB, err = sqlx.Open("mysql", addr)
+	if err != nil {
 		panic(err.Error())
 	}
-	err=DB.Ping()
-	if err !=nil {
+	err = DB.Ping()
+	if err != nil {
 		panic(err.Error())
 	}
 

@@ -4,8 +4,10 @@ import (
 	"blogger/dao/db"
 	"blogger/model"
 	"fmt"
+	"math"
 )
 
+// 业务逻辑
 func GetArticleRecordList(pageNum, pageSize int) (articleRecordList []*model.ArticleRecord, err error) {
 	articleInfoList, err := db.GetArticleList(pageNum, pageSize)
 	if err != nil {
@@ -72,7 +74,8 @@ func GetArticleRecordListById(categoryId, pageNum, pageSize int) (articleRecordL
 	}
 
 	for _, article := range articleInfoList {
-		fmt.Printf("content:%s\n", article.Summary)
+		//fmt.Println("article==========>", *article) // article==========> &{2 1 好啊后 php 1 2021-01-19 15:21:07 +0000 UTC 1 张涛} 取值
+		//fmt.Printf("content:%s\n", article.Summary) // content:好啊后
 		// 初始化分页结构体
 		articleRecord := &model.ArticleRecord{
 			ArticleInfo: *article,
@@ -87,5 +90,24 @@ func GetArticleRecordListById(categoryId, pageNum, pageSize int) (articleRecordL
 		articleRecordList = append(articleRecordList, articleRecord)
 	}
 
+	return
+}
+
+func InsertArticle(content, author, title string, categoryId int64) (err error) {
+	// 函数数据量比较大传参数  用指针 性能提升
+	articleDetail := &model.ArticleDetail{} // 结构体初始化
+	articleDetail.ArticleInfo.CategoryId = categoryId
+	articleDetail.Content = content
+	articleDetail.ArticleInfo.Username = author
+	articleDetail.ArticleInfo.Title = title
+	//fmt.Println("content==", content)
+	// 字符转换 utf-8
+	contentUtf8 := []rune(content) // 字节表示长度
+	minLength := int(math.Min(float64(len(contentUtf8)), 128.0))
+	//fmt.Println("=======", len(contentUtf8)) //  <p><a href="http://localhost:8008/">个人博客</a></p> 个人博客 48
+	//获取文章摘要
+	articleDetail.Summary = string([]rune(content)[:minLength])
+	id, err := db.InsertArticle(articleDetail)
+	fmt.Printf("insert article succ,id:%d,err:%v\n", id, err)
 	return
 }
