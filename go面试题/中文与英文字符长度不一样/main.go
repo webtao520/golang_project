@@ -16,12 +16,16 @@ func main() {
 		rs := []rune(string(prefix))
 		blen = len(rs)
 	}
-	fmt.Println(blen)
+	fmt.Println(blen) // 5
 
 }
 
 /**
-怎么输出字符串是5而不是9
+
+func Index(s, sep string) int
+子串sep在字符串s中第一次出现的位置，不存在则返回-1。
+
+怎么输出字符串是6而不是9
 fmt.Println(strings.Index("abc张三你好啊", "你好"))
 
 中文与英文字符长度不一样,  strings.Index
