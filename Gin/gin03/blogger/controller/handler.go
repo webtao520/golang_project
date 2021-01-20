@@ -24,3 +24,9 @@ func IndexHandle(c *gin.Context) {
 		"category_list": allCategoryList,
 	})
 }
+
+func CategoryList(c *gin.Context) {
+	categoryIdStr := c.Query("category_id")
+	
+
+} 

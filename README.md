@@ -40,6 +40,8 @@
    * rune 类型
    * ...
 
+### 单元测试
+
 ### golang_project  [golang开源项目适合练手]
 
    * chitchat 博客项目
@@ -232,6 +234,7 @@
    * 声明：本项目基于 Go Web Programming 一书中的 chitchat 做的二次开发，在原项目基础上将数据库调整为 MySQL、路由器调整为了 gorilla/mux、调整了整体目录结构、新增了配置文件单例模式获取、本地化编程以及应用部署流程。   
 
 ### Web 框架
+   * gin https://github.com/skyhee/gin-doc-cn#db-mysql
 
 ### 插件/package
 
