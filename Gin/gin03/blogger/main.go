@@ -11,9 +11,10 @@ import (
 func main() {
 	//  1.定义实体
 	// 2.数据层 数据库初始化
-	err := db.Init()
+	addr := "root:root123@tcp(localhost:3306)/test?parseTime=true"
+	err := db.Init(addr)
 	if err != nil {
-		panic(err.Error())
+		panic(err)
 	}
 	// 创建路由
 	router := gin.Default()

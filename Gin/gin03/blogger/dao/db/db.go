@@ -7,11 +7,11 @@ import (
 
 var DB *sqlx.DB
 
-func Init() (err error) {
+func Init(addr string) (err error) {
 	// dbParams
 	// parseTime=true 将mysql中时间类型，自动解析为go结构体中的时间类型
 	// 不加报错
-	addr := "root:root123@tcp(localhost:3306)/test?parseTime=true"
+	//addr := "root:root123@tcp(localhost:3306)/test?parseTime=true"
 	DB, err = sqlx.Open("mysql", addr)
 	if err != nil {
 		panic(err.Error())

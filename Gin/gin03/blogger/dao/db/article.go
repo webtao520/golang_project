@@ -4,6 +4,8 @@ package db
 import (
 	"blogger/model"
 	"fmt"
+
+	_ "github.com/go-sql-driver/mysql"
 )
 
 // 保存文章
@@ -99,5 +101,18 @@ func GetArticleDetail(articleId int64) (articleDetail *model.ArticleDetail, err 
 							status = 1
 						`
 	err = DB.Get(articleDetail, sqlstr, articleId)
+	return
+}
+
+// 获取相关文章
+func GetRelativeArticle(articleId int64) (articleList []*model.RelativeArticle, err error) {
+	var categoryId int64
+	sqlstr := "select category_id from article where id=?"
+	err = DB.Get(&categoryId, sqlstr, articleId)
+	if err != nil {
+		return
+	}
+	sqlstr = "select id, title from article where category_id=? and id !=?  limit 10"
+	err = DB.Select(&articleList, sqlstr, categoryId, articleId)
 	return
 }

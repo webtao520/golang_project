@@ -96,5 +96,13 @@ func ArticleDetail(c *gin.Context) {
 		c.HTML(http.StatusInternalServerError, "views/500.html", nil)
 		return
 	}
+
+	/*
+		// 获取相关文章
+		relativeArticle, err := service.GetRelativeAricleList(articleId)
+		if err != nil {
+			fmt.Println("get relative article failed, err:%v\n", err)
+		}
+	*/
 	fmt.Println(articleDetail)
 }
