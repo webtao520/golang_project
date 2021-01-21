@@ -97,12 +97,29 @@ func ArticleDetail(c *gin.Context) {
 		return
 	}
 
-	/*
-		// 获取相关文章
-		relativeArticle, err := service.GetRelativeAricleList(articleId)
-		if err != nil {
-			fmt.Println("get relative article failed, err:%v\n", err)
-		}
-	*/
-	fmt.Println(articleDetail)
+	// 获取相关文章
+	relativeArticle, err := service.GetRelativeAricleList(articleId)
+	if err != nil {
+		fmt.Println("get relative article failed, err:%v\n", err)
+	}
+
+	//  获取上下文章内容 用于分页
+	//fmt.Println(articleDetail, "=====>", relativeArticle) // &{{0 1 好好 go 1 2021-01-19 15:14:03 +0000 UTC 1 张涛} go真好 {1 技术 1}} =====> [0xc0001cf2c0 0xc0001cf320]
+	if err != nil {
+		fmt.Printf("get relative article failed,err:%v\n", err)
+	}
+
+	// 获取上一篇/下一篇文章
+	prevArticle, nextArticle, err := service.GetPrevAndNextArticleInfo(articleId)
+	if err != nil {
+		fmt.Printf("get prev  or next article failed,err:%v\n", err)
+	}
+
+	// 获取所有分类信息
+	allCategoryList, err := service.GetAllCategoryList()
+	if err != nil {
+		fmt.Printf("get all category failed,err:%v\n", err)
+	}
+	//  获取评论
+
 }

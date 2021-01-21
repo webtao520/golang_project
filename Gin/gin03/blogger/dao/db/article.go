@@ -104,7 +104,7 @@ func GetArticleDetail(articleId int64) (articleDetail *model.ArticleDetail, err 
 	return
 }
 
-// 获取相关文章
+// 获取相关文章  articleList  指针切片
 func GetRelativeArticle(articleId int64) (articleList []*model.RelativeArticle, err error) {
 	var categoryId int64
 	sqlstr := "select category_id from article where id=?"
@@ -114,5 +114,33 @@ func GetRelativeArticle(articleId int64) (articleList []*model.RelativeArticle, 
 	}
 	sqlstr = "select id, title from article where category_id=? and id !=?  limit 10"
 	err = DB.Select(&articleList, sqlstr, categoryId, articleId)
+	return
+}
+
+//  获取上一篇文章   ( 函数 )
+func GetPrevArticleById(articleId int64) (info *model.RelativeArticle, err error) {
+	// 给结构体分配内存
+	info = &model.RelativeArticle{
+		//ArticleId: -1,
+	}
+	sqlstr := "select id,title from article  where id < ?  order by id desc limit 1"
+	err = DB.Get(info, sqlstr, articleId)
+	if err != nil {
+		return
+	}
+	return
+
+}
+
+// 获取下一篇文章
+func GetNextArticleById(articleId int64) (info *model.RelativeArticle, err error) {
+	info = &model.RelativeArticle{
+		ArticleId: -1,
+	}
+	sqlstr := "select id,title from article where id >? order by id asc limit 1"
+	err = DB.Get(info, sqlstr, articleId)
+	if err != nil {
+		return
+	}
 	return
 }

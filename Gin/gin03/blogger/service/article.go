@@ -128,3 +128,21 @@ func GetArticleDetail(articleId int64) (articleDetail *model.ArticleDetail, err 
 	articleDetail.Category = *category // * 取值
 	return
 }
+
+func GetRelativeAricleList(articleId int64) (articleList []*model.RelativeArticle, err error) {
+	articleList, err = db.GetRelativeArticle(articleId)
+	return
+}
+
+//   获取上一篇/下一篇文章 结构体
+func GetPrevAndNextArticleInfo(articleId int64) (prevArticle *model.RelativeArticle, nextArticle *model.RelativeArticle, err error) {
+	prevArticle, err = db.GetPrevArticleById(articleId)
+	if err != nil {
+		return
+	}
+	nextArticle, err = db.GetNextArticleById(articleId)
+	if err != nil {
+		return
+	}
+	return
+}
