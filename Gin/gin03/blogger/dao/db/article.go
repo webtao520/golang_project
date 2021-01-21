@@ -77,3 +77,27 @@ func GetArticleListByCategoryId(categoryId, pageNum, pageSize int) (articleList 
 	err = DB.Select(&articleList, sqlstr, categoryId, pageNum, pageSize)
 	return
 }
+
+func GetArticleDetail(articleId int64) (articleDetail *model.ArticleDetail, err error) {
+	if articleId < 0 {
+		err = fmt.Errorf("invalid parameter,article_id:%d", articleId)
+		return
+	}
+
+	//articleDetail = &model.ArticleDetail{} // TODO
+	articleDetail = &model.ArticleDetail{}
+	//var a []*model.ArticleInfo
+	// fmt.Println("=====================", a) //nil
+	sqlstr := `select 
+							id, summary, title, view_count, content,
+							 create_time, comment_count, username, category_id
+						from 
+							article 
+						where 
+							id = ?
+						and
+							status = 1
+						`
+	err = DB.Get(articleDetail, sqlstr, articleId)
+	return
+}

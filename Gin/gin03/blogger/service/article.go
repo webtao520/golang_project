@@ -66,6 +66,8 @@ func GetArticleRecordListById(categoryId, pageNum, pageSize int) (articleRecordL
 	if len(articleInfoList) == 0 {
 		return
 	}
+	// fmt.Printf("%p\n", articleRecordList)
+	// fmt.Println("+++++++++++++++++++", articleRecordList)
 	categoryIds := getCategoryIds(articleInfoList)       // 过滤到重复的分类id
 	categoryList, err := db.GetCategoryList(categoryIds) //  根据分类id 获取分类信息
 	if err != nil {
@@ -109,5 +111,20 @@ func InsertArticle(content, author, title string, categoryId int64) (err error) 
 	articleDetail.Summary = string([]rune(content)[:minLength])
 	id, err := db.InsertArticle(articleDetail)
 	fmt.Printf("insert article succ,id:%d,err:%v\n", id, err)
+	return
+}
+
+func GetArticleDetail(articleId int64) (articleDetail *model.ArticleDetail, err error) {
+	articleDetail, err = db.GetArticleDetail(articleId)
+	if err != nil {
+		return
+	}
+	//获取分类信息
+	category, err := db.GetCategoryById(articleDetail.ArticleInfo.CategoryId)
+	if err != nil {
+		return
+	}
+	// fmt.Println("====================>", category) // ====================> &{1 技术 1}
+	articleDetail.Category = *category // * 取值
 	return
 }

@@ -83,5 +83,18 @@ func ArticleSubmit(c *gin.Context) {
 
 // 文章详情
 func ArticleDetail(c *gin.Context) {
-
+	articleIdStr := c.Query("article_id") //get 方式获取文章id号
+	articleId, err := strconv.ParseInt(articleIdStr, 10, 64)
+	if err != nil {
+		c.HTML(http.StatusInternalServerError, "views/500.html", nil)
+		return
+	}
+	// 获取文章详情
+	articleDetail, err := service.GetArticleDetail(articleId)
+	if err != nil {
+		fmt.Printf("get article detail failed,article_id:%d err:%v\n", articleId, err)
+		c.HTML(http.StatusInternalServerError, "views/500.html", nil)
+		return
+	}
+	fmt.Println(articleDetail)
 }
